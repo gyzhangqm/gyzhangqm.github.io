@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CFD,Hypersonic," />
 
 
 
@@ -84,15 +84,48 @@
 
 
 
-<meta name="description" content="Hello World">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CFD学习">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="0. 目录
+
+0. 目录
+0.1 摘要
+1. 方法
+2. 结果
+3. 意义
+
+
+0.1 摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
+1.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="五组分空气摩尔分数随温度的变化">
+<meta property="og:url" content="http://yoursite.com/2017/01/29/air5_molarFrax_2_T/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="0. 目录
+
+0. 目录
+0.1 摘要
+1. 方法
+2. 结果
+3. 意义
+
+
+0.1 摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
+1.">
+<meta property="og:image" content="http://yoursite.com/../images/air5_molarFrax_2_T/molar_frax.png">
+<meta property="og:updated_time" content="2017-01-24T17:28:49.383Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CFD学习">
-<meta name="twitter:description" content="Hello World">
+<meta name="twitter:title" content="五组分空气摩尔分数随温度的变化">
+<meta name="twitter:description" content="0. 目录
+
+0. 目录
+0.1 摘要
+1. 方法
+2. 结果
+3. 意义
+
+
+0.1 摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
+1.">
+<meta name="twitter:image" content="http://yoursite.com/../images/air5_molarFrax_2_T/molar_frax.png">
 
 
 
@@ -110,7 +143,7 @@
   };
 </script>
 
-  <title> CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 五组分空气摩尔分数随温度的变化 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,9 +164,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,9 +261,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -252,125 +283,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/29/markdownStudy/" itemprop="url">
-                  Markdown 学习笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T21:07:47+08:00" content="2017-01-29">
-              2017-01-29
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/software/" itemprop="url" rel="index">
-                    <span itemprop="name">software</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="0-目录"><a href="#0-目录" class="headerlink" title="0. 目录"></a>0. 目录</h1>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/29/markdownStudy/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/29/air5_molarFrax_2_T/" itemprop="url">
-                  五组分空气摩尔分数随温度的变化
-                </a>
+                五组分空气摩尔分数随温度的变化
               
             
           </h1>
@@ -429,9 +342,7 @@
       
 
       
-        
-          
-            <h1 id="0-目录"><a href="#0-目录" class="headerlink" title="0. 目录"></a>0. 目录</h1><!-- toc -->
+        <h1 id="0-目录"><a href="#0-目录" class="headerlink" title="0. 目录"></a>0. 目录</h1><!-- toc -->
 <ul>
 <li><a href="#0-目录">0. 目录</a></li>
 <li><a href="#01-摘要">0.1 摘要</a></li>
@@ -458,134 +369,64 @@
 </li>
 </ul>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/29/myFirstBlog/" itemprop="url">
-                  myFirstBlog
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:22:41+08:00" content="2017-01-29">
-              2017-01-29
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
           
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>春节过后就是新的一年了。<br>新年最该做得事情不是制定计划，而是应该回顾和展望。<br>2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。</p>
-<p>这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。</p>
-<p>然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人并不关心自己死活，认清自己朋友很少，并且以后会越来越少。</p>
-<p>但是，我要努力。隔壁老师就是我的动力。我不能心急。不断重复别人的工作才可能有长进。</p>
-<p>2016是日复一日的生活。读了很多书，学了很多软件，写了很多行代码，但现在脑海中什么都没有留下。我不能这样年复一年。年终的会议上，叶老师讲到他总结记录每日的工作。想到很多人也写自己的公众号，写自己的博客，我就萌生这样的想法，把自己学习中总结的知识，遇到的困难，解决的问题记录下来。以供自己参考。</p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/29/myFirstBlog/" rel="next" title="myFirstBlog">
+                <i class="fa fa-chevron-left"></i> myFirstBlog
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/29/markdownStudy/" rel="prev" title="Markdown 学习笔记">
+                Markdown 学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -593,6 +434,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -612,8 +457,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -663,6 +517,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0-目录"><span class="nav-number">1.</span> <span class="nav-text">0. 目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1-摘要"><span class="nav-number">2.</span> <span class="nav-text">0.1 摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-方法"><span class="nav-number">3.</span> <span class="nav-text">1. 方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-结果"><span class="nav-number">4.</span> <span class="nav-text">2. 结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-意义"><span class="nav-number">5.</span> <span class="nav-text">3. 意义</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -759,6 +624,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
