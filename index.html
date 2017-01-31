@@ -253,6 +253,161 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/31/GoverningEquations/" itemprop="url">
+                  热化学非平衡流动控制方程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-31T23:02:16+08:00" content="2017-01-31">
+              2017-01-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!-- toc -->
+<!-- tocstop -->
+<ul>
+<li><a href="#摘要">摘要</a></li>
+<li><a href="#控制方程">控制方程</a></li>
+<li><a href="#说明">说明</a></li>
+</ul>
+<!-- tocstop -->
+<h1 id="摘要">摘要</h1>
+<p>这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。</p>
+<h1 id="控制方程">控制方程</h1>
+<p><span class="math display">\[\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[Q = \left[ \begin{array}{c}
+{\rho _s}\\
+\rho {u_j}\\
+\rho {e^v}\\
+\rho {e^e}
+\end{array} \right]\]</span></p>
+<p><span class="math display">\[F_k^c = \left[ \begin{array}{c}
+{\rho _s}{u_k}\\
+\rho {u_j}{u_k} + p{\delta _{jk}}\\
+\rho {u_k}{e^v}\\
+\rho {u_k}h
+\end{array} \right]\]</span></p>
+<p><span class="math display">\[F_k^d = \left[ \begin{array}{c}
+\rho {D_s}\frac{\partial {Y_s}}{\partial {x_k}}\\
+\tau _{kj}\\-q_k^v + \rho \sum_{s = 1}^{ns} {D_s}h_s^v\frac{\partial{Y_s}}{\partial {x_k}} \\
+{u_j}{\tau _{kj}}-{q_k}
+\end{array} \right] \]</span></p>
+<p><span class="math display">\[S = \left[ \begin{array}{c}
+{\omega _s}\\
+0\\
+{\omega _v}\\
+0
+\end{array} \right]\]</span></p>
+<p>其中Q为场变量，<span class="math inline">\(F_k^c(k = 1,2,3)\)</span> 为无粘对流通量，<span class="math inline">\(F_k^d(k = 1,2,3)\)</span> 为粘性扩散通量；<span class="math inline">\(S\)</span>为化学反应源项；<span class="math inline">\(\rho_s(s=1,\cdots,ns)\)</span> 为组分分密度；总密度<span class="math inline">\(\rho=\sum_{s =1}^{ns} {\rho _s}\)</span>， <span class="math inline">\(Y_s=\frac{\rho_s}{\rho}(s=1,\cdots,ns)\)</span>为组分质量分数， <span class="math inline">\(D_s\)</span>为其扩散系数，<span class="math inline">\(u_k\)</span>为速度的三分量；<span class="math inline">\(p\)</span> 为压力，<span class="math inline">\(e^e\)</span> 为单位质量混合气体的总能量， <span class="math inline">\(e^v\)</span> 为单位质量混合气体的振动能。</p>
+<h1 id="说明">说明</h1>
+<ol style="list-style-type: decimal">
+<li><p>许多文章中使用总密度守恒方程加(ns-1)个组分方程的形式。理论上两种形式是等价的，并且其Jacobian矩阵也可以通过相似变换互相得到。但由于我在推导非平衡偏导数时遇到一些困难（关于哪些变量做自变量的问题），所以我暂时选用了ns个组分方程的形式。</p></li>
+<li><p>由于计算机截断误差的存在，许多作者求解过程中事实上是求解了总密度方程和ns个组分方程，然后将误差记在氮气组分中（因为其质量分数最大）或者将误差平摊。</p></li>
+<li><p>在编程中，我发现将组分方程和振动能方程放在最下边比较好：一是比较容易扩展，可以扩展多组分、多温度模型；二是在隐式推进时比较方便操作（减小源项Jacobian矩阵的规模）。</p></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/29/markdownStudy/" itemprop="url">
                   Markdown 学习笔记
                 </a>
@@ -321,16 +476,16 @@
 <ul>
 <li><a href="#摘要">摘要</a></li>
 <li><a href="#标题">标题</a></li>
-<li><a href="#列表">列表</a><ul>
+<li><a href="#列表">列表</a>
+<ul>
 <li><a href="#无序列表">无序列表</a></li>
 <li><a href="#有序列表">有序列表</a></li>
-</ul>
-</li>
-<li><a href="#插入链接和图片">插入链接和图片</a><ul>
+</ul></li>
+<li><a href="#插入链接和图片">插入链接和图片</a>
+<ul>
 <li><a href="#插入连接">插入连接</a></li>
 <li><a href="#插入图片">插入图片</a></li>
-</ul>
-</li>
+</ul></li>
 <li><a href="#引用">引用</a></li>
 <li><a href="#粗体和斜体">粗体和斜体</a></li>
 <li><a href="#表格">表格</a></li>
@@ -340,88 +495,85 @@
 <li><a href="#显示代码">显示代码</a></li>
 </ul>
 <!-- tocstop -->
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>Hexo平台支持Markdown语法。这是一种轻量级的标记语言。这里简单从互联网上整理了一下可能用到的语法，为方便以后查阅。</p>
-<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加 # 即可，标题字号相应降低。例如：</p>
+<h1 id="摘要">摘要</h1>
+<p>Hexo平台支持Markdown语法。这是一种轻量级的标记语言。这里简单从互联网上整理了一下可能用到的语法，为方便以后查阅。</p>
+<h1 id="标题">标题</h1>
+<p>在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加 # 即可，标题字号相应降低。例如：</p>
 <p>注意 :# 和标题之间必须要隔开一个空格，否则Markdown识别不了这是个标题</p>
-<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><p>无序列表格式也很常用，在 Markdown 中，你只需要在文字前面加上 - 就可以了（星号、加号或是减号作为列表标记），例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- 文本1</div><div class="line">- 文本2</div><div class="line">- 文本3</div></pre></td></tr></table></figure></p>
-<p>效果图:</p>
-<ul>
-<li>文本1</li>
-<li>文本2</li>
-<li>文本3</li>
-</ul>
-<h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><p>如果你希望有序列表，也可以在文字前面加上 1. 2. 3. 就可以了，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 文本1</div><div class="line">2. 文本2</div><div class="line">3. 文本3</div></pre></td></tr></table></figure></p>
-<p>效果图:</p>
-<ol>
-<li>文本1</li>
-<li>文本2</li>
-<li>文本3</li>
-</ol>
+<h1 id="列表">列表</h1>
+<h2 id="无序列表">无序列表</h2>
+<p>无序列表格式也很常用，在 Markdown 中，你只需要在文字前面加上 - 就可以了（星号、加号或是减号作为列表标记），例如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- 文本1</div><div class="line">- 文本2</div><div class="line">- 文本3</div></pre></td></tr></table></figure></p>
+<p>效果图: - 文本1 - 文本2 - 文本3</p>
+<h2 id="有序列表">有序列表</h2>
+<p>如果你希望有序列表，也可以在文字前面加上 1. 2. 3. 就可以了，例如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1. 文本1</div><div class="line">2. 文本2</div><div class="line">3. 文本3</div></pre></td></tr></table></figure></p>
+<p>效果图: 1. 文本1 2. 文本2 3. 文本3</p>
 <p>注意：Markdown中-，1. 和文本之间必须有个空格</p>
-<h1 id="插入链接和图片"><a href="#插入链接和图片" class="headerlink" title="插入链接和图片"></a>插入链接和图片</h1><h2 id="插入连接"><a href="#插入连接" class="headerlink" title="插入连接"></a>插入连接</h2><p>链接文字都是用 [方括号] 来标记，<br>方块括号后面紧接着圆括号并插入网址链接，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可。</p>
-<p>插入链接有两种格式,列如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[格式1](http://gyzhangqm.github.io/ &apos;title&apos;)</div><div class="line"></div><div class="line">[格式2][id]</div><div class="line"></div><div class="line">[id]:http://gyzhangqm.github.io (title)</div></pre></td></tr></table></figure></p>
+<h1 id="插入链接和图片">插入链接和图片</h1>
+<h2 id="插入连接">插入连接</h2>
+<p>链接文字都是用 [方括号] 来标记， 方块括号后面紧接着圆括号并插入网址链接，如果你还想要加上链接的 title 文字，只要在网址后面，用双引号把 title 文字包起来即可。</p>
+<p>插入链接有两种格式,列如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[格式1](http://gyzhangqm.github.io/ &apos;title&apos;)</div><div class="line"></div><div class="line">[格式2][id]</div><div class="line"></div><div class="line">[id]:http://gyzhangqm.github.io (title)</div></pre></td></tr></table></figure></p>
 <p>效果图:</p>
 <p><a href="http://gyzhangqm.github.io/" title="title" target="_blank" rel="external">格式1</a></p>
 <p><a href="http://gyzhangqm.github.io" title="title" target="_blank" rel="external">格式2</a></p>
 <p>注意：标点符号必须是英文状态。</p>
-<h2 id="插入图片"><a href="#插入图片" class="headerlink" title="插入图片"></a>插入图片</h2><p>插入链接只要按照这个格式就可以了,列如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![美丽花儿](http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg &quot;美丽花儿&quot;)</div></pre></td></tr></table></figure></p>
-<p>效果图:<br><img src="http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg" alt="美丽花儿" title="美丽花儿"></p>
-<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>在我们写作的时候经常需要引用他人的文字，这个时候引用这个格式就很有必要了，在 Markdown 中，你只需要在你希望引用的文字前面加上 &gt; 就好了，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;床前明月光，</div><div class="line">&gt;疑是地上霜。</div><div class="line">&gt;举头望明月，</div><div class="line">&gt;低头思故乡。</div></pre></td></tr></table></figure></p>
+<h2 id="插入图片">插入图片</h2>
+<p>插入链接只要按照这个格式就可以了,列如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![美丽花儿](http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg &quot;美丽花儿&quot;)</div></pre></td></tr></table></figure></p>
+<p>效果图: <img src="http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg" title="美丽花儿" alt="美丽花儿"></p>
+<h1 id="引用">引用</h1>
+<p>在我们写作的时候经常需要引用他人的文字，这个时候引用这个格式就很有必要了，在 Markdown 中，你只需要在你希望引用的文字前面加上 &gt; 就好了，例如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt;床前明月光，</div><div class="line">&gt;疑是地上霜。</div><div class="line">&gt;举头望明月，</div><div class="line">&gt;低头思故乡。</div></pre></td></tr></table></figure></p>
+<p>效果图: &gt;床前明月光， &gt;疑是地上霜。 &gt;举头望明月， &gt;低头思故乡。</p>
+<h1 id="粗体和斜体">粗体和斜体</h1>
+<p>Markdown 的粗体和斜体也非常简单，用两个 包含一段文本就是粗体的语法，用一个 包含一段文本就是斜体的语法。例如： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">**这是粗体**</div><div class="line">*这是斜体*</div></pre></td></tr></table></figure></p>
 <p>效果图:</p>
-<blockquote>
-<p>床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</p>
-</blockquote>
-<h1 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h1><p>Markdown 的粗体和斜体也非常简单，用两个 包含一段文本就是粗体的语法，用一个 包含一段文本就是斜体的语法。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">**这是粗体**</div><div class="line">*这是斜体*</div></pre></td></tr></table></figure></p>
-<p>效果图:</p>
-<p><strong>这是粗体</strong><br><em>这是斜体</em></p>
-<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dog | bird | cat</div><div class="line">----|------|----</div><div class="line">foo | foo  | foo</div><div class="line">bar | bar  | bar</div><div class="line">baz | baz  | baz</div></pre></td></tr></table></figure>
+<p><strong>这是粗体</strong> <em>这是斜体</em></p>
+<h1 id="表格">表格</h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">dog | bird | cat</div><div class="line">----|------|----</div><div class="line">foo | foo  | foo</div><div class="line">bar | bar  | bar</div><div class="line">baz | baz  | baz</div></pre></td></tr></table></figure>
 <p>效果图:</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>dog</th>
 <th>bird</th>
 <th>cat</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>foo</td>
 <td>foo</td>
 <td>foo</td>
 </tr>
-<tr>
+<tr class="even">
 <td>bar</td>
 <td>bar</td>
 <td>bar</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>baz</td>
 <td>baz</td>
 <td>baz</td>
 </tr>
 </tbody>
 </table>
-<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">***</div><div class="line">---</div><div class="line">___</div></pre></td></tr></table></figure></p>
-<p>效果图:</p>
-<h2 id=""><a href="#" class="headerlink" title="*"></a><em>*</em></h2><hr>
-<h1 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h1><p>在需要添加注脚的文字后加上脚注名字[^注脚名字],称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">使用 Markdown[^1]可以效率的书写文档</div><div class="line">[^1]:Markdown是一种纯文本标记语言</div></pre></td></tr></table></figure></p>
-<p>效果图:<br>使用 Markdown<a href="Markdown是一种纯文本标记语言">^1</a>可以效率的书写文档</p>
-<h1 id="Latex-公式"><a href="#Latex-公式" class="headerlink" title="Latex 公式"></a>Latex 公式</h1><ul>
-<li><p>行内公式<br>  $E=mc^2$</p>
-</li>
+<h1 id="分割线">分割线</h1>
+<p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线： <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">***</div><div class="line">---</div><div class="line">___</div></pre></td></tr></table></figure></p>
+<p>效果图: *** — ___</p>
+<h1 id="注脚">注脚</h1>
+<p>在需要添加注脚的文字后加上脚注名字[^注脚名字],称为加注。 然后在文本的任意位置(一般在最后)添加脚注，脚注前必须有对应的脚注名字。 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">使用 Markdown[^1]可以效率的书写文档</div><div class="line">[^1]:Markdown是一种纯文本标记语言</div></pre></td></tr></table></figure></p>
+<p>效果图: 使用 Markdown[^1]可以效率的书写文档 [^1]:Markdown是一种纯文本标记语言</p>
+<h1 id="latex-公式">Latex 公式</h1>
+<ul>
+<li><p>行内公式 <span class="math inline">\(E=mc^2\)</span></p></li>
 <li><p>行间公式</p>
-<p>  $$\sum_{i=1}^n a_i=0$$</p>
-</li>
+<p><span class="math display">\[\sum_{i=1}^n a_i=0\]</span></p></li>
 </ul>
-<h1 id="显示代码"><a href="#显示代码" class="headerlink" title="显示代码"></a>显示代码</h1><ul>
+<h1 id="显示代码">显示代码</h1>
+<ul>
 <li><p>行内代码</p>
-<p>  C语言里的函数 <code>scanf()</code> 怎么使用？</p>
-</li>
-<li><p>行间代码</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">printf(&quot;Hello world\n&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
+<p>C语言里的函数 <code>scanf()</code> 怎么使用？</p></li>
+<li><p>行间代码</p></li>
 </ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">printf(&quot;Hello world\n&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
           
         
@@ -472,7 +624,7 @@
               
                 
                 <a class="post-title-link" href="/2017/01/29/air5_molarFrax_2_T/" itemprop="url">
-                  五组分空气摩尔分数随温度的变化
+                  平衡空气组分随温度的变化
                 </a>
               
             
@@ -542,23 +694,29 @@
 <li><a href="#意义">意义</a></li>
 </ul>
 <!-- tocstop -->
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>假设空气是5组分，即$N_2,O_2,O,N,NO$，原子质量比例已知。</p>
+<h1 id="摘要">摘要</h1>
+<p>我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。</p>
+<h1 id="方法">方法</h1>
+<p>假设空气是5组分，即<span class="math inline">\(N_2,O_2,O,N,NO\)</span>，原子质量比例已知。 - 方法1：利用平衡气体组分求解器，即可求出给定温度和压强条件下空气的组分。 - 方法2：利用化学反应模型，计算反应速率，进行时间推进，到达定常时，就是平衡空气组分。</p>
+<p>平衡求解器的代码有很多，这里使用NASA的CAE <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>代码中的tp问题求解器。类似的还有VKI的Mutation++<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>中的EquilStateModel类。</p>
+<p>第二种方法是给定温度和压强，利用化学模型，进行有限速率化学反应，时间推进到稳态时，就是平衡组分。理论上得到的结果应该和平衡求解器得到的结果一致。 这里使用简化的5组分17反应DUNG-KUNG模型。开源的代码有VKI的Mutation++<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>中的ChemNonEq1T类，李新亮老师公开的OpenCFD-Comb0d[^3]（不过需要添加相应的组分和反应的数据库）。网上可以下载到HYP代码，对其chemical_reactions子程序稍加修改即可计算（不过温度最高只能计算到6000K）。 [^3]:http://www.cfluid.com/forum.php?mod=viewthread&amp;tid=165868#lastpost</p>
+<h1 id="结果">结果</h1>
+<p>利用平衡求解器得到结果如下图：</p>
+<p>利用非平衡求解器得到的结果如下图： <img src="../images/air5_molarFrax_2_T/molar_frax.png" title="美丽花儿" alt="美丽花儿"></p>
+<p>我们可以看出，在2000K以上，氧气分子开始离解，生成的氧原子又与氮气分子反应生成<span class="math inline">\(NO\)</span>。在4000K以上，氮气开始离解，氧气已全部离解（好巧）。</p>
+<h1 id="意义">意义</h1>
 <ul>
-<li>方法1：利用平衡气体组分求解器，即可求出给定温度和压强条件下空气的组分。</li>
-<li>方法2：利用化学反应模型，计算反应速率，进行时间推进，到达定常时，就是平衡空气组分。</li>
+<li><p>平衡流和理想气体流的区别就在于比热比<span class="math inline">\(\gamma\)</span>的不同，可以将平衡流试为完全气体流动和定容绝热平衡过程（即CEA中的uv问题，已知内能和密度求平衡组分）的叠加。也就是说，简单地在已有的完全气体求解气中，使用等效<span class="math inline">\(\gamma\)</span>代替完全气体的<span class="math inline">\(\gamma=1.4\)</span>,就变成了平衡流动求解器。</p></li>
+<li><p>热化学非平衡流的求解有两种方法，一种是解耦方法，一种是耦合方法。解耦方法常用分裂步法分别处理双曲方程和源方程，独立后的化学反应步为每个网格单元上的绝热等容化学反应过程。而耦合方法则需要求解源项的Jacobian矩阵，与流动方程耦合求解。不管怎样，都需要在已知摩尔浓度和温度的情况下计算各个组分的生成率。</p></li>
 </ul>
-<p>平衡求解器的代码有很多，这里使用NASA的CAE <a href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm" target="_blank" rel="external">^1</a>代码中的tp问题求解器。类似的还有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的EquilStateModel类。</p>
-<p>第二种方法是给定温度和压强，利用化学模型，进行有限速率化学反应，时间推进到稳态时，就是平衡组分。理论上得到的结果应该和平衡求解器得到的结果一致。<br>这里使用简化的5组分17反应DUNG-KUNG模型。开源的代码有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的ChemNonEq1T类，李新亮老师公开的OpenCFD-Comb0d<a href="http://www.cfluid.com/forum.php?mod=viewthread&amp;tid=165868#lastpost" target="_blank" rel="external">^3</a>（不过需要添加相应的组分和反应的数据库）。网上可以下载到HYP代码，对其chemical_reactions子程序稍加修改即可计算（不过温度最高只能计算到6000K）。</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>利用平衡求解器得到结果如下图：</p>
-<p>利用非平衡求解器得到的结果如下图：<br><img src="../images/air5_molarFrax_2_T/molar_frax.png" alt="美丽花儿" title="美丽花儿"></p>
-<p>我们可以看出，在2000K以上，氧气分子开始离解，生成的氧原子又与氮气分子反应生成$NO$。在4000K以上，氮气开始离解，氧气已全部离解（好巧）。</p>
-<h1 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h1><ul>
-<li><p>平衡流和理想气体流的区别就在于比热比$\gamma$的不同，可以将平衡流试为完全气体流动和定容绝热平衡过程（即CEA中的uv问题，已知内能和密度求平衡组分）的叠加。也就是说，简单地在已有的完全气体求解气中，使用等效$\gamma$代替完全气体的$\gamma=1.4$,就变成了平衡流动求解器。</p>
-</li>
-<li><p>热化学非平衡流的求解有两种方法，一种是解耦方法，一种是耦合方法。解耦方法常用分裂步法分别处理双曲方程和源方程，独立后的化学反应步为每个网格单元上的绝热等容化学反应过程。而耦合方法则需要求解源项的Jacobian矩阵，与流动方程耦合求解。不管怎样，都需要在已知摩尔浓度和温度的情况下计算各个组分的生成率。</p>
-</li>
-</ul>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>https://www.mutationpp.org/<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>https://www.mutationpp.org/<a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
 
           
         
@@ -652,7 +810,7 @@
       
         
           
-            <p>春节过后就是新的一年了。<br>新年最该做得事情不是制定计划，而是应该回顾和展望。<br>2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。</p>
+            <p>春节过后就是新的一年了。 新年最该做得事情不是制定计划，而是应该回顾和展望。 2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。</p>
 <p>这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。</p>
 <p>然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人并不关心自己死活，认清自己朋友很少，并且以后会越来越少。</p>
 <p>但是，我要努力。隔壁老师就是我的动力。我不能心急。不断重复别人的工作才可能有长进。</p>
@@ -726,7 +884,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -865,24 +1023,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
