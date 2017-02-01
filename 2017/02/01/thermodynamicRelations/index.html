@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD,Hypersonic," />
+  <meta name="keywords" content="CFD," />
 
 
 
@@ -84,39 +84,23 @@
 
 
 
-<meta name="description" content="摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
-方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
+<meta name="description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
+Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
 <meta property="og:type" content="article">
-<meta property="og:title" content="平衡空气组分随温度的变化">
-<meta property="og:url" content="http://yoursite.com/2017/01/29/eqairMolarFrax/index.html">
+<meta property="og:title" content="热力学关系式">
+<meta property="og:url" content="http://yoursite.com/2017/02/01/thermodynamicRelations/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
-方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
-<meta property="og:image" content="http://yoursite.com/2017/01/29/eqairMolarFrax/molarFrax.png">
-<meta property="og:updated_time" content="2017-02-01T06:37:53.408Z">
+<meta property="og:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
+Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta property="og:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/O2.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/N2.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/O.png">
+<meta property="og:updated_time" content="2017-02-01T12:34:38.579Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="平衡空气组分随温度的变化">
-<meta name="twitter:description" content="摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
-方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
-<meta name="twitter:image" content="http://yoursite.com/2017/01/29/eqairMolarFrax/molarFrax.png">
+<meta name="twitter:title" content="热力学关系式">
+<meta name="twitter:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
+Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/O2.png">
 
 
 
@@ -134,7 +118,7 @@
   };
 </script>
 
-  <title> 平衡空气组分随温度的变化 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 热力学关系式 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +258,7 @@
             
             
               
-                平衡空气组分随温度的变化
+                热力学关系式
               
             
           </h1>
@@ -286,30 +270,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:54:52+08:00" content="2017-01-29">
-              2017-01-29
+            <time itemprop="dateCreated" datetime="2017-02-01T15:16:10+08:00" content="2017-02-01">
+              2017-02-01
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CFD/" itemprop="url" rel="index">
-                    <span itemprop="name">CFD</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -333,31 +298,26 @@
       
 
       
-        <!-- toc -->
-<ul>
-<li><a href="#摘要">摘要</a></li>
-<li><a href="#方法">方法</a></li>
-<li><a href="#结果">结果</a></li>
-<li><a href="#意义">意义</a></li>
-</ul>
-<!-- tocstop -->
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>假设空气是5组分，即$N_2,O_2,O,N,NO$，原子质量比例已知。</p>
-<ul>
-<li>方法1：利用平衡气体组分求解器，即可求出给定温度和压强条件下空气的组分。</li>
-<li>方法2：利用化学反应模型，计算反应速率，进行时间推进，到达定常时，就是平衡空气组分。</li>
-</ul>
-<p>平衡求解器的代码有很多，这里使用NASA的CAE <a href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm" target="_blank" rel="external">^1</a>代码中的tp问题求解器。类似的还有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的EquilStateModel类。</p>
-<p>第二种方法是给定温度和压强，利用化学模型，进行有限速率化学反应，时间推进到稳态时，就是平衡组分。理论上得到的结果应该和平衡求解器得到的结果一致。<br>这里使用简化的5组分17反应DUNG-KUNG模型。开源的代码有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的ChemNonEq1T类，李新亮老师公开的OpenCFD-Comb0d<a href="http://www.cfluid.com/forum.php?mod=viewthread&amp;tid=165868#lastpost" target="_blank" rel="external">^3</a>（不过需要添加相应的组分和反应的数据库）。网上可以下载到HYP代码，对其chemical_reactions子程序稍加修改即可计算（不过温度最高只能计算到6000K）。</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>利用平衡求解器得到结果如下图：</p>
-<p>利用非平衡求解器得到的结果如下图：<br><img src="/2017/01/29/eqairMolarFrax/molarFrax.png" alt="Equilibrium mole fractions in air at 1 atm" title="Equilibrium mole fractions in air at 1 atm"></p>
-<p>我们可以看出，在2000K以上，氧气分子开始离解，生成的氧原子又与氮气分子反应生成$NO$。在4000K以上，氮气开始离解，氧气已全部离解（好巧）。</p>
-<h1 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h1><ul>
-<li><p>平衡流和理想气体流的区别就在于比热比$\gamma$的不同，可以将平衡流视为完全气体流动和定容绝热平衡过程（即CEA中的uv问题，已知内能和密度求平衡组分）的叠加。也就是说，简单地在已有的完全气体求解气中，使用等效$\gamma$代替完全气体的$\gamma=1.4$,就变成了平衡流动求解器。</p>
-</li>
-<li><p>热化学非平衡流的求解有两种方法，一种是解耦方法，一种是耦合方法。解耦方法常用分裂步法分别处理双曲方程和源方程，独立后的化学反应步为每个网格单元上的绝热等容化学反应过程。而耦合方法则需要求解源项的Jacobian矩阵，与流动方程耦合求解。不管怎样，都需要在已知摩尔浓度和温度的情况下计算各个组分的生成率。</p>
-</li>
-</ul>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。<br>此外也可以用拟合曲线得到组分的定压比热和内能。</p>
+<h1 id="Model-1"><a href="#Model-1" class="headerlink" title="Model 1"></a>Model 1</h1><p>对于单原子分子：<br>$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$<br>对于双原子分子:<br>$$e_s=\frac{5}{2}R_s T^{tr} + e^{v}_s+ e^{el}_s + e^0_s$$</p>
+<p>其中$e^{v}_s, e^{el}_s, e^0_s$分别是组分$s$的振动能、电子能和零点能（生成焓）。</p>
+<p>振动能和电子能的表达式是基于玻尔兹曼分布和双原子分子谐振子假设：<br>$$e^v_s=\frac{R_s \theta^v_s}{exp(\theta^v_s/T^v)-1}$$<br>$$e_{s}^{el}=\dfrac{(g_1/g_0)\exp (-\theta_s^{el}/T^{el})}{1+(g_1/g_0)\exp (-\theta_s^{el}T^{el})}\theta^{el}_1 R_s$$</p>
+<p>双温模型认为$T^v=T^{el}$,并且额外考虑振动能的弛豫过程。</p>
+<h1 id="Model-2"><a href="#Model-2" class="headerlink" title="Model 2"></a>Model 2</h1><p>另外一种热力学模型使用关于温度的多项式拟合函数来确定内能，在$300K\lt T \lt 30000K$的范围内：<br>$$c_{p,s}=R_s \sum_{k=0}^{4} A_{k,s}T^k$$<br>$$e_s=R_s \sum_{k=1}^{5} \frac{A_{k,s}}{k}T^k -R_s T + e^0_s$$</p>
+<p>说明:</p>
+<ol>
+<li>在单温度模型下，即仅考虑化学非平衡时，可以令Model 1中所有的温度都为一个温度。Model 2中的温度也就是这个温度。</li>
+<li>对于热化学非平衡流，我暂时不清楚Model 2中的温度是什么温度，其计算的内能是否包含振动能电子能。我暂时假定Model 2仅仅利用平动旋转温度来计算包含了振动能和电子能的热容和能量。</li>
+<li>电子能也有许多能级，上边公式仅仅考虑了一个能级。编程初期，我干脆忽略电子能好了。</li>
+</ol>
+<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>氧气<br><img src="/2017/02/01/thermodynamicRelations/O2.png" alt="O2" title="O2:internal energy vs T"><br>氮气<br><img src="/2017/02/01/thermodynamicRelations/N2.png" alt="N2" title="N2:internal energy vs T"><br>氧原子<br><img src="/2017/02/01/thermodynamicRelations/O.png" alt="O" title="O:internal energy vs T"></p>
+<p>说明：</p>
+<ol>
+<li>由于计算中Model 1 忽略了电子能，造成高温时($T&gt;10000K$)时Model 1结果明显小于拟合结果。</li>
+<li>$O_2$在$6000K$时有间断，可能是数据抄错了？todo：核对叶老师程序中的数据。</li>
+<li>如果考虑多级电子能，那么内能和比热容的计算过程略繁杂。</li>
+</ol>
+<p>所以在编程中，为了方便，我先暂时采用Model 1，忽略电子能。等将来程序跑起来了，再使用Model 2 或者给Model 1 添加电子能。</p>
 
       
     </div>
@@ -381,8 +341,6 @@
           
             <a href="/tags/CFD/" rel="tag">#CFD</a>
           
-            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
-          
         </div>
       
 
@@ -390,17 +348,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/29/myFirstBlog/" rel="next" title="myFirstBlog">
-                <i class="fa fa-chevron-left"></i> myFirstBlog
+              <a href="/2017/01/31/GoverningEquations/" rel="next" title="热化学非平衡流动控制方程">
+                <i class="fa fa-chevron-left"></i> 热化学非平衡流动控制方程
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/29/markdownStudy/" rel="prev" title="Markdown 学习笔记">
-                Markdown 学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,7 +468,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结果"><span class="nav-number">3.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#意义"><span class="nav-number">4.</span> <span class="nav-text">意义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-1"><span class="nav-number">2.</span> <span class="nav-text">Model 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-2"><span class="nav-number">3.</span> <span class="nav-text">Model 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">4.</span> <span class="nav-text">对比</span></a></li></ol></div>
             
           </div>
         </section>
