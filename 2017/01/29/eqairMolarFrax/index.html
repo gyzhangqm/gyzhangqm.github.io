@@ -94,7 +94,7 @@
 方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
 <meta property="og:type" content="article">
 <meta property="og:title" content="平衡空气组分随温度的变化">
-<meta property="og:url" content="http://yoursite.com/2017/01/29/air5_molarFrax_2_T/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/01/29/eqairMolarFrax/index.html">
 <meta property="og:site_name" content="CFD学习">
 <meta property="og:description" content="摘要
 方法
@@ -104,8 +104,8 @@
 
 摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
 方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
-<meta property="og:image" content="http://yoursite.com/../images/air5_molarFrax_2_T/molar_frax.png">
-<meta property="og:updated_time" content="2017-01-31T15:03:23.676Z">
+<meta property="og:image" content="http://yoursite.com/2017/01/29/eqairMolarFrax/molarFrax.png">
+<meta property="og:updated_time" content="2017-02-01T06:33:28.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="平衡空气组分随温度的变化">
 <meta name="twitter:description" content="摘要
@@ -116,7 +116,7 @@
 
 摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
 方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
-<meta name="twitter:image" content="http://yoursite.com/../images/air5_molarFrax_2_T/molar_frax.png">
+<meta name="twitter:image" content="http://yoursite.com/2017/01/29/eqairMolarFrax/molarFrax.png">
 
 
 
@@ -350,7 +350,7 @@
 <p>平衡求解器的代码有很多，这里使用NASA的CAE <a href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm" target="_blank" rel="external">^1</a>代码中的tp问题求解器。类似的还有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的EquilStateModel类。</p>
 <p>第二种方法是给定温度和压强，利用化学模型，进行有限速率化学反应，时间推进到稳态时，就是平衡组分。理论上得到的结果应该和平衡求解器得到的结果一致。<br>这里使用简化的5组分17反应DUNG-KUNG模型。开源的代码有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的ChemNonEq1T类，李新亮老师公开的OpenCFD-Comb0d<a href="http://www.cfluid.com/forum.php?mod=viewthread&amp;tid=165868#lastpost" target="_blank" rel="external">^3</a>（不过需要添加相应的组分和反应的数据库）。网上可以下载到HYP代码，对其chemical_reactions子程序稍加修改即可计算（不过温度最高只能计算到6000K）。</p>
 <h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>利用平衡求解器得到结果如下图：</p>
-<p>利用非平衡求解器得到的结果如下图：<br><img src="../images/air5_molarFrax_2_T/molar_frax.png" alt="美丽花儿" title="美丽花儿"></p>
+<p>利用非平衡求解器得到的结果如下图：<br><img src="/2017/01/29/eqairMolarFrax/molarFrax.png" alt="Equilibrium mole fractions in air at 1 atm" title="result"></p>
 <p>我们可以看出，在2000K以上，氧气分子开始离解，生成的氧原子又与氮气分子反应生成$NO$。在4000K以上，氮气开始离解，氧气已全部离解（好巧）。</p>
 <h1 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h1><ul>
 <li><p>平衡流和理想气体流的区别就在于比热比$\gamma$的不同，可以将平衡流试为完全气体流动和定容绝热平衡过程（即CEA中的uv问题，已知内能和密度求平衡组分）的叠加。也就是说，简单地在已有的完全气体求解气中，使用等效$\gamma$代替完全气体的$\gamma=1.4$,就变成了平衡流动求解器。</p>
