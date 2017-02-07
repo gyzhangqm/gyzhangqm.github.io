@@ -84,39 +84,19 @@
 
 
 
-<meta name="description" content="摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
-方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
+<meta name="description" content="摘要在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。
+推导利用状态方程$$p = \sum_{s = 1}^{ns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="平衡空气组分随温度的变化">
-<meta property="og:url" content="http://yoursite.com/2017/01/29/eqairMolarFrax/index.html">
+<meta property="og:title" content="非平衡偏导数">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/derivative2primitive-var/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
-方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
-<meta property="og:image" content="http://yoursite.com/2017/01/29/eqairMolarFrax/molarFrax.png">
-<meta property="og:updated_time" content="2017-02-01T06:37:53.408Z">
+<meta property="og:description" content="摘要在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。
+推导利用状态方程$$p = \sum_{s = 1}^{ns">
+<meta property="og:updated_time" content="2017-02-07T17:13:14.480Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="平衡空气组分随温度的变化">
-<meta name="twitter:description" content="摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。
-方法假设空气是5组分，即$N_2,O_2,O,N,NO$，原">
-<meta name="twitter:image" content="http://yoursite.com/2017/01/29/eqairMolarFrax/molarFrax.png">
+<meta name="twitter:title" content="非平衡偏导数">
+<meta name="twitter:description" content="摘要在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。
+推导利用状态方程$$p = \sum_{s = 1}^{ns">
 
 
 
@@ -134,7 +114,7 @@
   };
 </script>
 
-  <title> 平衡空气组分随温度的变化 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 非平衡偏导数 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -274,7 +254,7 @@
             
             
               
-                平衡空气组分随温度的变化
+                非平衡偏导数
               
             
           </h1>
@@ -286,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:54:52+08:00" content="2017-01-29">
-              2017-01-29
+            <time itemprop="dateCreated" datetime="2017-02-07T23:13:48+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
@@ -333,31 +313,24 @@
       
 
       
-        <!-- toc -->
-<ul>
-<li><a href="#摘要">摘要</a></li>
-<li><a href="#方法">方法</a></li>
-<li><a href="#结果">结果</a></li>
-<li><a href="#意义">意义</a></li>
-</ul>
-<!-- tocstop -->
-<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，分析在定压条件下空气组分随温度的变化。</p>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><p>假设空气是5组分，即$N_2,O_2,O,N,NO$，原子质量比例已知。</p>
-<ul>
-<li>方法1：利用平衡气体组分求解器，即可求出给定温度和压强条件下空气的组分。</li>
-<li>方法2：利用化学反应模型，计算反应速率，进行时间推进，到达定常时，就是平衡空气组分。</li>
-</ul>
-<p>平衡求解器的代码有很多，这里使用NASA的CAE <a href="https://www.grc.nasa.gov/WWW/CEAWeb/ceaHome.htm" target="_blank" rel="external">^1</a>代码中的tp问题求解器。类似的还有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的EquilStateModel类。</p>
-<p>第二种方法是给定温度和压强，利用化学模型，进行有限速率化学反应，时间推进到稳态时，就是平衡组分。理论上得到的结果应该和平衡求解器得到的结果一致。<br>这里使用简化的5组分17反应DUNG-KUNG模型。开源的代码有VKI的Mutation++<a href="https://www.mutationpp.org/" target="_blank" rel="external">^2</a>中的ChemNonEq1T类，李新亮老师公开的OpenCFD-Comb0d<a href="http://www.cfluid.com/forum.php?mod=viewthread&amp;tid=165868#lastpost" target="_blank" rel="external">^3</a>（不过需要添加相应的组分和反应的数据库）。网上可以下载到HYP代码，对其chemical_reactions子程序稍加修改即可计算（不过温度最高只能计算到6000K）。</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>利用平衡求解器得到结果如下图：</p>
-<p>利用非平衡求解器得到的结果如下图：<br><img src="/2017/01/29/eqairMolarFrax/molarFrax.png" alt="Equilibrium mole fractions in air at 1 atm" title="Equilibrium mole fractions in air at 1 atm"></p>
-<p>我们可以看出，在2000K以上，氧气分子开始离解，生成的氧原子又与氮气分子反应生成$NO$。在4000K以上，氮气开始离解，氧气已全部离解（好巧）。</p>
-<h1 id="意义"><a href="#意义" class="headerlink" title="意义"></a>意义</h1><ul>
-<li><p>平衡流和理想气体流的区别就在于比热比$\gamma$的不同，可以将平衡流视为完全气体流动和定容绝热平衡过程（即CEA中的uv问题，已知内能和密度求平衡组分）的叠加。也就是说，简单地在已有的完全气体求解气中，使用等效$\gamma$代替完全气体的$\gamma=1.4$,就变成了平衡流动求解器。</p>
-</li>
-<li><p>热化学非平衡流的求解有两种方法，一种是解耦方法，一种是耦合方法。解耦方法常用分裂步法分别处理双曲方程和源方程，独立后的化学反应步为每个网格单元上的绝热等容化学反应过程。而耦合方法则需要求解源项的Jacobian矩阵，与流动方程耦合求解。不管怎样，都需要在已知摩尔浓度和温度的情况下计算各个组分的生成率。</p>
-</li>
-</ul>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。</p>
+<h1 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h1><p>利用状态方程<br>$$p = \sum_{s = 1}^{ns} {\rho_s \frac{R_u}{M_s}T}$$<br>和热力学关系式<br>$$\rho {e^e} = \rho {e^v} + \frac{1}{2}\rho (u^2 + v^2+<br>w^2) + \sum_{s = 1}^n {\rho_s({c_{V,s}}T + e_s^0)} $$</p>
+<p>得到用守恒量表示温度<br>$$\rho {e^{tr}} = \rho c_V^{tr} T= \rho {e^e} - \rho<br>e^v-\frac{1}{2}\frac{\sum_{s = 1}^n \rho_s}{(\sum_{s = 1}^n {\rho_s})^2}$$</p>
+<p>其中<br>$c_V^{tr} = \sum_{s = 1}^{ns} Y_s c_{V,s}^{tr}  = \frac{1}{\rho }\sum_{s = 1}^{ns} {\rho_s}c_{V,s}^{tr} $</p>
+<p>$c_V^v = \sum_{s = mol} {Y_s c_{V,s}^v}  = \frac{1}{\rho }\sum_{s = mol} {Y_s}c_{V,s}^v $</p>
+<p>这样，可以将压强、温度、振动温度用守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$表示：</p>
+<p>$$T = \frac{1}{\sum_{s = 1}^{ns} {\rho_s} c_{V,s}^{tr}}<br>[\rho e^e-\rho e^v -\frac{1}{2}\frac{1}{\sum_{s = 1}^n \rho_s}((\rho u)^2 + (\rho v)^2 + (\rho w)^2) - \sum_{s = 1}^n \rho_s e_s^0]$$</p>
+<p>$$p = \sum\limits_{s = 1}^{ns}<br>\rho_s\frac{R_u}{M_s}\underbrace {\frac{1}{\sum\limits_{s = 1}^{ns} {\rho_s} c_{V,s}^{tr}}\left[\rho e^e - \rho e^v - \frac{1}{2}\frac{1}{\sum\limits_{s = 1}^n \rho_s}\left( (\rho u)^2 + (\rho v)^2 + (\rho w)^2 \right) - \sum\limits_{s = 1}^n {\rho_s e_s^0} \right]}_T $$</p>
+<p>$$T^v = \frac{\rho e^v}{\sum\limits_{s = mol} \rho_s c_{V,s}^v}$$<br>利用这三个式子，可以得到压强、温度、振动温度对守恒变量的偏导数</p>
+<p>$$\left{ \begin{array}{l}<br>\varphi  = {\left. \frac{\partial p}{\partial (\rho e^e)} \right|_Q} =\frac{R_u}{c_V^{tr}\bar M}\\<br>\varphi _u = \left. \frac{\partial p}{\partial (\rho u)} \right|_Q = - \varphi u\\<br>{\varphi _v} = \left. \frac{\partial p}{\partial (\rho v)} \right|_Q =  - \varphi v\\<br>{\varphi _w} = \left. \frac{\partial p}{\partial (\rho w)} \right|_Q =  - \varphi w\\<br>{\beta _s} = \left. \frac{\partial p}{\partial {\rho _s}} \right|_Q = \frac{R_u}{M_s}T - \varphi  c_{V,s}^{tr}T + \varphi \left[ \frac{1}{2}\left( u^2 + v^2+ w^2 \right) - e_s^0 \right]\\<br>\quad= \frac{R_u}{M_s}T \varphi \left[ \frac{1}{2}\left( u^2 + v^2 + w^2 \right) - e_s^{tr} - e_s^0 \right]\\<br>{\varphi _{ev}} = \left. \frac{\partial p}{\partial (\rho e^v)} \right|_Q =  - \varphi<br>\end{array} \right.$$</p>
+<p>$$\left{ \begin{array}{l}<br>\varphi  = {\left. \frac{\partial p}{\partial (\rho e^e)} \right|_Q} = \frac{R_u}{c_V^{tr}\bar M}\\<br>{\varphi _u} = {\left. \frac{\partial p}{\partial (\rho u)} \right|_Q} =  - \varphi u\\<br>{\varphi _v} = {\left. \frac{\partial p}{\partial (\rho v)} \right|_Q} =  - \varphi v\\<br>{\varphi _w} = {\left. \frac{\partial p}{\partial (\rho w)} \right|_Q} =  - \varphi w\\<br>{\beta _s} = {\left. \frac{\partial p}{\partial \rho _s} \right|_Q} = \frac{R_u}{M_s} T - \varphi c_{V,s}^{tr} T \varphi \left[ \frac{1}{2}\left( u^2+ v^2+w^2 \right) - e_s^0 \right]\\<br>\quad=\frac{R_u}{M_s}T \varphi \left[ \frac{1}{2}\left( u^2+v^2+w^2 \right) - e_s^{tr} - e_s^0 \right]\\<br>\varphi_{ev} = {\left. \frac{\partial p}{\partial (\rho e^v)} \right|_Q} =  - \varphi<br>\end{array} \right.$$</p>
+<p>$$\left{ \begin{array}{l}<br>\chi  = \frac{\partial T}{\partial (\rho {e^e})} = \frac{1}{\rho c_V^{tr}}\\<br>{\chi _u} = \frac{\partial T}{\partial (\rho u)} =  - \chi u\\<br>{\chi _v} = \frac{\partial T}{\partial (\rho v)} =  - \chi v\\<br>{\chi _w} = \frac{\partial T}{\partial (\rho w)} =  - \chi w\\<br>{\chi _s} = \frac{\partial T}{\partial \rho _s} = \chi \left[ \frac{1}{2}\left( u^2 + v^2 + w^2 \right) - e_s^{tr} - e_s^0 \right]\\<br>{\chi _{ev}} =  {\frac{\partial T}{\partial \rho {e^v}}}=  - \chi<br>\end{array} \right.$$</p>
+<p>$$\left{ \begin{array}{l}<br>\chi \chi  = \frac{\partial T^v}{\partial (\rho e^e)} = 0\\<br>\chi \chi _u = \frac{\partial T^v}{\partial (\rho u)} = 0\\<br>\chi \chi _v = \frac{\partial T^v}{\partial (\rho v)} = 0\\<br>\chi \chi _w = \frac{\partial T^v}{\partial (\rho w)} = 0\\<br>\chi \chi _s =  \frac{\partial T^v}{\partial \rho _s}=- \frac{e_s^v}{\rho c_V^v}\\<br>\chi \chi _{ev} = \frac{\partial T^v}{\partial \rho e^v}  = \frac{1}{\rho c_V^v}<br>\end{array} \right.$$</p>
+<p>其中$\rho c_V^v = \sum \limits_{s = 1}^{nmol} \rho_s c_{V,s}^v$,<br>$c_{V,s}^v = \frac{\partial e_s^v}{\partial T^v} = \frac{R_s}{\left( \exp (\theta_s^v/{T^v}) - 1 \right)^2}{\left( \frac{\theta_s^v}{T^v} \right)^2}\exp \left(\frac{\theta_s^v}{T^v} \right)$</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li>许多文章中使用总密度守恒方程加(ns-1)个组分方程的形式。理论上两种形式是等价的。但是在这些偏导数的推导中，不得不考虑最后一个没有用到的组分密度，使表达式复杂化。</li>
+<li>许多作者求解过程中事实上是求解了总密度方程和ns个组分方程。但这样子默认在了非平衡偏导数的推导中，ns个组分密度和总的密度是独立的。我感觉这样有问题。</li>
+</ol>
 
       
     </div>
@@ -390,17 +363,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/29/myFirstBlog/" rel="next" title="myFirstBlog">
-                <i class="fa fa-chevron-left"></i> myFirstBlog
+              <a href="/2017/02/01/thermodynamicRelations/" rel="next" title="热力学关系式">
+                <i class="fa fa-chevron-left"></i> 热力学关系式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/29/markdownStudy/" rel="prev" title="Markdown 学习笔记">
-                Markdown 学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,7 +483,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#方法"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结果"><span class="nav-number">3.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#意义"><span class="nav-number">4.</span> <span class="nav-text">意义</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推导"><span class="nav-number">2.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
           </div>
         </section>
