@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/08/invisidFluxJacobian/index.html">
 <meta property="og:site_name" content="CFD学习">
 <meta property="og:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
-<meta property="og:updated_time" content="2017-02-08T16:11:50.044Z">
+<meta property="og:updated_time" content="2017-02-08T16:18:40.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系数矩阵和通量分裂">
 <meta name="twitter:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
@@ -316,8 +316,10 @@
 <h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><h2 id="三维Euler方程"><a href="#三维Euler方程" class="headerlink" title="三维Euler方程"></a>三维Euler方程</h2><p>设无粘三维Euler方程为</p>
 <p>$$\frac{\partial Q}{\partial t} + \frac{\partial \tilde{F}_k}{\partial x_k} =0，\quad x_k=x,y,z$$<br>曲线坐标系中为<br>$$\frac{\partial JQ}{\partial t} + \frac{\partial J F_k}{\partial x^k} =0,\quad x^k=\xi,\eta,\zeta$$<br>其中</p>
 <p>$$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {\bf{u}}\\<br>\rho {e^v}\\<br>\rho {e^e}<br>\end{array} \right],<br>F_k = \left[ \begin{array}{c}<br>\mathbf{\rho}_\bf{s}\theta \\<br>\rho \theta \bf{u} + \mathcal{p} \mathbf{k}\\<br>\rho \theta {e^v}\\<br>\rho \theta H<br>\end{array} \right]$$</p>
+<p>其中$\mathbf{k}$已经归一化，$\theta=\mathbf{k} \cdot \mathbf{u}$</p>
 <h2 id="系数矩阵"><a href="#系数矩阵" class="headerlink" title="系数矩阵"></a>系数矩阵</h2><p>系数矩阵$A_k=\frac{F_k}{\partial Q}$具体形式为：</p>
 <p>$$A_k = \left( \begin{array}{cccc}<br>\theta (\delta_{sj} - Y_s) &amp; {Y_s}{\bf{k}}^T &amp; 0 &amp; 0\\<br>k_x \beta_s - \theta {\bf{u}} &amp; \theta {\bf{I}} - \varphi {\bf{k}}{\bf{u}}^T + {\bf{u}}  {\bf{k}}^T &amp; - \varphi {\bf{k}} &amp; \varphi {\bf{k}}\\<br>{- {e^v}\theta} &amp; e^v {\bf{k}}^T &amp; \theta &amp; 0\\<br>(\beta_s - H)\theta &amp;H {\bf{k}}^T - \varphi \theta {\bf{u}}^T &amp; -\varphi \theta &amp; (\varphi+1)\theta<br>\end{array} \right)$$</p>
+<p>其中<br>$\varphi  = \frac{\partial p}{\partial (\rho e^e)} =\frac{R_u}{c_V^{tr}\bar M}$<br>${\beta_s} = \frac{\partial p}{\partial {\rho_s}} = \frac{R_u}{M_s}T - \varphi  c_{V,s}^{tr}T + \varphi \left[ \frac{1}{2}\left( u^2 + v^2+ w^2 \right) - e_s^0 \right]$</p>
 <h2 id="系数矩阵的对角化"><a href="#系数矩阵的对角化" class="headerlink" title="系数矩阵的对角化"></a>系数矩阵的对角化</h2><p>$$A=R \Lambda L$$</p>
 <p>$$\Lambda  = diag \left[{\bf{\theta}_s} ,\theta ,\theta ,\theta  + c,\theta ,\theta  - c\right]$$</p>
 <p>找到与${\bf{k}} = [k_x,k_y,k_z]^T$垂直的的两个向量${\bf{b}}_i = [b_1,b_2,b_2]^T$与其协变矢量${\bf{b}}^j = [b^1,b^2,b^2]^T$，使  ${\bf{k}}\cdot {\bf{b}}_i = 0,{\bf{b}}_i\cdot {\bf{b}}^j=\delta_i^j$,那么</p>
@@ -335,7 +337,7 @@
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><ol>
 <li><p>我现在觉得把守恒变量按照这个顺序排列比较好$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {e^v}\\<br>\rho {\bf{u}}\\<br>\rho {e^e}<br>\end{array} \right]$.这样方便源项偏导数的计算。</p>
 </li>
-<li><p>本文中的公式实在是太繁琐了。但是由于</p>
+<li><p>本文中的公式实在是太繁琐了。但是由于<a href="https://gyzhangqm.github.io/2017/01/31/GoverningEquations/" title="GoverningEquations" target="_blank" rel="external">热化学非平衡流动控制方程</a>中所述的原因，以及周禹的博士论文中公式存在印刷错误，我还是花了大量时间进行了这种似乎没有意义的繁杂矩阵计算。</p>
 </li>
 </ol>
 
