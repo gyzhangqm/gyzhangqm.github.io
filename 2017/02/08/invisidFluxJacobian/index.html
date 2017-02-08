@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/08/invisidFluxJacobian/index.html">
 <meta property="og:site_name" content="CFD学习">
 <meta property="og:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
-<meta property="og:updated_time" content="2017-02-08T16:18:40.452Z">
+<meta property="og:updated_time" content="2017-02-08T16:32:25.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系数矩阵和通量分裂">
 <meta name="twitter:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
@@ -334,7 +334,7 @@
 <h2 id="正负通量分裂"><a href="#正负通量分裂" class="headerlink" title="正负通量分裂"></a>正负通量分裂</h2><p>$$F^{\pm}=A^{\pm}Q=R \Lambda^{\pm} LQ $$</p>
 <p>$$F^{\pm} = \left[ \begin{array}{c}<br>{\bf{\rho}}_{\bf{s}} dd\\<br>\rho {\bf{u}} dd + \frac{\lambda_2 - \lambda_3}{2\gamma}\rho c{\bf{k}}\\<br>\rho e^v dd\\<br>\rho e^e dd + \frac{p}{2\gamma }(\lambda_2 + \lambda_3 - 2\lambda_1) + \frac{\lambda_2 - \lambda_3}{2\gamma} \rho c \theta<br>\end{array} \right]$$</p>
 <p>其中$dd = \frac{2\lambda_1 (\gamma  - 1) + \lambda_2 + \lambda_3}{2\gamma}$</p>
-<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><ol>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol>
 <li><p>我现在觉得把守恒变量按照这个顺序排列比较好$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {e^v}\\<br>\rho {\bf{u}}\\<br>\rho {e^e}<br>\end{array} \right]$.这样方便源项偏导数的计算。</p>
 </li>
 <li><p>本文中的公式实在是太繁琐了。但是由于<a href="https://gyzhangqm.github.io/2017/01/31/GoverningEquations/" title="GoverningEquations" target="_blank" rel="external">热化学非平衡流动控制方程</a>中所述的原因，以及周禹的博士论文中公式存在印刷错误，我还是花了大量时间进行了这种似乎没有意义的繁杂矩阵计算。</p>
@@ -494,7 +494,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三维Euler方程"><span class="nav-number">2.1.</span> <span class="nav-text">三维Euler方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵"><span class="nav-number">2.2.</span> <span class="nav-text">系数矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的对角化"><span class="nav-number">2.3.</span> <span class="nav-text">系数矩阵的对角化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的分裂"><span class="nav-number">2.4.</span> <span class="nav-text">系数矩阵的分裂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正负通量分裂"><span class="nav-number">2.5.</span> <span class="nav-text">正负通量分裂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最后"><span class="nav-number">2.6.</span> <span class="nav-text">最后</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三维Euler方程"><span class="nav-number">2.1.</span> <span class="nav-text">三维Euler方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵"><span class="nav-number">2.2.</span> <span class="nav-text">系数矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的对角化"><span class="nav-number">2.3.</span> <span class="nav-text">系数矩阵的对角化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的分裂"><span class="nav-number">2.4.</span> <span class="nav-text">系数矩阵的分裂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正负通量分裂"><span class="nav-number">2.5.</span> <span class="nav-text">正负通量分裂</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
             
           </div>
         </section>
