@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="CFD,Hypersonic," />
 
 
 
@@ -84,15 +84,19 @@
 
 
 
-<meta name="description" content="Hello World">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CFD学习">
-<meta property="og:url" content="http://yoursite.com/archives/2017/02/index.html">
+<meta name="description" content="我们知道，声速的定义为：
+$$\begin{equation}c_f^2 = (\frac{\partial p}{\partial \rho})_s\end{equation}$$下标$s$代表等熵。热化学状态有三个变量确定：$p,\rho,q$，其中$q$为非平衡量，也称反应进度。因此热化学状态下声速并非唯一的，如果$q$取固定值，则有冻结声速$c_f$的概念；如果$q$取平衡值$q^{\as">
+<meta property="og:type" content="article">
+<meta property="og:title" content="声速公式的推导">
+<meta property="og:url" content="http://yoursite.com/2017/02/09/frozenSonic/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="我们知道，声速的定义为：
+$$\begin{equation}c_f^2 = (\frac{\partial p}{\partial \rho})_s\end{equation}$$下标$s$代表等熵。热化学状态有三个变量确定：$p,\rho,q$，其中$q$为非平衡量，也称反应进度。因此热化学状态下声速并非唯一的，如果$q$取固定值，则有冻结声速$c_f$的概念；如果$q$取平衡值$q^{\as">
+<meta property="og:updated_time" content="2017-02-09T16:03:28.174Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CFD学习">
-<meta name="twitter:description" content="Hello World">
+<meta name="twitter:title" content="声速公式的推导">
+<meta name="twitter:description" content="我们知道，声速的定义为：
+$$\begin{equation}c_f^2 = (\frac{\partial p}{\partial \rho})_s\end{equation}$$下标$s$代表等熵。热化学状态有三个变量确定：$p,\rho,q$，其中$q$为非平衡量，也称反应进度。因此热化学状态下声速并非唯一的，如果$q$取固定值，则有冻结声速$c_f$的概念；如果$q$取平衡值$q^{\as">
 
 
 
@@ -110,7 +114,7 @@
   };
 </script>
 
-  <title> 归档 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 声速公式的推导 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,7 +135,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left  page-archive  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -229,177 +233,157 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 8 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/09/frozenSonic/" itemprop="url">
-              
-                <span itemprop="name">声速公式的推导</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-09T22:09:11+08:00"
-              content="2017-02-09" >
-          02-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/08/invisidFluxJacobian/" itemprop="url">
-              
-                <span itemprop="name">系数矩阵和通量分裂</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-08T22:05:27+08:00"
-              content="2017-02-08" >
-          02-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/07/derivative2primitive-var/" itemprop="url">
-              
-                <span itemprop="name">非平衡偏导数</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-07T23:13:48+08:00"
-              content="2017-02-07" >
-          02-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/02/01/thermodynamicRelations/" itemprop="url">
-              
-                <span itemprop="name">热力学关系式</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-01T15:16:10+08:00"
-              content="2017-02-01" >
-          02-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                声速公式的推导
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-09T22:09:11+08:00" content="2017-02-09">
+              2017-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/09/frozenSonic/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/09/frozenSonic/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>我们知道，声速的定义为：</p>
+<p>$$\begin{equation}<br>c_f^2 = (\frac{\partial p}{\partial \rho})_s<br>\end{equation}$$<br>下标$s$代表等熵。热化学状态有三个变量确定：$p,\rho,q$，其中$q$为非平衡量，也称反应进度。因此热化学状态下声速并非唯一的，如果$q$取固定值，则有冻结声速$c_f$的概念；如果$q$取平衡值$q^{\ast}$，则有平衡声速的概念。</p>
+<p>这里推导冻结声速：<br>$$\begin{equation}\label{eq:cf2}<br>c_f^2 = (\frac{\partial p}{\partial \rho})_{s,q}<br>\end{equation}$$<br>一个$q$就代表了一个非平衡值。因此$\eqref{eq:cf2}$中的定义可转化为对</p>
+<p>将压强$p$视为守恒变量$Q = \left[ {\rho_s ,\rho {\mathbf{u}},\rho e^v,\rho e^e} \right]^T$的函数$p=f(Q)$,则有：</p>
+<p>$$\begin{array}{l}<br>dp = \sum\limits_s {\beta_s d \rho_s}+ \varphi_\mathbf{u}d(\rho \mathbf{u}) +<br>\varphi d(\rho e^e) +{\varphi _{ev}}d(\rho {e^v})<br>\end{array}$$</p>
+<p>其中$\beta_s,\varphi_\mathbf{u},\varphi,\varphi_{ev}$在<a href="https://gyzhangqm.github.io/2017/02/07/derivative2primitive-var/" title="非平衡偏导数" target="_blank" rel="external">非平衡偏导数</a>中定义。</p>
+<p>$$\begin{array}{rcl}<br>c_f^2 &amp;=&amp; (\frac{\partial p}{\partial \rho })_{s,Q}\\<br> &amp;=&amp; \varphi \frac{\partial \rho e^e}{\partial \rho } + \varphi_\mathbf{u}\frac{\partial \rho \mathbf{u}}{\partial \rho} + \sum\limits_s {\beta_s \frac{\partial \rho_s}{\partial \rho }}  + \varphi_{ev}\frac{\partial \rho e^v}{\partial \rho}\\<br> &amp;=&amp; \varphi (H - \mathbf{u}\cdot\mathbf{u} - e^v) + \sum\limits_s {\beta_s Y_s} \\<br> &amp;=&amp;  (1 + \varphi) \frac{p}{\rho}<br>\end{array}$$</p>
+<p>推导中有一点需要注意：<br>由于等熵:$0=Tds=d{e^e} - \frac{p}{\rho ^2}d\rho $，因此$\frac{\partial \rho e^e}{\partial \rho}=\rho\frac{\partial e^e}{\partial \rho} +e^e=H$</p>
+<p>另一方面，在<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" title="系数矩阵和通量分裂" target="_blank" rel="external">系数矩阵和通量分裂</a>中，对无粘Jacobian矩阵对角化的过程中，其特征值中出现的$c$与此有一模一样的表达式。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
+          
+            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/08/invisidFluxJacobian/" rel="next" title="系数矩阵和通量分裂">
+                <i class="fa fa-chevron-left"></i> 系数矩阵和通量分裂
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -407,6 +391,29 @@
 
 
           
+  <div class="comments" id="comments">
+    
+<section id="comments">
+   <!-- ��˵���ۿ� start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/09/frozenSonic/" data-title="声速公式的推导" data-url="http://yoursite.com/2017/02/09/frozenSonic/" }}"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shortTime"};
+  (function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+ || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- ��˵����JS���� end -->
+</section>
+    
+  </div>
+
 
         </div>
         
@@ -426,8 +433,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -477,6 +493,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -573,11 +600,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
