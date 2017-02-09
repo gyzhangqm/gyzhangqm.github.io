@@ -92,7 +92,7 @@ $$\begin{equation}c_f^2 = (\frac{\partial p}{\partial \rho})_s\end{equation}$$�
 <meta property="og:site_name" content="CFD学习">
 <meta property="og:description" content="我们知道，声速的定义为：
 $$\begin{equation}c_f^2 = (\frac{\partial p}{\partial \rho})_s\end{equation}$$下标$s$代表等熵。热化学状态有三个变量确定：$p,\rho,q$，其中$q$为非平衡量，也称反应进度。因此热化学状态下声速并非唯一的，如果$q$取固定值，则有冻结声速$c_f$的概念；如果$q$取平衡值$q^{\as">
-<meta property="og:updated_time" content="2017-02-09T16:03:28.174Z">
+<meta property="og:updated_time" content="2017-02-09T16:06:07.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="声速公式的推导">
 <meta name="twitter:description" content="我们知道，声速的定义为：
@@ -322,11 +322,10 @@ $$\begin{equation}c_f^2 = (\frac{\partial p}{\partial \rho})_s\end{equation}$$�
       
         <p>我们知道，声速的定义为：</p>
 <p>$$\begin{equation}<br>c_f^2 = (\frac{\partial p}{\partial \rho})_s<br>\end{equation}$$<br>下标$s$代表等熵。热化学状态有三个变量确定：$p,\rho,q$，其中$q$为非平衡量，也称反应进度。因此热化学状态下声速并非唯一的，如果$q$取固定值，则有冻结声速$c_f$的概念；如果$q$取平衡值$q^{\ast}$，则有平衡声速的概念。</p>
-<p>这里推导冻结声速：<br>$$\begin{equation}\label{eq:cf2}<br>c_f^2 = (\frac{\partial p}{\partial \rho})_{s,q}<br>\end{equation}$$<br>一个$q$就代表了一个非平衡值。因此$\eqref{eq:cf2}$中的定义可转化为对</p>
-<p>将压强$p$视为守恒变量$Q = \left[ {\rho_s ,\rho {\mathbf{u}},\rho e^v,\rho e^e} \right]^T$的函数$p=f(Q)$,则有：</p>
-<p>$$\begin{array}{l}<br>dp = \sum\limits_s {\beta_s d \rho_s}+ \varphi_\mathbf{u}d(\rho \mathbf{u}) +<br>\varphi d(\rho e^e) +{\varphi _{ev}}d(\rho {e^v})<br>\end{array}$$</p>
+<p>这里推导冻结声速：<br>$$\begin{equation}\label{eq:cf2}<br>c_f^2 = (\frac{\partial p}{\partial \rho})_{s,q}<br>\end{equation}$$<br>一个$q$就代表了一个非平衡值。将压强$p$视为守恒变量$Q = \left[ {\rho_s ,\rho {\mathbf{u}},\rho e^v,\rho e^e} \right]^T$的函数$p=f(Q)$,则有：</p>
+<p>$$\begin{array}{l}<br>dp = \sum\limits_s {\beta_s d \rho_s}+ \varphi_\mathbf{u} \cdot d(\rho \mathbf{u}) +<br>\varphi d(\rho e^e) +{\varphi _{ev}}d(\rho {e^v})<br>\end{array}$$</p>
 <p>其中$\beta_s,\varphi_\mathbf{u},\varphi,\varphi_{ev}$在<a href="https://gyzhangqm.github.io/2017/02/07/derivative2primitive-var/" title="非平衡偏导数" target="_blank" rel="external">非平衡偏导数</a>中定义。</p>
-<p>$$\begin{array}{rcl}<br>c_f^2 &amp;=&amp; (\frac{\partial p}{\partial \rho })_{s,Q}\\<br> &amp;=&amp; \varphi \frac{\partial \rho e^e}{\partial \rho } + \varphi_\mathbf{u}\frac{\partial \rho \mathbf{u}}{\partial \rho} + \sum\limits_s {\beta_s \frac{\partial \rho_s}{\partial \rho }}  + \varphi_{ev}\frac{\partial \rho e^v}{\partial \rho}\\<br> &amp;=&amp; \varphi (H - \mathbf{u}\cdot\mathbf{u} - e^v) + \sum\limits_s {\beta_s Y_s} \\<br> &amp;=&amp;  (1 + \varphi) \frac{p}{\rho}<br>\end{array}$$</p>
+<p>$$\begin{array}{rcl}<br>c_f^2 &amp;=&amp; (\frac{\partial p}{\partial \rho })_{s,Q}\\<br> &amp;=&amp; \varphi \frac{\partial \rho e^e}{\partial \rho } + \varphi_\mathbf{u} \cdot \frac{\partial \rho \mathbf{u}}{\partial \rho} + \sum\limits_s {\beta_s \frac{\partial \rho_s}{\partial \rho }}  + \varphi_{ev}\frac{\partial \rho e^v}{\partial \rho}\\<br> &amp;=&amp; \varphi (H - \mathbf{u}\cdot\mathbf{u} - e^v) + \sum\limits_s {\beta_s Y_s} \\<br> &amp;=&amp;  (1 + \varphi) \frac{p}{\rho}<br>\end{array}$$</p>
 <p>推导中有一点需要注意：<br>由于等熵:$0=Tds=d{e^e} - \frac{p}{\rho ^2}d\rho $，因此$\frac{\partial \rho e^e}{\partial \rho}=\rho\frac{\partial e^e}{\partial \rho} +e^e=H$</p>
 <p>另一方面，在<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" title="系数矩阵和通量分裂" target="_blank" rel="external">系数矩阵和通量分裂</a>中，对无粘Jacobian矩阵对角化的过程中，其特征值中出现的$c$与此有一模一样的表达式。</p>
 
