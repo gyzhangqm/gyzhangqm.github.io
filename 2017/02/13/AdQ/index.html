@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="journal," />
+  <meta name="keywords" content="CFD,Hypersonic,Math," />
 
 
 
@@ -84,22 +84,19 @@
 
 
 
-<meta name="description" content="春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人">
+<meta name="description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
+公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myFirstBlog">
-<meta property="og:url" content="http://yoursite.com/2017/01/29/myFirstBlog/index.html">
+<meta property="og:title" content="AdQ">
+<meta property="og:url" content="http://yoursite.com/2017/02/13/AdQ/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人">
-<meta property="og:updated_time" content="2017-01-29T16:21:38.069Z">
+<meta property="og:description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
+公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
+<meta property="og:updated_time" content="2017-02-12T17:46:50.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myFirstBlog">
-<meta name="twitter:description" content="春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人">
+<meta name="twitter:title" content="AdQ">
+<meta name="twitter:description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
+公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
 
 
 
@@ -117,7 +114,7 @@
   };
 </script>
 
-  <title> myFirstBlog | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> AdQ | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +254,7 @@
             
             
               
-                myFirstBlog
+                AdQ
               
             
           </h1>
@@ -269,19 +266,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:22:41+08:00" content="2017-01-29">
-              2017-01-29
+            <time itemprop="dateCreated" datetime="2017-02-13T00:17:39+08:00" content="2017-02-13">
+              2017-02-13
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/29/myFirstBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/29/myFirstBlog/" itemprop="commentsCount"></span>
+                <a href="/2017/02/13/AdQ/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/13/AdQ/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,11 +320,19 @@
       
 
       
-        <p>春节过后就是新的一年了。<br>新年最该做得事情不是制定计划，而是应该回顾和展望。<br>2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。</p>
-<p>这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。</p>
-<p>然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人并不关心自己死活，认清自己朋友很少，并且以后会越来越少。</p>
-<p>但是，我要努力。隔壁老师就是我的动力。我不能心急。不断重复别人的工作才可能有长进。</p>
-<p>2016是日复一日的生活。读了很多书，学了很多软件，写了很多行代码，但现在脑海中什么都没有留下。我不能这样年复一年。年终的会议上，叶老师讲到他总结记录每日的工作。想到很多人也写自己的公众号，写自己的博客，我就萌生这样的想法，把自己学习中总结的知识，遇到的困难，解决的问题记录下来。以供自己参考。</p>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>上一篇文章<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.</p>
+<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}<br>{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\<br>{\lambda_1}\Delta (\rho {\bf{u}}) + {\delta_1}{\bf{u}} + {\delta_2}{\bf{k}}\\<br>{\lambda_1}\Delta (\rho {e^v}) + {\delta_1}{e^v}\\<br>{\lambda_1}\Delta (\rho {e^e}) + {\delta_1}H + {\delta_2}\theta<br>\end{array} \right]$$</p>
+<p>其中<br>$$\delta_1 = J_1 \Delta p + J_2 \rho {\bf{k}} \cdot \Delta {\bf{u}}$$</p>
+<p>$$\delta_2 = J_1 c^2\rho {\bf{k}} \cdot \Delta {\bf{u}} + J_2\Delta p$$</p>
+<p>$$\Delta p = {\bf{P}}^{\bf{T}} \Delta {\bf{Q}}$$</p>
+<p>$${\bf{P}}^T = \left[ \beta_s, - \varphi {\bf{u}}^T, - \varphi ,\varphi  \right]$$</p>
+<p>$$\rho {\bf{k}} \cdot \Delta {\bf{u}} = {\bf{k}} \cdot \Delta (\rho {\bf{u}}) - {\bf{k}} \cdot {\bf{u}}\Delta \rho $$</p>
+<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><h2 id="隐式推进"><a href="#隐式推进" class="headerlink" title="隐式推进"></a>隐式推进</h2><p>显然在LUSGS隐式推进时，$\Delta Q$作为右端项已经求出，可以通过上下两次扫描求解。<br>Step 1: 计算出右端项（残差）<br>Step 2 进行向上扫描：</p>
+<p>$${\bf{W}}_{IJK}^{\ast} = (R_{IJK}^n +  A_{I - 1}^{+} {\bf{W}}_{I - 1} +  A_{J - 1}^{+} {\bf{W}}_{J - 1} + A_{K - 1}^ + {\bf{W}}_{K - 1})/\alpha $$</p>
+<p>$$\alpha  = \frac{\Omega}{\Delta t} + \omega (\Lambda_I^c + \Lambda_J^c + \Lambda_K^c) + H^n$$<br>Step 3: 进行向下扫描：<br>$${\bf{W}}_{IJK}= (\alpha {\bf{W}}_{IJK}^* - A_{I + 1}^ - {\bf{W}}_{I + 1} - A_{J + 1}^ - {\bf{W}}_{J + 1} - A_{K + 1}^ - {\bf{W}}_{K + 1})/\alpha $$<br>Step 4: 时间推进<br>$${\bf{Q}}_{IJK}^{n + 1} = {\bf{Q}}_{IJK}^n + {\bf{W}}_{IJK}$$</p>
+<h2 id="Roe-格式-通量"><a href="#Roe-格式-通量" class="headerlink" title="Roe 格式 通量"></a>Roe 格式 通量</h2><p>无粘通量<br>$$(\delta_\xi F)_i =F_{i+1/2}-F_{i-1/2}$$<br>对于FDS方法，<br>$$F_{i + 1/2} = \frac{1}{2}\left[ F(Q_L) + F(Q_R) - \left| A \right|(Q_R - Q_L) \right]_{i+1/2}$$<br>其中$\left| A \right|$由Roe平均求得。<br>这里Roe格式的耗散项需要用到$A \Delta Q$公式。</p>
+<h2 id="SW-格式-通量"><a href="#SW-格式-通量" class="headerlink" title="SW 格式 通量"></a>SW 格式 通量</h2><p>对于FVS方法<br>$$F_{i + 1/2} = \left[ F^{+}(Q_L) + F^{-}(Q_R)\right]_{i+1/2}$$<br>$F^{\pm}$可以通过<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>中公式计算，也可以写成FDS形式：</p>
+<p>$$\begin{array}{rcl}<br>F_{i + 1/2} &amp;=&amp; \frac{1}{2}\left[ F(Q_{i+1}) + F(Q_{i}) - A(Q_R - Q_L)\right]_{i+1/2}\\<br>&amp;=&amp;  \frac{1}{2}\left[ F(Q_{i+1}) + F(Q_{i}) - \frac{1}{2}A_{i+1/2}(\Delta Q_R - \Delta Q_L)\right]<br>\end{array}$$<br>其中$\Delta Q_R=Q_R -Q_i,\Delta Q_L=Q_L -Q_i$。$Q_R,Q_L$由$Q$重构得到。</p>
 
       
     </div>
@@ -330,7 +354,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/journal/" rel="tag">#journal</a>
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
+          
+            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
+          
+            <a href="/tags/Math/" rel="tag">#Math</a>
           
         </div>
       
@@ -339,13 +367,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/02/09/frozenSonic/" rel="next" title="声速公式的推导">
+                <i class="fa fa-chevron-left"></i> 声速公式的推导
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/29/eqairMolarFrax/" rel="prev" title="平衡空气组分随温度的变化">
-                平衡空气组分随温度的变化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -373,7 +401,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/01/29/myFirstBlog/" data-title="myFirstBlog" data-url="http://yoursite.com/2017/01/29/myFirstBlog/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/13/AdQ/" data-title="AdQ" data-url="http://yoursite.com/2017/02/13/AdQ/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -478,7 +506,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用"><span class="nav-number">3.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式推进"><span class="nav-number">3.1.</span> <span class="nav-text">隐式推进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roe-格式-通量"><span class="nav-number">3.2.</span> <span class="nav-text">Roe 格式 通量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SW-格式-通量"><span class="nav-number">3.3.</span> <span class="nav-text">SW 格式 通量</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
