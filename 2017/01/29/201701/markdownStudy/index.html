@@ -97,6 +97,7 @@
 
 
 引用
+锚点
 粗体和斜体
 表格
 分割线
@@ -106,7 +107,7 @@ Latex 公式
 
 
 摘要Hexo平台支持Markdown语法。这是一种轻量级的标记语言。这里简单从互联网上整理了一下可能用到的语法，为方便以后查阅。
-标题在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题、五级">
+标题在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Markdown 学习笔记">
 <meta property="og:url" content="http://yoursite.com/2017/01/29/201701/markdownStudy/index.html">
@@ -124,6 +125,7 @@ Latex 公式
 
 
 引用
+锚点
 粗体和斜体
 表格
 分割线
@@ -133,9 +135,9 @@ Latex 公式
 
 
 摘要Hexo平台支持Markdown语法。这是一种轻量级的标记语言。这里简单从互联网上整理了一下可能用到的语法，为方便以后查阅。
-标题在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题、五级">
+标题在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题">
 <meta property="og:image" content="http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg">
-<meta property="og:updated_time" content="2017-01-29T16:28:00.741Z">
+<meta property="og:updated_time" content="2017-02-13T15:56:32.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Markdown 学习笔记">
 <meta name="twitter:description" content="摘要
@@ -151,6 +153,7 @@ Latex 公式
 
 
 引用
+锚点
 粗体和斜体
 表格
 分割线
@@ -160,7 +163,7 @@ Latex 公式
 
 
 摘要Hexo平台支持Markdown语法。这是一种轻量级的标记语言。这里简单从互联网上整理了一下可能用到的语法，为方便以后查阅。
-标题在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题、五级">
+标题在 Markdown 中，你只需要在文本前面加上#即可，同理、你还可以增加二级标题、三级标题、四级标题">
 <meta name="twitter:image" content="http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg">
 
 
@@ -401,6 +404,7 @@ Latex 公式
 </ul>
 </li>
 <li><a href="#引用">引用</a></li>
+<li><a href="#锚点">锚点</a></li>
 <li><a href="#粗体和斜体">粗体和斜体</a></li>
 <li><a href="#表格">表格</a></li>
 <li><a href="#分割线">分割线</a></li>
@@ -440,6 +444,11 @@ Latex 公式
 <blockquote>
 <p>床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</p>
 </blockquote>
+<h1 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h1><p>首先是建立一个跳转的连接：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[说明文字](#jump)</div></pre></td></tr></table></figure></p>
+<p>然后标记要跳转到什么位置即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;span id = &quot;jump&quot;&gt;跳转到这里：&lt;/span&gt;</div></pre></td></tr></table></figure></p>
+<p>效果</p>
+<p><a href="#jump">说明文字</a></p>
+<p><span id="jump">跳转到这里：</span></p>
 <h1 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h1><p>Markdown 的粗体和斜体也非常简单，用两个 包含一段文本就是粗体的语法，用一个 包含一段文本就是斜体的语法。例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">**这是粗体**</div><div class="line">*这是斜体*</div></pre></td></tr></table></figure></p>
 <p>效果图:</p>
 <p><strong>这是粗体</strong><br><em>这是斜体</em></p>
@@ -618,7 +627,7 @@ ds.charset = 'UTF-8';
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -626,7 +635,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -635,7 +644,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -664,7 +673,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标题"><span class="nav-number">2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无序列表"><span class="nav-number">3.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序列表"><span class="nav-number">3.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入链接和图片"><span class="nav-number">4.</span> <span class="nav-text">插入链接和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入连接"><span class="nav-number">4.1.</span> <span class="nav-text">插入连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片"><span class="nav-number">4.2.</span> <span class="nav-text">插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#粗体和斜体"><span class="nav-number">6.</span> <span class="nav-text">粗体和斜体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格"><span class="nav-number">7.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割线"><span class="nav-number">8.</span> <span class="nav-text">分割线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">8.1.</span> <span class="nav-text">*</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注脚"><span class="nav-number">9.</span> <span class="nav-text">注脚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Latex-公式"><span class="nav-number">10.</span> <span class="nav-text">Latex 公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显示代码"><span class="nav-number">11.</span> <span class="nav-text">显示代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#标题"><span class="nav-number">2.</span> <span class="nav-text">标题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#列表"><span class="nav-number">3.</span> <span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无序列表"><span class="nav-number">3.1.</span> <span class="nav-text">无序列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有序列表"><span class="nav-number">3.2.</span> <span class="nav-text">有序列表</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入链接和图片"><span class="nav-number">4.</span> <span class="nav-text">插入链接和图片</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入连接"><span class="nav-number">4.1.</span> <span class="nav-text">插入连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插入图片"><span class="nav-number">4.2.</span> <span class="nav-text">插入图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用"><span class="nav-number">5.</span> <span class="nav-text">引用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#锚点"><span class="nav-number">6.</span> <span class="nav-text">锚点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#粗体和斜体"><span class="nav-number">7.</span> <span class="nav-text">粗体和斜体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表格"><span class="nav-number">8.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分割线"><span class="nav-number">9.</span> <span class="nav-text">分割线</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">9.1.</span> <span class="nav-text">*</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注脚"><span class="nav-number">10.</span> <span class="nav-text">注脚</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Latex-公式"><span class="nav-number">11.</span> <span class="nav-text">Latex 公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#显示代码"><span class="nav-number">12.</span> <span class="nav-text">显示代码</span></a></li></ol></div>
             
           </div>
         </section>

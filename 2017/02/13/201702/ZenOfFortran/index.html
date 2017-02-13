@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD," />
+  <meta name="keywords" content="programming,Fortran," />
 
 
 
@@ -84,23 +84,16 @@
 
 
 
-<meta name="description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
-Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta name="description" content="IntroductionI have been writing Fortran programs for half a year. Most of codes I read and write are based in F77 and simple F90 standard. It’s important to form a programming style. I find a web list">
 <meta property="og:type" content="article">
-<meta property="og:title" content="热力学关系式">
-<meta property="og:url" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/index.html">
+<meta property="og:title" content="Zen Of Fortran">
+<meta property="og:url" content="http://yoursite.com/2017/02/13/201702/ZenOfFortran/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
-Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
-<meta property="og:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/O2.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/N2.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/O.png">
-<meta property="og:updated_time" content="2017-02-13T08:51:51.915Z">
+<meta property="og:description" content="IntroductionI have been writing Fortran programs for half a year. Most of codes I read and write are based in F77 and simple F90 standard. It’s important to form a programming style. I find a web list">
+<meta property="og:updated_time" content="2017-02-13T16:15:22.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="热力学关系式">
-<meta name="twitter:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
-Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
-<meta name="twitter:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/O2.png">
+<meta name="twitter:title" content="Zen Of Fortran">
+<meta name="twitter:description" content="IntroductionI have been writing Fortran programs for half a year. Most of codes I read and write are based in F77 and simple F90 standard. It’s important to form a programming style. I find a web list">
 
 
 
@@ -118,7 +111,7 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
   };
 </script>
 
-  <title> 热力学关系式 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Zen Of Fortran | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +251,7 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
             
             
               
-                热力学关系式
+                Zen Of Fortran
               
             
           </h1>
@@ -270,8 +263,8 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-01T15:16:10+08:00" content="2017-02-01">
-              2017-02-01
+            <time itemprop="dateCreated" datetime="2017-02-13T23:35:05+08:00" content="2017-02-13">
+              2017-02-13
             </time>
           </span>
 
@@ -284,8 +277,8 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CFD/" itemprop="url" rel="index">
-                    <span itemprop="name">CFD</span>
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">programming</span>
                   </a>
                 </span>
 
@@ -300,8 +293,8 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/01/201702/thermodynamicRelations/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/01/201702/thermodynamicRelations/" itemprop="commentsCount"></span>
+                <a href="/2017/02/13/201702/ZenOfFortran/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/13/201702/ZenOfFortran/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -324,26 +317,130 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
       
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。<br>此外也可以用拟合曲线得到组分的定压比热和内能。</p>
-<h1 id="Model-1"><a href="#Model-1" class="headerlink" title="Model 1"></a>Model 1</h1><p>对于单原子分子：<br>$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$<br>对于双原子分子:<br>$$e_s=\frac{5}{2}R_s T^{tr} + e^{v}_s+ e^{el}_s + e^0_s$$</p>
-<p>其中$e^{v}_s, e^{el}_s, e^0_s$分别是组分$s$的振动能、电子能和零点能（生成焓）。</p>
-<p>振动能和电子能的表达式是基于玻尔兹曼分布和双原子分子谐振子假设：<br>$$e^v_s=\frac{R_s \theta^v_s}{exp(\theta^v_s/T^v)-1}$$<br>$$e_{s}^{el}=\dfrac{(g_1/g_0)\exp (-\theta_s^{el}/T^{el})}{1+(g_1/g_0)\exp (-\theta_s^{el}T^{el})}\theta^{el}_1 R_s$$</p>
-<p>双温模型认为$T^v=T^{el}$,并且额外考虑振动能的弛豫过程。</p>
-<h1 id="Model-2"><a href="#Model-2" class="headerlink" title="Model 2"></a>Model 2</h1><p>另外一种热力学模型使用关于温度的多项式拟合函数来确定内能，在$300K\lt T \lt 30000K$的范围内：<br>$$c_{p,s}=R_s \sum_{k=0}^{4} A_{k,s}T^k$$<br>$$e_s=R_s \sum_{k=1}^{5} \frac{A_{k,s}}{k}T^k -R_s T + e^0_s$$</p>
-<p>说明:</p>
-<ol>
-<li>在单温度模型下，即仅考虑化学非平衡时，可以令Model 1中所有的温度都为一个温度。Model 2中的温度也就是这个温度。</li>
-<li>对于热化学非平衡流，我暂时不清楚Model 2中的温度是什么温度，其计算的内能是否包含振动能电子能。我暂时假定Model 2仅仅利用平动旋转温度来计算包含了振动能和电子能的热容和能量。</li>
-<li>电子能也有许多能级，上边公式仅仅考虑了一个能级。编程初期，我干脆忽略电子能好了。</li>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>I have been writing Fortran programs for half a year. Most of codes I read and write are based in F77 and simple F90 standard. It’s important to form a programming style. I find a <a href="https://github.com/szaghi/zen-of-fortran" target="_blank" rel="external">web</a> listing guide line for Fortran poor people. I paste the Zen of Fortran here and write down some beautiful coding style for futher use.</p>
+<h1 id="Zen-of-Fortran"><a href="#Zen-of-Fortran" class="headerlink" title="Zen of Fortran"></a>Zen of Fortran</h1><ol>
+<li><a href="#standard">standard</a> compliance is better than <em>custom or extended</em>;</li>
+<li><a href="#beautiful">beautiful</a> is better than <em>ugly</em>;<ol>
+<li><a href="#readability">readability</a> counts;</li>
+<li><a href="#explicit">explicit</a> is better than <em>impl.</em>;</li>
+<li><a href="#simple">simple</a> is better than <em>CoMpleX</em>;</li>
+<li><a href="#simple">CoMpleX</a> is better than <em>c0mp1|c@ted</em>;</li>
+<li><a href="#flat">flat</a> is better than <em>nested</em>;</li>
+<li><a href="#sparse">s p a r s e</a> is better than <em>dense</em>;</li>
 </ol>
-<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>氧气<br><img src="/2017/02/01/201702/thermodynamicRelations/O2.png" alt="O2" title="O2:internal energy vs T"><br>氮气<br><img src="/2017/02/01/201702/thermodynamicRelations/N2.png" alt="N2" title="N2:internal energy vs T"><br>氧原子<br><img src="/2017/02/01/201702/thermodynamicRelations/O.png" alt="O" title="O:internal energy vs T"></p>
-<p>说明：</p>
-<ol>
-<li>由于计算中Model 1 忽略了电子能，造成高温时($T&gt;10000K$)时Model 1结果明显小于拟合结果。</li>
-<li>$O_2$在$6000K$时有间断，可能是数据抄错了？todo：核对叶老师程序中的数据。</li>
-<li>如果考虑多级电子能，那么内能和比热容的计算过程略繁杂。</li>
+</li>
+<li><a href="#fast">fast</a> is better than <em>slow</em>:<ol>
+<li><a href="#vector">vector</a> is better than <em>loop</em>;</li>
+<li><a href="#matrix">matrix</a> is better than <em>vector</em>;</li>
+<li><a href="#strided">strided</a> is better than <em>scattered</em>;</li>
+<li><a href="#contiguous">contiguous</a> is better than <em>strided</em>;</li>
+<li><a href="#broadcasting">broadcasting</a> is a great idea, use where possible;</li>
 </ol>
-<p>所以在编程中，为了方便，我先暂时采用Model 1，忽略电子能。等将来程序跑起来了，再使用Model 2 或者给Model 1 添加电子能。</p>
+</li>
+<li><a href="#fast">slow</a> is better than <em>unmaintainable</em>;</li>
+<li>make it look like the <a href="#math">math</a>;</li>
+<li><a href="#special">special</a> cases aren’t special enough to break rules…</li>
+<li>although <a href="#special">practicality</a> beats <em>purity</em>;</li>
+<li><a href="#pure">pure</a> procedure is better than <em>impure</em>…</li>
+<li>although <a href="#pure">practicality</a> beats <em>purity</em> again;</li>
+<li><a href="#private">private</a> is better than <em>public</em>;</li>
+<li><a href="#errors">errors</a> should never pass <em>silently</em>…</li>
+<li>unless <a href="#errors">errors</a> are explicitly <em>silenced</em>;</li>
+<li>to be continued</li>
+</ol>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>This list is inspired by many sources:</p>
+<p><a name="zen-of-python"></a>[1] <a href="https://github.com/ewjoachim/zen-of-python" target="_blank" rel="external">zen of python</a>.</p>
+<p><a name="std-03"></a>[2] <a href="http://www.j3-fortran.org/doc/year/04/04-007.pdf" target="_blank" rel="external">Fortran 2003 standard</a>.</p>
+<p><a name="modern-fortran-book"></a>[3] <a href="http://www.amazon.com/Modern-Fortran-Norman-S-Clerman/dp/052173052X" target="_blank" rel="external">Modern Fortran: Style and Usage</a>, a book by <em>Norman S. Clerman and Walter Spector</em>.</p>
+<p><a name="fortran-styles"></a>[4] <a href="http://www.fortran.com/Fortran_Style.pdf" target="_blank" rel="external">The Fortran Company styles</a>.</p>
+<p><a name="fortran-best-practices"></a>[5] <a href="http://www.fortran90.org/src/best-practices.html" target="_blank" rel="external">Fortran best practices</a>.</p>
+<p><a name="eu-f90-standards"></a>[6] <a href="http://research.metoffice.gov.uk/research/nwp/numerical/fortran90/f90_standards.html" target="_blank" rel="external">European Standards For Writing and Documenting Exchangeable Fortran 90 Code</a>.</p>
+<p><a name="cam-standard"></a>[7] <a href="http://www.cesm.ucar.edu/working_groups/Software/dev_guide/dev_guide/node7.html" target="_blank" rel="external">Fortran Coding Standard for the Community Atmospheric Model</a>.</p>
+<p>Go to <a href="#top">TOP</a></p>
+<h1 id="Guideline"><a href="#Guideline" class="headerlink" title="Guideline"></a>Guideline</h1><h2 id="readability"><a href="#readability" class="headerlink" title=" readability"></a><a name="readability"></a> readability</h2><h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><p>Some software (eg. Doxygen) can generate a documentation of codes automatically. So I paste some template here for future use.<br>Prologue for Functions and Subroutines</p>
+<pre><code>!-----------------------------------------------------------------------
+! BOP
+!
+! !ROUTINE:  &lt;Function name&gt;  (!IROUTINE if the function is in a module)
+!
+! !INTERFACE:  
+            function &lt;name&gt; (&lt;arguments&gt;)          
+
+! !USES:
+            use &lt;module&gt;
+
+! !RETURN VALUE:
+            implicit none
+            &lt;type&gt; :: &lt;name&gt;               ! &lt;Return value description&gt;
+
+! !PARAMETERS:   
+            &lt;type, intent&gt; :: &lt;parameter&gt;  ! &lt;Parameter description&gt;              
+
+! !DESCRIPTION:
+! &lt;Describe the function of the routine and algorithm(s) used in
+! the routine.  Include any applicable external references.&gt;
+!
+! !REVISION HISTORY:
+! YY.MM.DD  &lt;Name&gt; &lt;Description of activity&gt;
+!
+! EOP
+!-----------------------------------------------------------------------
+! $Id: code_conv_cam.tex,v 1.3 2001/06/19 21:44:14 kauff Exp $
+! $Author: kauff $
+!-----------------------------------------------------------------------
+</code></pre><p>Prologue for a Module</p>
+<pre><code>!-----------------------------------------------------------------------
+! BOP
+!
+! !MODULE:  &lt;Module name&gt;
+!
+! !USES:
+           use &lt;module&gt;
+! !PUBLIC TYPES:
+            implicit none
+            [save]
+
+            &lt;type declaration&gt;
+
+! !PUBLIC MEMBER FUNCTIONS:
+!           &lt;function&gt;                     ! Description      
+!
+! !PUBLIC DATA MEMBERS:
+            &lt;type&gt; :: &lt;variable&gt;           ! Variable description
+
+! !DESCRIPTION:
+! &lt;Describe the function of the module.&gt;
+!
+! !REVISION HISTORY:
+! YY.MM.DD  &lt;Name&gt; &lt;Description of activity&gt;
+!
+! EOP
+!-----------------------------------------------------------------------
+! $Id: code_conv_cam.tex,v 1.3 2001/06/19 21:44:14 kauff Exp $
+! $Author: kauff $
+!-----------------------------------------------------------------------
+</code></pre><p>Prologue for a Header File</p>
+<pre><code>!-----------------------------------------------------------------------
+! BOP
+!
+! !INCLUDE:  &lt;Header file name&gt;
+!
+! !DEFINED PARAMETERS:
+            &lt;type&gt; :: &lt;parameter&gt;          ! Parameter description
+
+! !DESCRIPTION:
+! &lt;Describe the contents of the header file.&gt;
+!
+! !REVISION HISTORY:
+! YY.MM.DD  &lt;Name&gt; &lt;Description of activity&gt;
+!
+! EOP
+!-----------------------------------------------------------------------
+! $Id: code_conv_cam.tex,v 1.3 2001/06/19 21:44:14 kauff Exp $
+! $Author: kauff $
+!-----------------------------------------------------------------------
+</code></pre><h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><p>In the future, I decide to use C++ instead of Fortran. But there is a lot to do if I want to write beautiful codes.</p>
+<p>More to be writen.</p>
 
       
     </div>
@@ -365,7 +462,9 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
       
         <div class="post-tags">
           
-            <a href="/tags/CFD/" rel="tag">#CFD</a>
+            <a href="/tags/programming/" rel="tag">#programming</a>
+          
+            <a href="/tags/Fortran/" rel="tag">#Fortran</a>
           
         </div>
       
@@ -374,17 +473,13 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/31/201701/GoverningEquations/" rel="next" title="热化学非平衡流动控制方程">
-                <i class="fa fa-chevron-left"></i> 热化学非平衡流动控制方程
+              <a href="/2017/02/13/201702/writeInEnglish/" rel="next" title="Write Blog In English">
+                <i class="fa fa-chevron-left"></i> Write Blog In English
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/07/201702/derivative2primitive-var/" rel="prev" title="非平衡偏导数">
-                非平衡偏导数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -412,7 +507,7 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/01/201702/thermodynamicRelations/" data-title="热力学关系式" data-url="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/13/201702/ZenOfFortran/" data-title="Zen Of Fortran" data-url="http://yoursite.com/2017/02/13/201702/ZenOfFortran/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -517,7 +612,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-1"><span class="nav-number">2.</span> <span class="nav-text">Model 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-2"><span class="nav-number">3.</span> <span class="nav-text">Model 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">4.</span> <span class="nav-text">对比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zen-of-Fortran"><span class="nav-number">2.</span> <span class="nav-text">Zen of Fortran</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">2.0.1.</span> <span class="nav-text">References</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Guideline"><span class="nav-number">3.</span> <span class="nav-text">Guideline</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#readability"><span class="nav-number">3.1.</span> <span class="nav-text"> readability</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Template"><span class="nav-number">3.1.1.</span> <span class="nav-text">Template</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More"><span class="nav-number">4.</span> <span class="nav-text">More</span></a></li></ol></div>
             
           </div>
         </section>
