@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="journal," />
+  <meta name="keywords" content="CFD,Hypersonic," />
 
 
 
@@ -84,22 +84,40 @@
 
 
 
-<meta name="description" content="春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人">
+<meta name="description" content="摘要
+控制方程
+说明
+
+
+摘要这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。
+控制方程$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$
+其中
+$$Q = \left[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="myFirstBlog">
-<meta property="og:url" content="http://yoursite.com/2017/01/29/201702/myFirstBlog/index.html">
+<meta property="og:title" content="热化学非平衡流动控制方程">
+<meta property="og:url" content="http://yoursite.com/2017/01/31/201701/GoverningEquations/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人">
-<meta property="og:updated_time" content="2017-01-29T16:21:38.069Z">
+<meta property="og:description" content="摘要
+控制方程
+说明
+
+
+摘要这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。
+控制方程$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$
+其中
+$$Q = \left[">
+<meta property="og:updated_time" content="2017-02-01T02:54:08.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="myFirstBlog">
-<meta name="twitter:description" content="春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人">
+<meta name="twitter:title" content="热化学非平衡流动控制方程">
+<meta name="twitter:description" content="摘要
+控制方程
+说明
+
+
+摘要这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。
+控制方程$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$
+其中
+$$Q = \left[">
 
 
 
@@ -117,7 +135,7 @@
   };
 </script>
 
-  <title> myFirstBlog | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 热化学非平衡流动控制方程 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -257,7 +275,7 @@
             
             
               
-                myFirstBlog
+                热化学非平衡流动控制方程
               
             
           </h1>
@@ -269,19 +287,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:22:41+08:00" content="2017-01-29">
-              2017-01-29
+            <time itemprop="dateCreated" datetime="2017-01-31T23:02:16+08:00" content="2017-01-31">
+              2017-01-31
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/29/201702/myFirstBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/29/201702/myFirstBlog/" itemprop="commentsCount"></span>
+                <a href="/2017/01/31/201701/GoverningEquations/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/31/201701/GoverningEquations/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -304,11 +341,29 @@
       
 
       
-        <p>春节过后就是新的一年了。<br>新年最该做得事情不是制定计划，而是应该回顾和展望。<br>2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。</p>
-<p>这一年我正式半只脚踏入CFD领域。结束了过去多年来对于连队教官/军报记者/机务人员甚至上前线挡子弹等种种未来工作幻想。不再迷茫满怀斗志。</p>
-<p>然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人并不关心自己死活，认清自己朋友很少，并且以后会越来越少。</p>
-<p>但是，我要努力。隔壁老师就是我的动力。我不能心急。不断重复别人的工作才可能有长进。</p>
-<p>2016是日复一日的生活。读了很多书，学了很多软件，写了很多行代码，但现在脑海中什么都没有留下。我不能这样年复一年。年终的会议上，叶老师讲到他总结记录每日的工作。想到很多人也写自己的公众号，写自己的博客，我就萌生这样的想法，把自己学习中总结的知识，遇到的困难，解决的问题记录下来。以供自己参考。</p>
+        <!-- toc --><!-- tocstop -->
+<ul>
+<li><a href="#摘要">摘要</a></li>
+<li><a href="#控制方程">控制方程</a></li>
+<li><a href="#说明">说明</a></li>
+</ul>
+<!-- tocstop -->
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。</p>
+<h1 id="控制方程"><a href="#控制方程" class="headerlink" title="控制方程"></a>控制方程</h1><p>$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$</p>
+<p>其中</p>
+<p>$$Q = \left[ \begin{array}{c}<br>{\rho _s}\\<br>\rho {u_j}\\<br>\rho {e^v}\\<br>\rho {e^e}<br>\end{array} \right]$$</p>
+<p>$$F_k^c = \left[ \begin{array}{c}<br>{\rho _s}{u_k}\\<br>\rho {u_j}{u_k} + p{\delta _{jk}}\\<br>\rho {u_k}{e^v}\\<br>\rho {u_k}h<br>\end{array} \right]$$</p>
+<p>$$F_k^d = \left[ \begin{array}{c}<br>\rho {D_s}\frac{\partial {Y_s}}{\partial {x_k}}\\<br>\tau _{kj}\ <br>\rho \sum_{s = 1}^{ns} {D_s}h_s^v\frac{\partial{Y_s}}{\partial {x_k}}-q_k^v \\<br>{u_j}{\tau _{kj}}-{q_k}<br>\end{array} \right] $$</p>
+<p>$$S = \left[ \begin{array}{c}<br>{\omega _s}\\<br>0\\<br>{\omega _v}\\<br>0<br>\end{array} \right]$$</p>
+<p>其中$Q$为场变量，$F_k^c(k = 1,2,3)$ 为无粘对流通量，$F_k^d(k = 1,2,3)$ 为粘性扩散通量；$S$为化学反应源项； $\rho_s (s=1,…,ns)$ 为组分分密度；$\rho=\sum_{s=1}^{ns} {\rho _s}$为混合物密度， $Y_s=\frac{\rho_s}{\rho}(s=1,… ,ns)$为组分质量分数， $D_s$为其扩散系数，$u_k$为速度的三分量；$p$ 为压力，$e^e$ 为单位质量混合气体的总能量，$e^v$ 为单位质量混合气体的振动能。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li><p>许多文章中使用总密度守恒方程加(ns-1)个组分方程的形式。理论上两种形式是等价的，并且其Jacobian矩阵也可以通过相似变换互相得到。但由于我在推导非平衡偏导数时遇到一些困难（关于哪些变量做自变量的问题），所以我暂时选用了ns个组分方程的形式。</p>
+</li>
+<li><p>由于计算机截断误差的存在，许多作者求解过程中事实上是求解了总密度方程和ns个组分方程，然后将误差记在氮气组分中（因为其质量分数最大）或者将误差平摊。</p>
+</li>
+<li><p>在编程中，我发现将组分方程和振动能方程放在最下边比较好：一是比较容易扩展，可以扩展多组分、多温度模型；二是在隐式推进时比较方便操作（减小源项Jacobian矩阵的规模）。</p>
+</li>
+</ol>
 
       
     </div>
@@ -330,7 +385,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/journal/" rel="tag">#journal</a>
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
+          
+            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
           
         </div>
       
@@ -339,12 +396,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/01/29/201701/markdownStudy/" rel="next" title="Markdown 学习笔记">
+                <i class="fa fa-chevron-left"></i> Markdown 学习笔记
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/29/201702/eqairMolarFrax/" rel="prev" title="平衡空气组分随温度的变化">
-                平衡空气组分随温度的变化 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/01/201702/thermodynamicRelations/" rel="prev" title="热力学关系式">
+                热力学关系式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -373,7 +434,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/01/29/201702/myFirstBlog/" data-title="myFirstBlog" data-url="http://yoursite.com/2017/01/29/201702/myFirstBlog/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/01/31/201701/GoverningEquations/" data-title="热化学非平衡流动控制方程" data-url="http://yoursite.com/2017/01/31/201701/GoverningEquations/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -478,7 +539,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制方程"><span class="nav-number">2.</span> <span class="nav-text">控制方程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
           </div>
         </section>
