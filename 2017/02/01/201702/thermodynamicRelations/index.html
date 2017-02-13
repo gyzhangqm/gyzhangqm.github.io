@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content=",," />
+  <meta name="keywords" content="CFD," />
 
 
 
@@ -84,46 +84,23 @@
 
 
 
-<meta name="description" content="目录
-
-目录
-1. Introduction
-1.1 Complexity theory introduction
-
-
-
-
-1. Introduction1.1 Complexity theory introduction大O定义如果$\exists c&amp;gt;0,n_0\in Z^+$，使$\forall n\ge n_0,0\leq f(n)\leq cg(n)$，那么$$f(n)=\math">
-<meta name="keywords">
-<meta property="og:type" content="website">
-<meta property="og:title" content="algorithm 学习笔记">
-<meta property="og:url" content="http://yoursite.com/python_algorithmic/algorithmic-problems-in-python.html">
+<meta name="description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
+Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta property="og:type" content="article">
+<meta property="og:title" content="热力学关系式">
+<meta property="og:url" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="目录
-
-目录
-1. Introduction
-1.1 Complexity theory introduction
-
-
-
-
-1. Introduction1.1 Complexity theory introduction大O定义如果$\exists c&amp;gt;0,n_0\in Z^+$，使$\forall n\ge n_0,0\leq f(n)\leq cg(n)$，那么$$f(n)=\math">
-<meta property="og:image" content="http://yoursite.com/python_algorithmic/assets/bigO.PNG">
-<meta property="og:updated_time" content="2017-01-24T15:46:17.717Z">
+<meta property="og:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
+Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta property="og:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/O2.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/N2.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/O.png">
+<meta property="og:updated_time" content="2017-02-01T12:34:38.579Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="algorithm 学习笔记">
-<meta name="twitter:description" content="目录
-
-目录
-1. Introduction
-1.1 Complexity theory introduction
-
-
-
-
-1. Introduction1.1 Complexity theory introduction大O定义如果$\exists c&amp;gt;0,n_0\in Z^+$，使$\forall n\ge n_0,0\leq f(n)\leq cg(n)$，那么$$f(n)=\math">
-<meta name="twitter:image" content="http://yoursite.com/python_algorithmic/assets/bigO.PNG">
+<meta name="twitter:title" content="热力学关系式">
+<meta name="twitter:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
+Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/O2.png">
 
 
 
@@ -141,13 +118,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    algorithm 学习笔记 | CFD学习
-  
-</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 热力学关系式 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -168,7 +139,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,19 +239,148 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- toc -->
-<ul>
-<li><a href="#目录">目录</a></li>
-<li><a href="#1-introduction">1. Introduction</a><ul>
-<li><a href="#11-complexity-theory-introduction">1.1 Complexity theory introduction</a></li>
-</ul>
-</li>
-</ul>
-<!-- tocstop -->
-<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h1><h2 id="1-1-Complexity-theory-introduction"><a href="#1-1-Complexity-theory-introduction" class="headerlink" title="1.1 Complexity theory introduction"></a>1.1 Complexity theory introduction</h2><p><strong>大O定义</strong><br>如果$\exists c&gt;0,n_0\in Z^+$，使$\forall n\ge n_0,0\leq f(n)\leq cg(n)$，那么<br>$$f(n)=\mathcal{O}(g(n))$$<br><strong>常见关系</strong><br><img src="/python_algorithmic/assets/bigO.PNG" alt="bigO"></p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                热力学关系式
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-01T15:16:10+08:00" content="2017-02-01">
+              2017-02-01
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/01/201702/thermodynamicRelations/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/01/201702/thermodynamicRelations/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。<br>此外也可以用拟合曲线得到组分的定压比热和内能。</p>
+<h1 id="Model-1"><a href="#Model-1" class="headerlink" title="Model 1"></a>Model 1</h1><p>对于单原子分子：<br>$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$<br>对于双原子分子:<br>$$e_s=\frac{5}{2}R_s T^{tr} + e^{v}_s+ e^{el}_s + e^0_s$$</p>
+<p>其中$e^{v}_s, e^{el}_s, e^0_s$分别是组分$s$的振动能、电子能和零点能（生成焓）。</p>
+<p>振动能和电子能的表达式是基于玻尔兹曼分布和双原子分子谐振子假设：<br>$$e^v_s=\frac{R_s \theta^v_s}{exp(\theta^v_s/T^v)-1}$$<br>$$e_{s}^{el}=\dfrac{(g_1/g_0)\exp (-\theta_s^{el}/T^{el})}{1+(g_1/g_0)\exp (-\theta_s^{el}T^{el})}\theta^{el}_1 R_s$$</p>
+<p>双温模型认为$T^v=T^{el}$,并且额外考虑振动能的弛豫过程。</p>
+<h1 id="Model-2"><a href="#Model-2" class="headerlink" title="Model 2"></a>Model 2</h1><p>另外一种热力学模型使用关于温度的多项式拟合函数来确定内能，在$300K\lt T \lt 30000K$的范围内：<br>$$c_{p,s}=R_s \sum_{k=0}^{4} A_{k,s}T^k$$<br>$$e_s=R_s \sum_{k=1}^{5} \frac{A_{k,s}}{k}T^k -R_s T + e^0_s$$</p>
+<p>说明:</p>
+<ol>
+<li>在单温度模型下，即仅考虑化学非平衡时，可以令Model 1中所有的温度都为一个温度。Model 2中的温度也就是这个温度。</li>
+<li>对于热化学非平衡流，我暂时不清楚Model 2中的温度是什么温度，其计算的内能是否包含振动能电子能。我暂时假定Model 2仅仅利用平动旋转温度来计算包含了振动能和电子能的热容和能量。</li>
+<li>电子能也有许多能级，上边公式仅仅考虑了一个能级。编程初期，我干脆忽略电子能好了。</li>
+</ol>
+<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>氧气<br><img src="/2017/02/01/201702/thermodynamicRelations/O2.png" alt="O2" title="O2:internal energy vs T"><br>氮气<br><img src="/2017/02/01/201702/thermodynamicRelations/N2.png" alt="N2" title="N2:internal energy vs T"><br>氧原子<br><img src="/2017/02/01/201702/thermodynamicRelations/O.png" alt="O" title="O:internal energy vs T"></p>
+<p>说明：</p>
+<ol>
+<li>由于计算中Model 1 忽略了电子能，造成高温时($T&gt;10000K$)时Model 1结果明显小于拟合结果。</li>
+<li>$O_2$在$6000K$时有间断，可能是数据抄错了？todo：核对叶老师程序中的数据。</li>
+<li>如果考虑多级电子能，那么内能和比热容的计算过程略繁杂。</li>
+</ol>
+<p>所以在编程中，为了方便，我先暂时采用Model 1，忽略电子能。等将来程序跑起来了，再使用Model 2 或者给Model 1 添加电子能。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/31/201702/GoverningEquations/" rel="next" title="热化学非平衡流动控制方程">
+                <i class="fa fa-chevron-left"></i> 热化学非平衡流动控制方程
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/07/201702/derivative2primitive-var/" rel="prev" title="非平衡偏导数">
+                非平衡偏导数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -293,7 +393,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="python_algorithmic/algorithmic-problems-in-python.html" data-title="algorithm 学习笔记" data-url="http://yoursite.com/python_algorithmic/algorithmic-problems-in-python.html" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/01/201702/thermodynamicRelations/" data-title="热力学关系式" data-url="http://yoursite.com/2017/02/01/201702/thermodynamicRelations/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -331,8 +431,17 @@ ds.charset = 'UTF-8';
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -382,6 +491,17 @@ ds.charset = 'UTF-8';
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-1"><span class="nav-number">2.</span> <span class="nav-text">Model 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-2"><span class="nav-number">3.</span> <span class="nav-text">Model 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">4.</span> <span class="nav-text">对比</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -478,6 +598,10 @@ ds.charset = 'UTF-8';
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

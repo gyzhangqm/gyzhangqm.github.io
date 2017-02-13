@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD,Hypersonic,Math," />
+  <meta name="keywords" content="CFD,Hypersonic," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
+<meta name="description" content="摘要在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。
+推导利用状态方程$$p = \sum_{s = 1}^{ns">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系数矩阵和通量分裂">
-<meta property="og:url" content="http://yoursite.com/2017/02/08/invisidFluxJacobian/index.html">
+<meta property="og:title" content="非平衡偏导数">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/201702/derivative2primitive-var/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
-<meta property="og:updated_time" content="2017-02-12T16:15:36.632Z">
+<meta property="og:description" content="摘要在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。
+推导利用状态方程$$p = \sum_{s = 1}^{ns">
+<meta property="og:updated_time" content="2017-02-07T17:52:08.262Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系数矩阵和通量分裂">
-<meta name="twitter:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
+<meta name="twitter:title" content="非平衡偏导数">
+<meta name="twitter:description" content="摘要在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。
+推导利用状态方程$$p = \sum_{s = 1}^{ns">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> 系数矩阵和通量分裂 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 非平衡偏导数 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +254,7 @@
             
             
               
-                系数矩阵和通量分裂
+                非平衡偏导数
               
             
           </h1>
@@ -263,8 +266,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-08T22:05:27+08:00" content="2017-02-08">
-              2017-02-08
+            <time itemprop="dateCreated" datetime="2017-02-07T23:13:48+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
@@ -293,8 +296,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/08/invisidFluxJacobian/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/invisidFluxJacobian/" itemprop="commentsCount"></span>
+                <a href="/2017/02/07/201702/derivative2primitive-var/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/07/201702/derivative2primitive-var/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,35 +320,23 @@
       
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。<br>这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\Lambda=\Lambda^+ +\Lambda^-$，最后乘以左右特征矩阵得到迎风分裂的系数矩阵$A^{\pm}=R \Lambda^{\pm} L$。迎风分裂的系数矩阵乘以守恒变量就是SW迎风通量$F^{\pm}=A^{\pm}Q$。</p>
-<p>但是推导起来还是复杂的很。思路是这样子的，$A$很容易直接逐项求无粘通量$F$对守恒变量$Q$的偏导数得到，但是该矩阵比较复杂，不容易对角化。曲线救国的方案是求无粘通量$F$对原始变量$W$的偏导数矩阵$M=\frac{\partial F}{\partial W}$,$M$比较容易对角化，而且$M$和$A$是相似的。通过守恒变量$Q$对原始变量$W$的偏导数矩阵联系。求得$M$的对角化后很容易进而求解$A$的对角化（实在是太烦了）。</p>
-<p>这里我省去了繁杂的推导过程，直接给出系数矩阵$A$、左右特征矩阵$R$和$L$、迎风分裂的系数矩阵$A^{\pm}$以及SW迎风通量$F^{\pm}$。</p>
-<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><h2 id="三维Euler方程"><a href="#三维Euler方程" class="headerlink" title="三维Euler方程"></a>三维Euler方程</h2><p>设无粘三维Euler方程为</p>
-<p>$$\frac{\partial Q}{\partial t} + \frac{\partial \tilde{F}_k}{\partial x_k} =0，\quad x_k=x,y,z$$<br>曲线坐标系中为<br>$$\frac{\partial JQ}{\partial t} + \frac{\partial J F_k}{\partial x^k} =0,\quad x^k=\xi,\eta,\zeta$$<br>其中</p>
-<p>$$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {\bf{u}}\\<br>\rho {e^v}\\<br>\rho {e^e}<br>\end{array} \right],<br>F_k = \left[ \begin{array}{c}<br>\mathbf{\rho}_\bf{s}\theta \\<br>\rho \theta \bf{u} + \mathcal{p} \mathbf{k}\\<br>\rho \theta {e^v}\\<br>\rho \theta H<br>\end{array} \right]$$</p>
-<p>其中$\mathbf{k}$已经归一化，$\theta=\mathbf{k} \cdot \mathbf{u}$</p>
-<h2 id="系数矩阵"><a href="#系数矩阵" class="headerlink" title="系数矩阵"></a>系数矩阵</h2><p>系数矩阵$A_k=\frac{F_k}{\partial Q}$具体形式为：</p>
-<p>$$A_k = \left( \begin{array}{cccc}<br>\theta (\delta_{sj} - Y_s) &amp; {Y_s}{\bf{k}}^T &amp; 0 &amp; 0\\<br>k_x \beta_s - \theta {\bf{u}} &amp; \theta {\bf{I}} - \varphi {\bf{k}}{\bf{u}}^T + {\bf{u}}  {\bf{k}}^T &amp; - \varphi {\bf{k}} &amp; \varphi {\bf{k}}\\<br>{- {e^v}\theta} &amp; e^v {\bf{k}}^T &amp; \theta &amp; 0\\<br>(\beta_s - H)\theta &amp;H {\bf{k}}^T - \varphi \theta {\bf{u}}^T &amp; -\varphi \theta &amp; (\varphi+1)\theta<br>\end{array} \right)$$</p>
-<p>其中<br>$\varphi  = \frac{\partial p}{\partial (\rho e^e)} =\frac{R_u}{c_V^{tr}\bar M}$<br>${\beta_s} = \frac{\partial p}{\partial {\rho_s}} = \frac{R_u}{M_s}T - \varphi  c_{V,s}^{tr}T + \varphi \left[ \frac{1}{2}\left( u^2 + v^2+ w^2 \right) - e_s^0 \right]$</p>
-<h2 id="系数矩阵的对角化"><a href="#系数矩阵的对角化" class="headerlink" title="系数矩阵的对角化"></a>系数矩阵的对角化</h2><p>$$A=R \Lambda L$$</p>
-<p>$$\Lambda  = diag \left[{\bf{\theta}_s} ,\theta ,\theta ,\theta  + c,\theta ,\theta  - c\right]$$</p>
-<p>找到与${\bf{k}} = [k_x,k_y,k_z]^T$垂直的的两个向量${\bf{b}}_i = [b_1,b_2,b_2]^T$与其协变矢量${\bf{b}}^j = [b^1,b^2,b^2]^T$，使  ${\bf{k}}\cdot {\bf{b}}_i = 0,{\bf{b}}_i\cdot {\bf{b}}^j=\delta_i^j$,那么</p>
-<p>$$R = \left( \begin{array}<br>\delta_{sp} &amp; 0 &amp; 0 &amp; Y_s &amp; 0 &amp; Y_s\\<br>{\bf{u}} &amp; c{\bf{b}}_{\bf{i}}^{(1)} &amp; c{\bf{b}}_{\bf{i}}^{(2)} &amp; {\bf{u}} + c{\bf{k}} &amp; 0 &amp; {\bf{u}} - c{\bf{k}}\\<br>0 &amp; 0 &amp; 0 &amp; e^v &amp; 1 &amp; e^v\\<br>{\bf{u}} \cdot {\bf{u}} - \beta_p/ \varphi &amp; c(\bf{u} \cdot \bf{b}_{i}^{(1)}) &amp; c(\bf{u} \cdot \bf{b}_i^{(2)}) &amp; H + \theta c &amp; 1 &amp; H - \theta c<br>\end{array} \right)$$</p>
-<p>$$L_k = \frac{1}{c^2}\left( {\begin{array}{cccc}<br>(c^2 \delta_{qj} - Y_q \beta_j) &amp; \varphi {\bf{u}}^T Y_q &amp; \varphi Y_q &amp;  -\varphi Y_q\\<br>-c({\bf{b}}^{j(1)} \cdot {\bf{u}}) &amp; c{\bf{b}}^{j(1)T} &amp; 0 &amp; 0\\<br>-c({\bf{b}}^{j(2)} \cdot {\bf{u}}) &amp; c{\bf{b}}^{j(2)T} &amp; 0 &amp; 0\\<br>\frac{\beta_j - \theta c}{2} &amp; \frac{c {\bf{k}^T} - \varphi {\bf{u}}^T}{2} &amp; -\frac{\varphi }{2} &amp; \frac{\varphi}{2}\\<br>-e^v \beta_j &amp; \varphi {\bf{u}} e^v &amp; c^2 + \varphi e^v &amp; -\varphi e^v\\<br>\frac{\beta_j + \theta c}{2} &amp;-\frac{c {\bf{k}^T} + \varphi {\bf{u}}^T}{2} &amp; -\frac{\varphi }{2} &amp; \frac{\varphi}{2}<br>\end{array}} \right)$$</p>
-<h2 id="系数矩阵的分裂"><a href="#系数矩阵的分裂" class="headerlink" title="系数矩阵的分裂"></a>系数矩阵的分裂</h2><p>按照特征值$\lambda$的正负，可以将系数矩阵分裂为<br>$$A^{\pm}= A^+ +A^-$$<br>用$\tilde{A}$代表$A^+$或者$A^-$，那么<br>$$\tilde{A}= R\tilde{\Lambda}L$$<br>将$\tilde{A}$写成如下形式：<br>$$\tilde{A}=[\tilde{A}_{1j},\tilde{\bf{A}}_2,\tilde{A}_3,\tilde{A}_4]$$</p>
-<p>$$\tilde A_{1,j} = \left[ \begin{array}{c}<br>{\tilde \lambda_1} {\delta_{sj}} + {Y_s}({J_1}{\beta_j} - {J_2}\theta )\\<br>(\beta_j {\bf{u}} -\theta c^2+{\bf{k}}) {J_1}+ (\beta_j \bf{k}- \theta\bf{u}) J_2 \\<br>{e^v}({J_1}{\beta_j} - {J_2}\theta )\\<br>\theta ({J_2}{\beta_s} - {J_1}\theta {c^2}) + H({J_1}{\beta_j} - {J_2}\theta )<br>\end{array} \right]$$</p>
-<p>$$\tilde{\bf{A}}_2 = \left[ \begin{array}{c}<br>Y_s ({\bf{k}}^T J_2 - \varphi {\bf{u}}^T J_1)\\<br>{\bf{u}} ({\bf{k}}^T J_2 - \varphi {\bf{u}}^T J_1) + {\tilde \lambda }_1 {\bf{I}} + {\bf{k}} ({\bf{k}}^T J_1 c^2 - \varphi {\bf{u}}^T J_2)\\<br>e^v ({\bf{k}}^T J_2 - \varphi {\bf{u}}^T J_1)\\<br>\theta ({\bf{k}}^T J_1 c^2 - \varphi {\bf{u}}^T J_2) + H( {\bf{k}}^T J_2 - \varphi  {\bf{u}}^T J_1)<br>\end{array} \right]$$</p>
-<p>$$\tilde{A}_3 =  - \left[ \begin{array}{c}<br>Y_s\varphi J_1\\<br>{\bf{u}} \varphi J_1 + {\bf{k}} \varphi J_2\\<br>e^v \varphi J_1 - {\tilde \lambda }_1\\<br>\theta \varphi J_2 + H \varphi {J_1}<br>\end{array} \right]$$</p>
-<p>$$\tilde{A}_4 = \left[ \begin{array}{c}<br>{Y_s} \varphi {J_1}\\<br>{\bf{u}} \varphi {J_1} + {\bf{k}} \varphi {J_2}\\<br>{e^v} \varphi {J_1}\\<br>{\tilde \lambda }_1 + \theta \varphi {J_2} + H\varphi {J_1}<br>\end{array} \right]$$</p>
-<p>其中$J_1=\frac{\tilde\lambda_2+\tilde\lambda_3-2\tilde\lambda_1}{2c^2},J_2=\frac{\tilde\lambda_2-\tilde\lambda_3}{2c}$</p>
-<h2 id="正负通量分裂"><a href="#正负通量分裂" class="headerlink" title="正负通量分裂"></a>正负通量分裂</h2><p>$$F^{\pm}=A^{\pm}Q=R \Lambda^{\pm} LQ $$</p>
-<p>$$F^{\pm} = \left[ \begin{array}{c}<br>{\bf{\rho}}_{\bf{s}} dd\\<br>\rho {\bf{u}} dd + \frac{\lambda_2 - \lambda_3}{2\gamma}\rho c{\bf{k}}\\<br>\rho e^v dd\\<br>\rho e^e dd + \frac{p}{2\gamma }(\lambda_2 + \lambda_3 - 2\lambda_1) + \frac{\lambda_2 - \lambda_3}{2\gamma} \rho c \theta<br>\end{array} \right]$$</p>
-<p>其中$dd = \frac{2\lambda_1 (\gamma  - 1) + \lambda_2 + \lambda_3}{2\gamma}$</p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol>
-<li><p>我现在觉得把守恒变量按照这个顺序排列比较好$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {e^v}\\<br>\rho {\bf{u}}\\<br>\rho {e^e}<br>\end{array} \right]$.这样方便源项偏导数的计算。</p>
-</li>
-<li><p>本文中的公式实在是太繁琐了。但是由于<a href="https://gyzhangqm.github.io/2017/01/31/GoverningEquations/" title="GoverningEquations" target="_blank" rel="external">热化学非平衡流动控制方程</a>中所述的原因，以及周禹的博士论文中公式存在印刷错误，我还是花了大量时间进行了这种似乎没有意义的繁杂矩阵计算。</p>
-</li>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在计算系数矩阵和隐式源项偏导数时，需要用到原始变量${\left[ {\rho_s ,u,v,w,T,T^v,p,} \right]^T}$对守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$的偏导数。这里进行推导。</p>
+<h1 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h1><p>利用状态方程<br>$$p = \sum_{s = 1}^{ns} {\rho_s \frac{R_u}{M_s}T}$$<br>和热力学关系式<br>$$\rho {e^e} = \rho {e^v} + \frac{1}{2}\rho (u^2 + v^2+<br>w^2) + \sum_{s = 1}^n {\rho_s({c_{V,s}}T + e_s^0)} $$</p>
+<p>得到用守恒量表示温度<br>$$\rho {e^{tr}} = \rho c_V^{tr} T= \rho {e^e} - \rho<br>e^v-\frac{1}{2}\frac{\sum_{s = 1}^n \rho_s}{(\sum_{s = 1}^n {\rho_s})^2}$$</p>
+<p>其中<br>$c_V^{tr} = \sum_{s = 1}^{ns} Y_s c_{V,s}^{tr}  = \frac{1}{\rho }\sum_{s = 1}^{ns} {\rho_s}c_{V,s}^{tr} $</p>
+<p>$c_V^v = \sum_{s = mol} {Y_s c_{V,s}^v}  = \frac{1}{\rho }\sum_{s = mol} {Y_s}c_{V,s}^v $</p>
+<p>这样，可以将压强、温度、振动温度用守恒变量${\bf{U}} = {\left[ {\rho_s ,\rho u,\rho v,\rho w,\rho e^v,\rho e^e} \right]^T}$表示：</p>
+<p>$$T = \frac{1}{\sum_{s = 1}^{ns} {\rho_s} c_{V,s}^{tr}}<br>[\rho e^e-\rho e^v -\frac{1}{2}\frac{1}{\sum_{s = 1}^n \rho_s}((\rho u)^2 + (\rho v)^2 + (\rho w)^2) - \sum_{s = 1}^n \rho_s e_s^0]$$</p>
+<p>$$p = \sum\limits_{s = 1}^{ns}<br>\rho_s\frac{R_u}{M_s}\underbrace {\frac{1}{\sum\limits_{s = 1}^{ns} {\rho_s} c_{V,s}^{tr}}\left[\rho e^e - \rho e^v - \frac{1}{2}\frac{1}{\sum\limits_{s = 1}^n \rho_s}\left( (\rho u)^2 + (\rho v)^2 + (\rho w)^2 \right) - \sum\limits_{s = 1}^n {\rho_s e_s^0} \right]}_T $$</p>
+<p>$$T^v = \frac{\rho e^v}{\sum\limits_{s = mol} \rho_s c_{V,s}^v}$$<br>利用这三个式子，可以得到压强、温度、振动温度对守恒变量的偏导数</p>
+<p>$\left\{ \begin{array}{l}<br>\varphi  = \frac{\partial p}{\partial (\rho e^e)} =\frac{R_u}{c_V^{tr}\bar M}\\<br>\varphi_u = \frac{\partial p}{\partial (\rho u)} = - \varphi u\\<br>{\varphi_v} = \frac{\partial p}{\partial (\rho v)}=  - \varphi v\\<br>{\varphi_w} = \frac{\partial p}{\partial (\rho w)}  =  - \varphi w\\<br>{\beta_s} = \frac{\partial p}{\partial {\rho_s}} = \frac{R_u}{M_s}T - \varphi  c_{V,s}^{tr}T + \varphi \left[ \frac{1}{2}\left( u^2 + v^2+ w^2 \right) - e_s^0 \right]\\<br>\quad= \frac{R_u}{M_s}T \varphi \left[ \frac{1}{2}\left( u^2 + v^2 + w^2 \right) - e_s^{tr} - e_s^0 \right]\\<br>{\varphi_{ev}} =\frac{\partial p}{\partial (\rho e^v)}=  - \varphi<br>\end{array} \right.$</p>
+<p>$\left\{ \begin{array}{l}<br>\varphi  = {\left. \frac{\partial p}{\partial (\rho e^e)} \right|_Q} = \frac{R_u}{c_V^{tr}\bar M}\\<br>{\varphi _u} = {\left. \frac{\partial p}{\partial (\rho u)} \right|_Q} =  - \varphi u\\<br>{\varphi _v} = {\left. \frac{\partial p}{\partial (\rho v)} \right|_Q} =  - \varphi v\\<br>{\varphi _w} = {\left. \frac{\partial p}{\partial (\rho w)} \right|_Q} =  - \varphi w\\<br>{\beta _s} = {\left. \frac{\partial p}{\partial \rho _s} \right|_Q} = \frac{R_u}{M_s} T - \varphi c_{V,s}^{tr} T \varphi \left[ \frac{1}{2}\left( u^2+ v^2+w^2 \right) - e_s^0 \right]\\<br>\quad=\frac{R_u}{M_s}T \varphi \left[ \frac{1}{2}\left( u^2+v^2+w^2 \right) - e_s^{tr} - e_s^0 \right]\\<br>\varphi_{ev} = {\left. \frac{\partial p}{\partial (\rho e^v)} \right|_Q} =  - \varphi<br>\end{array} \right.$</p>
+<p>$\left\{ \begin{array}{l}<br>\chi  = \frac{\partial T}{\partial (\rho {e^e})} = \frac{1}{\rho c_V^{tr}}\\<br>{\chi _u} = \frac{\partial T}{\partial (\rho u)} =  - \chi u\\<br>{\chi _v} = \frac{\partial T}{\partial (\rho v)} =  - \chi v\\<br>{\chi _w} = \frac{\partial T}{\partial (\rho w)} =  - \chi w\\<br>{\chi _s} = \frac{\partial T}{\partial \rho _s} = \chi \left[ \frac{1}{2}\left( u^2 + v^2 + w^2 \right) - e_s^{tr} - e_s^0 \right]\\<br>{\chi _{ev}} =  {\frac{\partial T}{\partial \rho {e^v}}}=  - \chi<br>\end{array} \right.$</p>
+<p>$\left\{<br>\begin{array}<br>\chi \chi  = \frac{\partial T^v}{\partial (\rho e^e)} = 0\\<br>\chi \chi _u = \frac{\partial T^v}{\partial (\rho u)} = 0\\<br>\chi \chi _v = \frac{\partial T^v}{\partial (\rho v)} = 0\\<br>\chi \chi _w = \frac{\partial T^v}{\partial (\rho w)} = 0\\<br>\chi \chi _s =  \frac{\partial T^v}{\partial \rho _s}=- \frac{e_s^v}{\rho c_V^v}\\<br>\chi \chi _{ev} = \frac{\partial T^v}{\partial \rho e^v}  = \frac{1}{\rho c_V^v}<br>\end{array} \right.$</p>
+<p>其中$\rho c_V^v = \sum \limits_{s = 1}^{nmol} \rho_s c_{V,s}^v$,<br>$c_{V,s}^v = \frac{\partial e_s^v}{\partial T^v} = \frac{R_s}{\left( \exp (\theta_s^v/{T^v}) - 1 \right)^2}{\left( \frac{\theta_s^v}{T^v} \right)^2}\exp \left(\frac{\theta_s^v}{T^v} \right)$</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li>许多文章中使用总密度守恒方程加(ns-1)个组分方程的形式。理论上两种形式是等价的。但是在这些偏导数的推导中，不得不考虑最后一个没有用到的组分密度，使表达式复杂化。</li>
+<li>许多作者求解过程中事实上是求解了总密度方程和ns个组分方程。但这样子默认在了非平衡偏导数的推导中，ns个组分密度和总的密度是独立的。我感觉这样有问题。</li>
 </ol>
 
       
@@ -372,8 +363,6 @@
           
             <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
           
-            <a href="/tags/Math/" rel="tag">#Math</a>
-          
         </div>
       
 
@@ -381,16 +370,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/07/derivative2primitive-var/" rel="next" title="非平衡偏导数">
-                <i class="fa fa-chevron-left"></i> 非平衡偏导数
+              <a href="/2017/02/01/201702/thermodynamicRelations/" rel="next" title="热力学关系式">
+                <i class="fa fa-chevron-left"></i> 热力学关系式
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/09/frozenSonic/" rel="prev" title="声速公式的推导">
-                声速公式的推导 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/08/201702/invisidFluxJacobian/" rel="prev" title="系数矩阵和通量分裂">
+                系数矩阵和通量分裂 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -419,7 +408,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/08/invisidFluxJacobian/" data-title="系数矩阵和通量分裂" data-url="http://yoursite.com/2017/02/08/invisidFluxJacobian/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/07/201702/derivative2primitive-var/" data-title="非平衡偏导数" data-url="http://yoursite.com/2017/02/07/201702/derivative2primitive-var/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -478,7 +467,7 @@ ds.charset = 'UTF-8';
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -486,7 +475,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -495,7 +484,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -524,7 +513,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三维Euler方程"><span class="nav-number">2.1.</span> <span class="nav-text">三维Euler方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵"><span class="nav-number">2.2.</span> <span class="nav-text">系数矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的对角化"><span class="nav-number">2.3.</span> <span class="nav-text">系数矩阵的对角化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的分裂"><span class="nav-number">2.4.</span> <span class="nav-text">系数矩阵的分裂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正负通量分裂"><span class="nav-number">2.5.</span> <span class="nav-text">正负通量分裂</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推导"><span class="nav-number">2.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
           </div>
         </section>

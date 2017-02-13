@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD,Hypersonic,Math," />
+  <meta name="keywords" content="Journal,English," />
 
 
 
@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
-公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
+<meta name="description" content="IntroductionIt’s time to write blogs in English!
+Why?
+Living, learning, and programming alone, seldom have I spoken a complete sentence for a long time. In retrospect, my blogs are filled with mathema">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AdQ">
-<meta property="og:url" content="http://yoursite.com/2017/02/13/AdQ/index.html">
+<meta property="og:title" content="Write Blog In English">
+<meta property="og:url" content="http://yoursite.com/2017/02/13/201702/writeInEnglish/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
-公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
-<meta property="og:updated_time" content="2017-02-12T17:46:50.043Z">
+<meta property="og:description" content="IntroductionIt’s time to write blogs in English!
+Why?
+Living, learning, and programming alone, seldom have I spoken a complete sentence for a long time. In retrospect, my blogs are filled with mathema">
+<meta property="og:updated_time" content="2017-02-13T08:36:17.974Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AdQ">
-<meta name="twitter:description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
-公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
+<meta name="twitter:title" content="Write Blog In English">
+<meta name="twitter:description" content="IntroductionIt’s time to write blogs in English!
+Why?
+Living, learning, and programming alone, seldom have I spoken a complete sentence for a long time. In retrospect, my blogs are filled with mathema">
 
 
 
@@ -114,7 +117,7 @@
   };
 </script>
 
-  <title> AdQ | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> Write Blog In English | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -254,7 +257,7 @@
             
             
               
-                AdQ
+                Write Blog In English
               
             
           </h1>
@@ -266,7 +269,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-13T00:17:39+08:00" content="2017-02-13">
+            <time itemprop="dateCreated" datetime="2017-02-13T15:40:52+08:00" content="2017-02-13">
               2017-02-13
             </time>
           </span>
@@ -280,8 +283,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CFD/" itemprop="url" rel="index">
-                    <span itemprop="name">CFD</span>
+                  <a href="/categories/Journal/" itemprop="url" rel="index">
+                    <span itemprop="name">Journal</span>
                   </a>
                 </span>
 
@@ -296,8 +299,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/13/AdQ/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/13/AdQ/" itemprop="commentsCount"></span>
+                <a href="/2017/02/13/201702/writeInEnglish/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/13/201702/writeInEnglish/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -320,19 +323,12 @@
       
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>上一篇文章<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.</p>
-<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}<br>{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\<br>{\lambda_1}\Delta (\rho {\bf{u}}) + {\delta_1}{\bf{u}} + {\delta_2}{\bf{k}}\\<br>{\lambda_1}\Delta (\rho {e^v}) + {\delta_1}{e^v}\\<br>{\lambda_1}\Delta (\rho {e^e}) + {\delta_1}H + {\delta_2}\theta<br>\end{array} \right]$$</p>
-<p>其中<br>$$\delta_1 = J_1 \Delta p + J_2 \rho {\bf{k}} \cdot \Delta {\bf{u}}$$</p>
-<p>$$\delta_2 = J_1 c^2\rho {\bf{k}} \cdot \Delta {\bf{u}} + J_2\Delta p$$</p>
-<p>$$\Delta p = {\bf{P}}^{\bf{T}} \Delta {\bf{Q}}$$</p>
-<p>$${\bf{P}}^T = \left[ \beta_s, - \varphi {\bf{u}}^T, - \varphi ,\varphi  \right]$$</p>
-<p>$$\rho {\bf{k}} \cdot \Delta {\bf{u}} = {\bf{k}} \cdot \Delta (\rho {\bf{u}}) - {\bf{k}} \cdot {\bf{u}}\Delta \rho $$</p>
-<h1 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h1><h2 id="隐式推进"><a href="#隐式推进" class="headerlink" title="隐式推进"></a>隐式推进</h2><p>显然在LUSGS隐式推进时，$\Delta Q$作为右端项已经求出，可以通过上下两次扫描求解。<br>Step 1: 计算出右端项（残差）<br>Step 2 进行向上扫描：</p>
-<p>$${\bf{W}}_{IJK}^{\ast} = (R_{IJK}^n +  A_{I - 1}^{+} {\bf{W}}_{I - 1} +  A_{J - 1}^{+} {\bf{W}}_{J - 1} + A_{K - 1}^ + {\bf{W}}_{K - 1})/\alpha $$</p>
-<p>$$\alpha  = \frac{\Omega}{\Delta t} + \omega (\Lambda_I^c + \Lambda_J^c + \Lambda_K^c) + H^n$$<br>Step 3: 进行向下扫描：<br>$${\bf{W}}_{IJK}= (\alpha {\bf{W}}_{IJK}^* - A_{I + 1}^ - {\bf{W}}_{I + 1} - A_{J + 1}^ - {\bf{W}}_{J + 1} - A_{K + 1}^ - {\bf{W}}_{K + 1})/\alpha $$<br>Step 4: 时间推进<br>$${\bf{Q}}_{IJK}^{n + 1} = {\bf{Q}}_{IJK}^n + {\bf{W}}_{IJK}$$</p>
-<h2 id="Roe-格式-通量"><a href="#Roe-格式-通量" class="headerlink" title="Roe 格式 通量"></a>Roe 格式 通量</h2><p>无粘通量<br>$$(\delta_\xi F)_i =F_{i+1/2}-F_{i-1/2}$$<br>对于FDS方法，<br>$$F_{i + 1/2} = \frac{1}{2}\left[ F(Q_L) + F(Q_R) - \left| A \right|(Q_R - Q_L) \right]_{i+1/2}$$<br>其中$\left| A \right|$由Roe平均求得。<br>这里Roe格式的耗散项需要用到$A \Delta Q$公式。</p>
-<h2 id="SW-格式-通量"><a href="#SW-格式-通量" class="headerlink" title="SW 格式 通量"></a>SW 格式 通量</h2><p>对于FVS方法<br>$$F_{i + 1/2} = \left[ F^{+}(Q_L) + F^{-}(Q_R)\right]_{i+1/2}$$<br>$F^{\pm}$可以通过<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>中公式计算，也可以写成FDS形式：</p>
-<p>$$\begin{array}{rcl}<br>F_{i + 1/2} &amp;=&amp; \frac{1}{2}\left[ F(Q_{i+1}) + F(Q_{i}) - A(Q_R - Q_L)\right]_{i+1/2}\\<br>&amp;=&amp;  \frac{1}{2}\left[ F(Q_{i+1}) + F(Q_{i}) - \frac{1}{2}A_{i+1/2}(\Delta Q_R - \Delta Q_L)\right]<br>\end{array}$$<br>其中$\Delta Q_R=Q_R -Q_i,\Delta Q_L=Q_L -Q_i$。$Q_R,Q_L$由$Q$重构得到。</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>It’s time to write blogs in English!</p>
+<h1 id="Why"><a href="#Why" class="headerlink" title="Why?"></a>Why?</h1><ol>
+<li>Living, learning, and programming alone, seldom have I spoken a complete sentence for a long time. In retrospect, my blogs are filled with mathematical formulas. There exists the chance that I would lose the ability of communication if turning a blind eye to this situation. In a sense, writing in English is a way to cultivate language ability while constructing sentences.</li>
+<li>More than once have I been embarrassed when I failed to convey my idea clearly, even in Chinese. I cannot express what I’m thinking. Because I either forget a specific terminology or I am illogical and disordered. Writing may get my thinking in order.</li>
+<li>People have high aspirations but low abilities. I am no exception. It’s much more easy to think than to do. So if a job is finished, I will write down a blog to introduct the work, the process, the theory, and the troubleshooting. If I haven’t done anything, the nothing will be post. Writing plays the role of supervising and urging my work.</li>
+</ol>
 
       
     </div>
@@ -354,11 +350,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CFD/" rel="tag">#CFD</a>
+            <a href="/tags/Journal/" rel="tag">#Journal</a>
           
-            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
-          
-            <a href="/tags/Math/" rel="tag">#Math</a>
+            <a href="/tags/English/" rel="tag">#English</a>
           
         </div>
       
@@ -367,8 +361,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/09/frozenSonic/" rel="next" title="声速公式的推导">
-                <i class="fa fa-chevron-left"></i> 声速公式的推导
+              <a href="/2017/02/13/201702/AdQ/" rel="next" title="AdQ">
+                <i class="fa fa-chevron-left"></i> AdQ
               </a>
             
           </div>
@@ -401,7 +395,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/13/AdQ/" data-title="AdQ" data-url="http://yoursite.com/2017/02/13/AdQ/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/13/201702/writeInEnglish/" data-title="Write Blog In English" data-url="http://yoursite.com/2017/02/13/201702/writeInEnglish/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -460,7 +454,7 @@ ds.charset = 'UTF-8';
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -468,7 +462,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -477,7 +471,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -506,7 +500,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用"><span class="nav-number">3.</span> <span class="nav-text">作用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式推进"><span class="nav-number">3.1.</span> <span class="nav-text">隐式推进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Roe-格式-通量"><span class="nav-number">3.2.</span> <span class="nav-text">Roe 格式 通量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SW-格式-通量"><span class="nav-number">3.3.</span> <span class="nav-text">SW 格式 通量</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why"><span class="nav-number">2.</span> <span class="nav-text">Why?</span></a></li></ol></div>
             
           </div>
         </section>

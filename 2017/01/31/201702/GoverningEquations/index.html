@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD," />
+  <meta name="keywords" content="CFD,Hypersonic," />
 
 
 
@@ -84,23 +84,40 @@
 
 
 
-<meta name="description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
-Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
+<meta name="description" content="摘要
+控制方程
+说明
+
+
+摘要这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。
+控制方程$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$
+其中
+$$Q = \left[">
 <meta property="og:type" content="article">
-<meta property="og:title" content="热力学关系式">
-<meta property="og:url" content="http://yoursite.com/2017/02/01/thermodynamicRelations/index.html">
+<meta property="og:title" content="热化学非平衡流动控制方程">
+<meta property="og:url" content="http://yoursite.com/2017/01/31/201702/GoverningEquations/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
-Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
-<meta property="og:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/O2.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/N2.png">
-<meta property="og:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/O.png">
-<meta property="og:updated_time" content="2017-02-01T12:34:38.579Z">
+<meta property="og:description" content="摘要
+控制方程
+说明
+
+
+摘要这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。
+控制方程$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$
+其中
+$$Q = \left[">
+<meta property="og:updated_time" content="2017-02-01T02:54:08.074Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="热力学关系式">
-<meta name="twitter:description" content="摘要高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。此外也可以用拟合曲线得到组分的定压比热和内能。
-Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$对于双原子分子:$$e_s=\frac">
-<meta name="twitter:image" content="http://yoursite.com/2017/02/01/thermodynamicRelations/O2.png">
+<meta name="twitter:title" content="热化学非平衡流动控制方程">
+<meta name="twitter:description" content="摘要
+控制方程
+说明
+
+
+摘要这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。
+控制方程$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$
+其中
+$$Q = \left[">
 
 
 
@@ -118,7 +135,7 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
   };
 </script>
 
-  <title> 热力学关系式 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> 热化学非平衡流动控制方程 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +275,7 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
             
             
               
-                热力学关系式
+                热化学非平衡流动控制方程
               
             
           </h1>
@@ -270,19 +287,38 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-01T15:16:10+08:00" content="2017-02-01">
-              2017-02-01
+            <time itemprop="dateCreated" datetime="2017-01-31T23:02:16+08:00" content="2017-01-31">
+              2017-01-31
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/01/thermodynamicRelations/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/01/thermodynamicRelations/" itemprop="commentsCount"></span>
+                <a href="/2017/01/31/201702/GoverningEquations/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/31/201702/GoverningEquations/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -305,26 +341,29 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
       
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>高温气体统计热力学将组分$s$的内能分为平动能、旋转能、振动能和电子能。其中平动振动过程的特征时间尺度远小于其他时间尺度，可以认为处于平衡状态，用一个平动旋转温度$T^{tr}$表征。<br>此外也可以用拟合曲线得到组分的定压比热和内能。</p>
-<h1 id="Model-1"><a href="#Model-1" class="headerlink" title="Model 1"></a>Model 1</h1><p>对于单原子分子：<br>$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$<br>对于双原子分子:<br>$$e_s=\frac{5}{2}R_s T^{tr} + e^{v}_s+ e^{el}_s + e^0_s$$</p>
-<p>其中$e^{v}_s, e^{el}_s, e^0_s$分别是组分$s$的振动能、电子能和零点能（生成焓）。</p>
-<p>振动能和电子能的表达式是基于玻尔兹曼分布和双原子分子谐振子假设：<br>$$e^v_s=\frac{R_s \theta^v_s}{exp(\theta^v_s/T^v)-1}$$<br>$$e_{s}^{el}=\dfrac{(g_1/g_0)\exp (-\theta_s^{el}/T^{el})}{1+(g_1/g_0)\exp (-\theta_s^{el}T^{el})}\theta^{el}_1 R_s$$</p>
-<p>双温模型认为$T^v=T^{el}$,并且额外考虑振动能的弛豫过程。</p>
-<h1 id="Model-2"><a href="#Model-2" class="headerlink" title="Model 2"></a>Model 2</h1><p>另外一种热力学模型使用关于温度的多项式拟合函数来确定内能，在$300K\lt T \lt 30000K$的范围内：<br>$$c_{p,s}=R_s \sum_{k=0}^{4} A_{k,s}T^k$$<br>$$e_s=R_s \sum_{k=1}^{5} \frac{A_{k,s}}{k}T^k -R_s T + e^0_s$$</p>
-<p>说明:</p>
-<ol>
-<li>在单温度模型下，即仅考虑化学非平衡时，可以令Model 1中所有的温度都为一个温度。Model 2中的温度也就是这个温度。</li>
-<li>对于热化学非平衡流，我暂时不清楚Model 2中的温度是什么温度，其计算的内能是否包含振动能电子能。我暂时假定Model 2仅仅利用平动旋转温度来计算包含了振动能和电子能的热容和能量。</li>
-<li>电子能也有许多能级，上边公式仅仅考虑了一个能级。编程初期，我干脆忽略电子能好了。</li>
+        <!-- toc --><!-- tocstop -->
+<ul>
+<li><a href="#摘要">摘要</a></li>
+<li><a href="#控制方程">控制方程</a></li>
+<li><a href="#说明">说明</a></li>
+</ul>
+<!-- tocstop -->
+<h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>这里给出热化学非平衡流（双温度模型）的守恒型微分形式的控制方程。</p>
+<h1 id="控制方程"><a href="#控制方程" class="headerlink" title="控制方程"></a>控制方程</h1><p>$$\frac{\partial Q}{\partial t} + \frac{\partial F_k^c}{\partial x_k} = \frac{\partial F_k^d}{\partial x_k} + S\left( Q \right)$$</p>
+<p>其中</p>
+<p>$$Q = \left[ \begin{array}{c}<br>{\rho _s}\\<br>\rho {u_j}\\<br>\rho {e^v}\\<br>\rho {e^e}<br>\end{array} \right]$$</p>
+<p>$$F_k^c = \left[ \begin{array}{c}<br>{\rho _s}{u_k}\\<br>\rho {u_j}{u_k} + p{\delta _{jk}}\\<br>\rho {u_k}{e^v}\\<br>\rho {u_k}h<br>\end{array} \right]$$</p>
+<p>$$F_k^d = \left[ \begin{array}{c}<br>\rho {D_s}\frac{\partial {Y_s}}{\partial {x_k}}\\<br>\tau _{kj}\ <br>\rho \sum_{s = 1}^{ns} {D_s}h_s^v\frac{\partial{Y_s}}{\partial {x_k}}-q_k^v \\<br>{u_j}{\tau _{kj}}-{q_k}<br>\end{array} \right] $$</p>
+<p>$$S = \left[ \begin{array}{c}<br>{\omega _s}\\<br>0\\<br>{\omega _v}\\<br>0<br>\end{array} \right]$$</p>
+<p>其中$Q$为场变量，$F_k^c(k = 1,2,3)$ 为无粘对流通量，$F_k^d(k = 1,2,3)$ 为粘性扩散通量；$S$为化学反应源项； $\rho_s (s=1,…,ns)$ 为组分分密度；$\rho=\sum_{s=1}^{ns} {\rho _s}$为混合物密度， $Y_s=\frac{\rho_s}{\rho}(s=1,… ,ns)$为组分质量分数， $D_s$为其扩散系数，$u_k$为速度的三分量；$p$ 为压力，$e^e$ 为单位质量混合气体的总能量，$e^v$ 为单位质量混合气体的振动能。</p>
+<h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><ol>
+<li><p>许多文章中使用总密度守恒方程加(ns-1)个组分方程的形式。理论上两种形式是等价的，并且其Jacobian矩阵也可以通过相似变换互相得到。但由于我在推导非平衡偏导数时遇到一些困难（关于哪些变量做自变量的问题），所以我暂时选用了ns个组分方程的形式。</p>
+</li>
+<li><p>由于计算机截断误差的存在，许多作者求解过程中事实上是求解了总密度方程和ns个组分方程，然后将误差记在氮气组分中（因为其质量分数最大）或者将误差平摊。</p>
+</li>
+<li><p>在编程中，我发现将组分方程和振动能方程放在最下边比较好：一是比较容易扩展，可以扩展多组分、多温度模型；二是在隐式推进时比较方便操作（减小源项Jacobian矩阵的规模）。</p>
+</li>
 </ol>
-<h1 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h1><p>氧气<br><img src="/2017/02/01/thermodynamicRelations/O2.png" alt="O2" title="O2:internal energy vs T"><br>氮气<br><img src="/2017/02/01/thermodynamicRelations/N2.png" alt="N2" title="N2:internal energy vs T"><br>氧原子<br><img src="/2017/02/01/thermodynamicRelations/O.png" alt="O" title="O:internal energy vs T"></p>
-<p>说明：</p>
-<ol>
-<li>由于计算中Model 1 忽略了电子能，造成高温时($T&gt;10000K$)时Model 1结果明显小于拟合结果。</li>
-<li>$O_2$在$6000K$时有间断，可能是数据抄错了？todo：核对叶老师程序中的数据。</li>
-<li>如果考虑多级电子能，那么内能和比热容的计算过程略繁杂。</li>
-</ol>
-<p>所以在编程中，为了方便，我先暂时采用Model 1，忽略电子能。等将来程序跑起来了，再使用Model 2 或者给Model 1 添加电子能。</p>
 
       
     </div>
@@ -348,6 +387,8 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
           
             <a href="/tags/CFD/" rel="tag">#CFD</a>
           
+            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
+          
         </div>
       
 
@@ -355,16 +396,16 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/01/31/GoverningEquations/" rel="next" title="热化学非平衡流动控制方程">
-                <i class="fa fa-chevron-left"></i> 热化学非平衡流动控制方程
+              <a href="/2017/01/29/201702/markdownStudy/" rel="next" title="Markdown 学习笔记">
+                <i class="fa fa-chevron-left"></i> Markdown 学习笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/02/07/derivative2primitive-var/" rel="prev" title="非平衡偏导数">
-                非平衡偏导数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/01/201702/thermodynamicRelations/" rel="prev" title="热力学关系式">
+                热力学关系式 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -393,7 +434,7 @@ Model 1对于单原子分子：$$e_s=\frac{3}{2}R_s T^{tr} + e^{el}_s + e^0_s$$�
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/01/thermodynamicRelations/" data-title="热力学关系式" data-url="http://yoursite.com/2017/02/01/thermodynamicRelations/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/01/31/201702/GoverningEquations/" data-title="热化学非平衡流动控制方程" data-url="http://yoursite.com/2017/01/31/201702/GoverningEquations/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -452,7 +493,7 @@ ds.charset = 'UTF-8';
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -460,7 +501,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -469,7 +510,7 @@ ds.charset = 'UTF-8';
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -498,7 +539,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-1"><span class="nav-number">2.</span> <span class="nav-text">Model 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Model-2"><span class="nav-number">3.</span> <span class="nav-text">Model 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对比"><span class="nav-number">4.</span> <span class="nav-text">对比</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#控制方程"><span class="nav-number">2.</span> <span class="nav-text">控制方程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
             
           </div>
         </section>
