@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/08/201702/invisidFluxJacobian/index.html">
 <meta property="og:site_name" content="CFD学习">
 <meta property="og:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
-<meta property="og:updated_time" content="2017-02-13T08:50:52.469Z">
+<meta property="og:updated_time" content="2017-02-13T08:57:30.357Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="系数矩阵和通量分裂">
 <meta name="twitter:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
@@ -340,7 +340,7 @@
 <p>其中$J_1=\frac{\tilde\lambda_2+\tilde\lambda_3-2\tilde\lambda_1}{2c^2},J_2=\frac{\tilde\lambda_2-\tilde\lambda_3}{2c}$</p>
 <h2 id="正负通量分裂"><a href="#正负通量分裂" class="headerlink" title="正负通量分裂"></a>正负通量分裂</h2><p>$$F^{\pm}=A^{\pm}Q=R \Lambda^{\pm} LQ $$</p>
 <p>$$F^{\pm} = \left[ \begin{array}{c}<br>{\bf{\rho}}_{\bf{s}} dd\\<br>\rho {\bf{u}} dd + \frac{\lambda_2 - \lambda_3}{2\gamma}\rho c{\bf{k}}\\<br>\rho e^v dd\\<br>\rho e^e dd + \frac{p}{2\gamma }(\lambda_2 + \lambda_3 - 2\lambda_1) + \frac{\lambda_2 - \lambda_3}{2\gamma} \rho c \theta<br>\end{array} \right]$$</p>
-<p>其中$dd = \frac{2\lambda_1 (\gamma  - 1) + \lambda_2 + \lambda_3}{2\gamma}$</p>
+<p>其中$dd = \frac{2\lambda_1 (\gamma  - 1) + \lambda_2 + \lambda_3}{2\gamma}$<br>作为自洽性的证明，当不对特征值分裂时，该结果退化为通量$F$的表达式。</p>
 <h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol>
 <li><p>我现在觉得把守恒变量按照这个顺序排列比较好$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {e^v}\\<br>\rho {\bf{u}}\\<br>\rho {e^e}<br>\end{array} \right]$.这样方便源项偏导数的计算。</p>
 </li>
