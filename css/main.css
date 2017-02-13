@@ -1549,7 +1549,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #50ffff;
+  background: #0a701a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2134,7 +2134,7 @@ hr {
 }
 .header {
   background: url("/images/CFD_page.jpg");
-  height: 200px;
+  height: 180px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
