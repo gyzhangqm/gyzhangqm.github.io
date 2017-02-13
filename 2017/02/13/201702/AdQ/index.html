@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="CFD学习">
 <meta property="og:description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
 公式$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\{\lambda_1}">
-<meta property="og:updated_time" content="2017-02-13T01:45:59.215Z">
+<meta property="og:updated_time" content="2017-02-13T08:49:24.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AdQ">
 <meta name="twitter:description" content="摘要上一篇文章系数矩阵和通量分裂总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.
@@ -320,7 +320,7 @@
       
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>上一篇文章<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.</p>
+        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>上一篇文章<a href="https://gyzhangqm.github.io/2017/02/08/201702/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>总结了与Jacobian矩阵分裂相关的公式。这里补充一个公式$dF^{\pm}=A^{\pm}dQ$.</p>
 <h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><p>$$\Delta {F^ \pm } = A^ \pm \Delta Q = \left[ \begin{array}{c}<br>{\lambda_1}\Delta {\bf{\rho }}_s + {\delta_1}{\bf{Y}}_s\\<br>{\lambda_1}\Delta (\rho {\bf{u}}) + {\delta_1}{\bf{u}} + {\delta_2}{\bf{k}}\\<br>{\lambda_1}\Delta (\rho {e^v}) + {\delta_1}{e^v}\\<br>{\lambda_1}\Delta (\rho {e^e}) + {\delta_1}H + {\delta_2}\theta<br>\end{array} \right]$$</p>
 <p>其中<br>$$\delta_1 = J_1 \Delta p + J_2 \rho {\bf{k}} \cdot \Delta {\bf{u}}$$</p>
 <p>$$\delta_2 = J_1 c^2\rho {\bf{k}} \cdot \Delta {\bf{u}} + J_2\Delta p$$</p>
@@ -333,7 +333,7 @@
 <p>$$\alpha  = \frac{\Omega}{\Delta t} + \omega (\Lambda_I^c + \Lambda_J^c + \Lambda_K^c) + H^n$$<br>Step 3: 进行向下扫描：<br>$${\bf{W}}_{IJK}= (\alpha {\bf{W}}_{IJK}^* - A_{I + 1}^ - {\bf{W}}_{I + 1} - A_{J + 1}^ - {\bf{W}}_{J + 1} - A_{K + 1}^ - {\bf{W}}_{K + 1})/\alpha $$<br>Step 4: 时间推进<br>$${\bf{Q}}_{IJK}^{n + 1} = {\bf{Q}}_{IJK}^n + {\bf{W}}_{IJK}$$</p>
 <h2 id="Roe-格式-通量"><a href="#Roe-格式-通量" class="headerlink" title="Roe 格式 通量"></a>Roe 格式 通量</h2><p>无粘通量<br>$$(\delta_\xi F)_i =F_{i+1/2}-F_{i-1/2}$$<br>对于FDS方法，<br>$$F_{i + 1/2} = \frac{1}{2}{\left[ F(Q_L) + F(Q_R) - \left| A \right|(Q_R - Q_L) \right]}_{i+1/2}$$</p>
 <p>其中$\left| A \right|$由Roe平均求得。<br>这里Roe格式的耗散项需要用到$A \Delta Q$公式。这里的$\Delta Q$是空间上左值和右值的差。</p>
-<h2 id="SW-格式-通量"><a href="#SW-格式-通量" class="headerlink" title="SW 格式 通量"></a>SW 格式 通量</h2><p>对于FVS方法<br>$$F_{i + 1/2} = {\left[ F^{+}(Q_L) + F^{-}(Q_R)\right]}_{i+1/2}$$<br>$F^{\pm}$可以通过<a href="https://gyzhangqm.github.io/2017/02/08/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>中公式计算，也可以写成FDS形式：</p>
+<h2 id="SW-格式-通量"><a href="#SW-格式-通量" class="headerlink" title="SW 格式 通量"></a>SW 格式 通量</h2><p>对于FVS方法<br>$$F_{i + 1/2} = {\left[ F^{+}(Q_L) + F^{-}(Q_R)\right]}_{i+1/2}$$<br>$F^{\pm}$可以通过<a href="https://gyzhangqm.github.io/2017/02/08/201702/invisidFluxJacobian/" target="_blank" rel="external">系数矩阵和通量分裂</a>中公式计算，也可以写成FDS形式：</p>
 <p>$$\begin{array}{rcl}<br>F_{i + 1/2} &amp;=&amp; \frac{1}{2}\left[ F(Q_{i+1}) + F(Q_{i}) - A(Q_R - Q_L)\right]_{i+1/2}\\<br>&amp;=&amp;  \frac{1}{2}\left[ F(Q_{i+1}) + F(Q_{i}) - \frac{1}{2}A_{i+1/2}(\Delta Q_R - \Delta Q_L)\right]<br>\end{array}$$<br>其中$\Delta Q_R=Q_R -Q_i,\Delta Q_L=Q_L -Q_i$。$Q_R,Q_L$由$Q$重构得到。</p>
 
       
