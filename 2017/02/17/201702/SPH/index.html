@@ -84,17 +84,17 @@
 
 
 
-<meta name="description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current">
+<meta name="description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my cu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="notes of SPH">
 <meta property="og:url" content="http://yoursite.com/2017/02/17/201702/SPH/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current">
+<meta property="og:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my cu">
 <meta property="og:image" content="http://yoursite.com/2017/02/17/201702/SPH/result.gif">
-<meta property="og:updated_time" content="2017-02-17T13:21:18.720Z">
+<meta property="og:updated_time" content="2017-02-17T16:23:48.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="notes of SPH">
-<meta name="twitter:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current">
+<meta name="twitter:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my cu">
 <meta name="twitter:image" content="http://yoursite.com/2017/02/17/201702/SPH/result.gif">
 
 
@@ -319,7 +319,7 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>After no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current job, and spend a day reading a book[^book] about SPH method. Then I try the code provided by the author and gain much fun and confidence.<br>Here are some method and results.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>After no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my current job, and spend a day reading a book[^book] about SPH method. Then I try the code provided by the author and gain much fun and confidence.<br>Here are some method and results.</p>
 <p>[^book]: Smoothed Particle Hydrodynamics, a meshfree particle method G.R. Liu, M.B. Liu 2003</p>
 <h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The pith and marrow of SPH are fully embodied in that a function and its derivative can be represented in an integral form using dirac function or nascent delta function. It’s called <strong>kernel approximation</strong> in SPH.<br>$$<br>\begin{equation}<br>\left\langle f (\bf{x}) \right\rangle  = \int\limits_\Omega  f ({\bf{x’}}) W( {\bf{x}} - {\bf{x’}},h )d{\bf{x’}}<br>\end{equation}<br>$$</p>
 <p>Then <strong>particle approximation</strong> is performed to conver the integral representation to the form of discretized particle approximation.</p>
