@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="programming,Fortran," />
+  <meta name="keywords" content="CFD,SPH," />
 
 
 
@@ -84,16 +84,18 @@
 
 
 
-<meta name="description" content="IntroductionI have been writing Fortran programs for half a year. Most of codes I read and write are based on F77 and simple F90 standard. It’s important to form a programming style. I find a web list">
+<meta name="description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Zen Of Fortran">
-<meta property="og:url" content="http://yoursite.com/2017/02/13/201702/ZenOfFortran/index.html">
+<meta property="og:title" content="notes of SPH">
+<meta property="og:url" content="http://yoursite.com/2017/02/17/201702/SPH/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="IntroductionI have been writing Fortran programs for half a year. Most of codes I read and write are based on F77 and simple F90 standard. It’s important to form a programming style. I find a web list">
-<meta property="og:updated_time" content="2017-02-17T13:01:44.082Z">
+<meta property="og:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current">
+<meta property="og:image" content="http://yoursite.com/2017/02/17/201702/SPH/result.gif">
+<meta property="og:updated_time" content="2017-02-17T13:21:18.720Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zen Of Fortran">
-<meta name="twitter:description" content="IntroductionI have been writing Fortran programs for half a year. Most of codes I read and write are based on F77 and simple F90 standard. It’s important to form a programming style. I find a web list">
+<meta name="twitter:title" content="notes of SPH">
+<meta name="twitter:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/17/201702/SPH/result.gif">
 
 
 
@@ -111,7 +113,7 @@
   };
 </script>
 
-  <title> Zen Of Fortran | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> notes of SPH | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +253,7 @@
             
             
               
-                Zen Of Fortran
+                notes of SPH
               
             
           </h1>
@@ -263,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-13T23:35:05+08:00" content="2017-02-13">
-              2017-02-13
+            <time itemprop="dateCreated" datetime="2017-02-17T22:28:48+08:00" content="2017-02-17">
+              2017-02-17
             </time>
           </span>
 
@@ -277,8 +279,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">programming</span>
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
                   </a>
                 </span>
 
@@ -293,8 +295,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/13/201702/ZenOfFortran/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/13/201702/ZenOfFortran/" itemprop="commentsCount"></span>
+                <a href="/2017/02/17/201702/SPH/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/201702/SPH/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,131 +319,22 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>I have been writing Fortran programs for half a year. Most of codes I read and write are based on F77 and simple F90 standard. It’s important to form a programming style. I find a <a href="https://github.com/szaghi/zen-of-fortran" target="_blank" rel="external">web</a> listing guide line for Fortran poor people. I paste the Zen of Fortran here and write down some beautiful coding style for futher use.</p>
-<h1 id="Zen-of-Fortran"><a href="#Zen-of-Fortran" class="headerlink" title="Zen of Fortran"></a>Zen of Fortran</h1><ol>
-<li><a href="#standard">standard</a> compliance is better than <em>custom or extended</em>;</li>
-<li><a href="#beautiful">beautiful</a> is better than <em>ugly</em>;<ol>
-<li><a href="#readability">readability</a> counts;</li>
-<li><a href="#explicit">explicit</a> is better than <em>impl.</em>;</li>
-<li><a href="#simple">simple</a> is better than <em>CoMpleX</em>;</li>
-<li><a href="#simple">CoMpleX</a> is better than <em>c0mp1|c@ted</em>;</li>
-<li><a href="#flat">flat</a> is better than <em>nested</em>;</li>
-<li><a href="#sparse">s p a r s e</a> is better than <em>dense</em>;</li>
-</ol>
-</li>
-<li><a href="#fast">fast</a> is better than <em>slow</em>:<ol>
-<li><a href="#vector">vector</a> is better than <em>loop</em>;</li>
-<li><a href="#matrix">matrix</a> is better than <em>vector</em>;</li>
-<li><a href="#strided">strided</a> is better than <em>scattered</em>;</li>
-<li><a href="#contiguous">contiguous</a> is better than <em>strided</em>;</li>
-<li><a href="#broadcasting">broadcasting</a> is a great idea, use where possible;</li>
-</ol>
-</li>
-<li><a href="#fast">slow</a> is better than <em>unmaintainable</em>;</li>
-<li>make it look like the <a href="#math">math</a>;</li>
-<li><a href="#special">special</a> cases aren’t special enough to break rules…</li>
-<li>although <a href="#special">practicality</a> beats <em>purity</em>;</li>
-<li><a href="#pure">pure</a> procedure is better than <em>impure</em>…</li>
-<li>although <a href="#pure">practicality</a> beats <em>purity</em> again;</li>
-<li><a href="#private">private</a> is better than <em>public</em>;</li>
-<li><a href="#errors">errors</a> should never pass <em>silently</em>…</li>
-<li>unless <a href="#errors">errors</a> are explicitly <em>silenced</em>;</li>
-<li>to be continued</li>
-</ol>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>This list is inspired by many sources:</p>
-<p><a name="zen-of-python"></a>[1] <a href="https://github.com/ewjoachim/zen-of-python" target="_blank" rel="external">zen of python</a>.</p>
-<p><a name="std-03"></a>[2] <a href="http://www.j3-fortran.org/doc/year/04/04-007.pdf" target="_blank" rel="external">Fortran 2003 standard</a>.</p>
-<p><a name="modern-fortran-book"></a>[3] <a href="http://www.amazon.com/Modern-Fortran-Norman-S-Clerman/dp/052173052X" target="_blank" rel="external">Modern Fortran: Style and Usage</a>, a book by <em>Norman S. Clerman and Walter Spector</em>.</p>
-<p><a name="fortran-styles"></a>[4] <a href="http://www.fortran.com/Fortran_Style.pdf" target="_blank" rel="external">The Fortran Company styles</a>.</p>
-<p><a name="fortran-best-practices"></a>[5] <a href="http://www.fortran90.org/src/best-practices.html" target="_blank" rel="external">Fortran best practices</a>.</p>
-<p><a name="eu-f90-standards"></a>[6] <a href="http://research.metoffice.gov.uk/research/nwp/numerical/fortran90/f90_standards.html" target="_blank" rel="external">European Standards For Writing and Documenting Exchangeable Fortran 90 Code</a>.</p>
-<p><a name="cam-standard"></a>[7] <a href="http://www.cesm.ucar.edu/working_groups/Software/dev_guide/dev_guide/node7.html" target="_blank" rel="external">Fortran Coding Standard for the Community Atmospheric Model</a>.</p>
-<p>Go to <a href="#top">TOP</a></p>
-<h1 id="Guideline"><a href="#Guideline" class="headerlink" title="Guideline"></a>Guideline</h1><h2 id="readability"><a href="#readability" class="headerlink" title=" readability"></a><a name="readability"></a> readability</h2><h3 id="Template"><a href="#Template" class="headerlink" title="Template"></a>Template</h3><p>Some software (eg. Doxygen) can generate a documentation of codes automatically. So I paste some template here for future use.<br>Prologue for Functions and Subroutines</p>
-<pre><code>!-----------------------------------------------------------------------
-! BOP
-!
-! !ROUTINE:  &lt;Function name&gt;  (!IROUTINE if the function is in a module)
-!
-! !INTERFACE:  
-            function &lt;name&gt; (&lt;arguments&gt;)          
-
-! !USES:
-            use &lt;module&gt;
-
-! !RETURN VALUE:
-            implicit none
-            &lt;type&gt; :: &lt;name&gt;               ! &lt;Return value description&gt;
-
-! !PARAMETERS:   
-            &lt;type, intent&gt; :: &lt;parameter&gt;  ! &lt;Parameter description&gt;              
-
-! !DESCRIPTION:
-! &lt;Describe the function of the routine and algorithm(s) used in
-! the routine.  Include any applicable external references.&gt;
-!
-! !REVISION HISTORY:
-! YY.MM.DD  &lt;Name&gt; &lt;Description of activity&gt;
-!
-! EOP
-!-----------------------------------------------------------------------
-! $Id: code_conv_cam.tex,v 1.3 2001/06/19 21:44:14 kauff Exp $
-! $Author: kauff $
-!-----------------------------------------------------------------------
-</code></pre><p>Prologue for a Module</p>
-<pre><code>!-----------------------------------------------------------------------
-! BOP
-!
-! !MODULE:  &lt;Module name&gt;
-!
-! !USES:
-           use &lt;module&gt;
-! !PUBLIC TYPES:
-            implicit none
-            [save]
-
-            &lt;type declaration&gt;
-
-! !PUBLIC MEMBER FUNCTIONS:
-!           &lt;function&gt;                     ! Description      
-!
-! !PUBLIC DATA MEMBERS:
-            &lt;type&gt; :: &lt;variable&gt;           ! Variable description
-
-! !DESCRIPTION:
-! &lt;Describe the function of the module.&gt;
-!
-! !REVISION HISTORY:
-! YY.MM.DD  &lt;Name&gt; &lt;Description of activity&gt;
-!
-! EOP
-!-----------------------------------------------------------------------
-! $Id: code_conv_cam.tex,v 1.3 2001/06/19 21:44:14 kauff Exp $
-! $Author: kauff $
-!-----------------------------------------------------------------------
-</code></pre><p>Prologue for a Header File</p>
-<pre><code>!-----------------------------------------------------------------------
-! BOP
-!
-! !INCLUDE:  &lt;Header file name&gt;
-!
-! !DEFINED PARAMETERS:
-            &lt;type&gt; :: &lt;parameter&gt;          ! Parameter description
-
-! !DESCRIPTION:
-! &lt;Describe the contents of the header file.&gt;
-!
-! !REVISION HISTORY:
-! YY.MM.DD  &lt;Name&gt; &lt;Description of activity&gt;
-!
-! EOP
-!-----------------------------------------------------------------------
-! $Id: code_conv_cam.tex,v 1.3 2001/06/19 21:44:14 kauff Exp $
-! $Author: kauff $
-!-----------------------------------------------------------------------
-</code></pre><h1 id="More"><a href="#More" class="headerlink" title="More"></a>More</h1><p>In the future, I decide to use C++ instead of Fortran. But there is a lot to do if I want to write beautiful codes.</p>
-<p>More to be writen.</p>
-
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>After no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research work. So I put aside my current job, and spend a day reading a book[^book] about SPH method. Then I try the code provided by the author and gain much fun and confidence.<br>Here are some method and results.</p>
+<p>[^book]: Smoothed Particle Hydrodynamics, a meshfree particle method G.R. Liu, M.B. Liu 2003</p>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The pith and marrow of SPH are fully embodied in that a function and its derivative can be represented in an integral form using dirac function or nascent delta function. It’s called <strong>kernel approximation</strong> in SPH.<br>$$<br>\begin{equation}<br>\left\langle f (\bf{x}) \right\rangle  = \int\limits_\Omega  f ({\bf{x’}}) W( {\bf{x}} - {\bf{x’}},h )d{\bf{x’}}<br>\end{equation}<br>$$</p>
+<p>Then <strong>particle approximation</strong> is performed to conver the integral representation to the form of discretized particle approximation.</p>
+<p>$$<br>\begin{equation}<br>\left\langle f\left( {\bf{x}}_i \right) \right\rangle  = \sum\limits_{j = 1}^N \frac{m_j}{\rho_j} f\left( {\bf{x}}_j \right) \cdot W_{ij}<br>\end{equation}<br>$$</p>
+<p>ODEs are produced when <strong>kernel approximation</strong> and <strong>particle approximation</strong> are applied to Navier-Stokes equations.</p>
+<p>$$<br>\begin{equation}<br>\frac{d\rho_i}{dt} = \rho_i \sum\limits_{j = 1}^N \frac{m_j}{\rho_j}v_{ij}^\beta  \cdot  \frac{\partial W_{ij}}{\partial x_i^\beta }<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\frac{dv_i^\alpha }{dt} = \sum\limits_{j = 1}^N {m_j\frac{\sigma_i^{\alpha \beta } + \sigma_j^{\alpha \beta }}{\rho_i \rho_j}} \frac{\partial W_{ij}}{\partial x_i^\beta }<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\frac{de_i}{dt} =\frac{1}{2}\sum\limits_{j = 1}^N m_j\frac{p_i + p_j}{\rho_i \rho_j} v_{ij}^\beta  \cdot  \frac{\partial W_{ij}}{\partial x_i^\beta }+\frac{\mu_i}{2\rho_i}\varepsilon_i^{\alpha \beta} \varepsilon_i^{\alpha \beta}<br>\end{equation}<br>$$</p>
+<p>Last time integration algorithm is achieved.</p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><p>I use the code provided by the book[^1] to simulate the shear cavity flow. Here is the result.</p>
+<p><img src="/2017/02/17/201702/SPH/result.gif" alt="velocity distributions for the shear driven cavity flow" title="velocity distributions for the shear driven cavity flow"></p>
+<h1 id="Some-techniques"><a href="#Some-techniques" class="headerlink" title="Some techniques"></a>Some techniques</h1><h2 id="Fortran-syntax"><a href="#Fortran-syntax" class="headerlink" title="Fortran syntax"></a>Fortran syntax</h2><p>Write multi files for tecplot with time.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">write(filename,&apos;(i8)&apos; ) itimestep</div><div class="line">open (4, file = &apos;./data/&apos; //trim(adjustl(filename))//&apos;.dat&apos;)  </div><div class="line">write(4,*) &quot;TITLE=&apos;CavityFlow&apos;&quot;  </div><div class="line">write(4,*) &quot;VARIABLES = x,y,u,v&quot;  </div><div class="line">write(4,*) &apos;ZONE AUXDATA time =&quot;&apos;,time,&apos;&quot;&apos;</div></pre></td></tr></table></figure></p>
+<h2 id="Tecplot"><a href="#Tecplot" class="headerlink" title="Tecplot"></a>Tecplot</h2><h3 id="Macro"><a href="#Macro" class="headerlink" title="Macro"></a>Macro</h3><p><a href="http://www.docin.com/p-663875833.html" title="TecplotMacro" target="_blank" rel="external">References</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$!VarSet |NumLoop|=100</div><div class="line">$!Loop |NumLoop|</div><div class="line">$!VarSet |num|=(|Loop|*500)</div><div class="line">$!READDATASET  &apos;&quot;D:\data\|num|.dat&quot; &apos;</div><div class="line">$!EXPORTSETUP EXPORTFNAME = &apos;D:\data\png\|Loop|.png&apos;</div><div class="line">$!EndLoop</div></pre></td></tr></table></figure></p>
+<h3 id="Dynamic-text"><a href="#Dynamic-text" class="headerlink" title="Dynamic text"></a>Dynamic text</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;(auxzone[1]:time)</div></pre></td></tr></table></figure>
+<h2 id="Gif-movie-gear"><a href="#Gif-movie-gear" class="headerlink" title="Gif movie gear"></a>Gif movie gear</h2>
       
     </div>
 
@@ -462,9 +355,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/programming/" rel="tag">#programming</a>
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
           
-            <a href="/tags/Fortran/" rel="tag">#Fortran</a>
+            <a href="/tags/SPH/" rel="tag">#SPH</a>
           
         </div>
       
@@ -473,17 +366,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/13/201702/writeInEnglish/" rel="next" title="Write Blog In English">
-                <i class="fa fa-chevron-left"></i> Write Blog In English
+              <a href="/2017/02/13/201702/ZenOfFortran/" rel="next" title="Zen Of Fortran">
+                <i class="fa fa-chevron-left"></i> Zen Of Fortran
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/17/201702/SPH/" rel="prev" title="notes of SPH">
-                notes of SPH <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -511,7 +400,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/13/201702/ZenOfFortran/" data-title="Zen Of Fortran" data-url="http://yoursite.com/2017/02/13/201702/ZenOfFortran/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/17/201702/SPH/" data-title="notes of SPH" data-url="http://yoursite.com/2017/02/17/201702/SPH/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -616,7 +505,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Zen-of-Fortran"><span class="nav-number">2.</span> <span class="nav-text">Zen of Fortran</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-number">2.0.1.</span> <span class="nav-text">References</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Guideline"><span class="nav-number">3.</span> <span class="nav-text">Guideline</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#readability"><span class="nav-number">3.1.</span> <span class="nav-text"> readability</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Template"><span class="nav-number">3.1.1.</span> <span class="nav-text">Template</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#More"><span class="nav-number">4.</span> <span class="nav-text">More</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Result"><span class="nav-number">3.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-techniques"><span class="nav-number">4.</span> <span class="nav-text">Some techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fortran-syntax"><span class="nav-number">4.1.</span> <span class="nav-text">Fortran syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tecplot"><span class="nav-number">4.2.</span> <span class="nav-text">Tecplot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro"><span class="nav-number">4.2.1.</span> <span class="nav-text">Macro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-text"><span class="nav-number">4.2.2.</span> <span class="nav-text">Dynamic text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gif-movie-gear"><span class="nav-number">4.3.</span> <span class="nav-text">Gif movie gear</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
