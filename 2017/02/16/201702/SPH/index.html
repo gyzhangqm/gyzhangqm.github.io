@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="SPH," />
 
 
 
@@ -84,15 +84,18 @@
 
 
 
-<meta name="description" content="Hello World">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CFD学习">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research works. So I put aside my current">
+<meta property="og:type" content="article">
+<meta property="og:title" content="notes of SPH">
+<meta property="og:url" content="http://yoursite.com/2017/02/16/201702/SPH/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="Hello World">
+<meta property="og:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research works. So I put aside my current">
+<meta property="og:image" content="http://yoursite.com/2017/02/16/201702/SPH/result.gif">
+<meta property="og:updated_time" content="2017-02-17T12:59:54.639Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CFD学习">
-<meta name="twitter:description" content="Hello World">
+<meta name="twitter:title" content="notes of SPH">
+<meta name="twitter:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research works. So I put aside my current">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/16/201702/SPH/result.gif">
 
 
 
@@ -110,7 +113,7 @@
   };
 </script>
 
-  <title> CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> notes of SPH | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,9 +134,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -230,9 +231,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -252,10 +253,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/01/29/201701/eqairMolarFrax/" itemprop="url">
-                  平衡空气组分随温度的变化
-                </a>
+                notes of SPH
               
             
           </h1>
@@ -267,8 +265,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:54:52+08:00" content="2017-01-29">
-              2017-01-29
+            <time itemprop="dateCreated" datetime="2017-02-16T22:28:48+08:00" content="2017-02-16">
+              2017-02-16
             </time>
           </span>
 
@@ -297,8 +295,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/29/201701/eqairMolarFrax/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/29/201701/eqairMolarFrax/" itemprop="commentsCount"></span>
+                <a href="/2017/02/16/201702/SPH/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/16/201702/SPH/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -321,165 +319,74 @@
       
 
       
-        
-          
-          
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>After no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of scientific research works. So I put aside my current job, and spend a day reading a book[^1] about SPH method. Then I try the code and gain much fun and confidence.<br>Here are some method and results.</p>
+<p>[^1]:Smoothed Particle Hydrodynamics, a meshfree particle method-G.R. Liu, M.B. Liu 2003</p>
+<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The pith and marrow of SPH are fully embodied in that a function and its derivative can be represented in an integral form using dirac function or nascent delta function. It’s called <strong>kernel approximation</strong> in SPH.<br>$$<br>\begin{equation}<br>\left\langle f (\bf{x}) \right\rangle  = \int\limits_\Omega  f ({\bf{x’}}) W( {\bf{x}} - {\bf{x’}},h )d{\bf{x’}}<br>\end{equation}<br>$$</p>
+<p>Then <strong>particle approximation</strong> is performed to conver the integral representation to the form of discretized particle approximation.</p>
+<p>$$<br>\begin{equation}<br>\left\langle f\left( {\bf{x}}_i \right) \right\rangle  = \sum\limits_{j = 1}^N \frac{m_j}{\rho_j} f\left( {\bf{x}}_j \right) \cdot W_{ij}<br>\end{equation}<br>$$</p>
+<p>ODEs are produced when <strong>kernel approximation</strong> and <strong>particle approximation</strong> are applied to Navier-Stokes equations.</p>
+<p>$$<br>\begin{equation}<br>\frac{d\rho_i}{dt} = \rho_i \sum\limits_{j = 1}^N \frac{m_j}{\rho_j}v_{ij}^\beta  \cdot  \frac{\partial W_{ij}}{\partial x_i^\beta }<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\frac{dv_i^\alpha }{dt} = \sum\limits_{j = 1}^N {m_j\frac{\sigma_i^{\alpha \beta } + \sigma_j^{\alpha \beta }}{\rho_i \rho_j}} \frac{\partial W_{ij}}{\partial x_i^\beta }<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\frac{de_i}{dt} =\frac{1}{2}\sum\limits_{j = 1}^N m_j\frac{p_i + p_j}{\rho_i \rho_j} v_{ij}^\beta  \cdot  \frac{\partial W_{ij}}{\partial x_i^\beta }+\frac{\mu_i}{2\rho_i}\varepsilon_i^{\alpha \beta} \varepsilon_i^{\alpha \beta}<br>\end{equation}<br>$$</p>
+<p>Last time integration algorithm is achieved.</p>
+<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><p>I use the code provided by the book[^1] to simulate the shear cavity flow. Here is the result.</p>
+<p><img src="/2017/02/16/201702/SPH/result.gif" alt="velocity distributions for the shear driven cavity flow" title="velocity distributions for the shear driven cavity flow"></p>
+<h1 id="Some-techniques"><a href="#Some-techniques" class="headerlink" title="Some techniques"></a>Some techniques</h1><h2 id="Fortran-syntax"><a href="#Fortran-syntax" class="headerlink" title="Fortran syntax"></a>Fortran syntax</h2><p>Write multi files for tecplot with time.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">write(filename,&apos;(i8)&apos; ) itimestep</div><div class="line">open (4, file = &apos;./data/&apos; //trim(adjustl(filename))//&apos;.dat&apos;)  </div><div class="line">write(4,*) &quot;TITLE=&apos;CavityFlow&apos;&quot;  </div><div class="line">write(4,*) &quot;VARIABLES = x,y,u,v&quot;  </div><div class="line">write(4,*) &apos;ZONE AUXDATA time =&quot;&apos;,time,&apos;&quot;&apos;</div></pre></td></tr></table></figure></p>
+<h2 id="Tecplot"><a href="#Tecplot" class="headerlink" title="Tecplot"></a>Tecplot</h2><h3 id="Macro"><a href="#Macro" class="headerlink" title="Macro"></a>Macro</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$!VarSet |NumLoop|=100</div><div class="line">$!Loop |NumLoop|</div><div class="line">$!VarSet |num|=(|Loop|*500)</div><div class="line">$!READDATASET  &apos;&quot;D:\data\|num|.dat&quot; &apos;</div><div class="line">$!EXPORTSETUP EXPORTFNAME = &apos;D:\data\png\|Loop|.png&apos;</div><div class="line">$!EndLoop</div></pre></td></tr></table></figure>
+<h3 id="Dynamic-text"><a href="#Dynamic-text" class="headerlink" title="Dynamic text"></a>Dynamic text</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;(auxzone[1]:time)</div></pre></td></tr></table></figure>
+<h2 id="Gif-movie-gear"><a href="#Gif-movie-gear" class="headerlink" title="Gif movie gear"></a>Gif movie gear</h2>
+      
+    </div>
 
-摘要
-方法
-结果
-意义
-
-
-摘要我们知道，高超声速飞行器在高速飞行时，气体动能转化为内能，空气被加热，依据温度大小会出现振动能激发(马赫数3-8, 温度800K 以上)、化学反应（马赫数8-25，温度2000K 以上）、电离和辐射（马赫数25 以上，温度9000K 以上）。本文针对化学反应部分，
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/29/201701/eqairMolarFrax/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/01/29/201701/myFirstBlog/" itemprop="url">
-                  myFirstBlog
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-29T20:22:41+08:00" content="2017-01-29">
-              2017-01-29
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/01/29/201701/myFirstBlog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/29/201701/myFirstBlog/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/SPH/" rel="tag">#SPH</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          春节过后就是新的一年了。新年最该做得事情不是制定计划，而是应该回顾和展望。2016年对我而言是很重要的一年。这一年结束了我许多年来对人生的迷茫，却又慢慢地认清自己认清现实。
-这一年我正式半只脚踏入CFD领域。
-然而日复一日的学习生活慢慢让我认清自己。认清平庸的自己并没有天赋异禀，认清世界上大多数人并
-          ...
-
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/01/29/201701/myFirstBlog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/13/201702/ZenOfFortran/" rel="next" title="Zen Of Fortran">
+                <i class="fa fa-chevron-left"></i> Zen Of Fortran
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -487,6 +394,29 @@
 
 
           
+  <div class="comments" id="comments">
+    
+<section id="comments">
+   <!-- ��˵���ۿ� start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/16/201702/SPH/" data-title="notes of SPH" data-url="http://yoursite.com/2017/02/16/201702/SPH/" }}"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shortTime"};
+  (function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+ || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- ��˵����JS���� end -->
+</section>
+    
+  </div>
+
 
         </div>
         
@@ -506,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -557,6 +496,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Result"><span class="nav-number">3.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-techniques"><span class="nav-number">4.</span> <span class="nav-text">Some techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fortran-syntax"><span class="nav-number">4.1.</span> <span class="nav-text">Fortran syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tecplot"><span class="nav-number">4.2.</span> <span class="nav-text">Tecplot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro"><span class="nav-number">4.2.1.</span> <span class="nav-text">Macro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-text"><span class="nav-number">4.2.2.</span> <span class="nav-text">Dynamic text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gif-movie-gear"><span class="nav-number">4.3.</span> <span class="nav-text">Gif movie gear</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -653,6 +603,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
