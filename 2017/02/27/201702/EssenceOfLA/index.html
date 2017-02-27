@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD,Hypersonic,Math," />
+  <meta name="keywords" content="Linear Algebra," />
 
 
 
@@ -84,16 +84,21 @@
 
 
 
-<meta name="description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
+<meta name="description" content="When I was a undergraduate, I was luck enough to watch MIT video lecture, Linear Algebra. Today I find this course extremely useful in the area of CFD. What benefit me a lot are a series of vedios of">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系数矩阵和通量分裂">
-<meta property="og:url" content="http://yoursite.com/2017/02/08/201702/invisidFluxJacobian/index.html">
+<meta property="og:title" content="The Essence of Linear Algebra">
+<meta property="og:url" content="http://yoursite.com/2017/02/27/201702/EssenceOfLA/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
-<meta property="og:updated_time" content="2017-02-13T08:57:30.357Z">
+<meta property="og:description" content="When I was a undergraduate, I was luck enough to watch MIT video lecture, Linear Algebra. Today I find this course extremely useful in the area of CFD. What benefit me a lot are a series of vedios of">
+<meta property="og:image" content="http://yoursite.com/2017/02/27/201702/EssenceOfLA/vector.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/27/201702/EssenceOfLA/MatrixAsTransformation.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/27/201702/EssenceOfLA/MatricVectorMultiplication.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/27/201702/EssenceOfLA/CrossProducts.png">
+<meta property="og:updated_time" content="2017-02-27T13:18:16.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="系数矩阵和通量分裂">
-<meta name="twitter:description" content="摘要Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\L">
+<meta name="twitter:title" content="The Essence of Linear Algebra">
+<meta name="twitter:description" content="When I was a undergraduate, I was luck enough to watch MIT video lecture, Linear Algebra. Today I find this course extremely useful in the area of CFD. What benefit me a lot are a series of vedios of">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/27/201702/EssenceOfLA/vector.png">
 
 
 
@@ -111,7 +116,7 @@
   };
 </script>
 
-  <title> 系数矩阵和通量分裂 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> The Essence of Linear Algebra | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -251,7 +256,7 @@
             
             
               
-                系数矩阵和通量分裂
+                The Essence of Linear Algebra
               
             
           </h1>
@@ -263,8 +268,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-08T22:05:27+08:00" content="2017-02-08">
-              2017-02-08
+            <time itemprop="dateCreated" datetime="2017-02-27T19:55:24+08:00" content="2017-02-27">
+              2017-02-27
             </time>
           </span>
 
@@ -277,8 +282,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CFD/" itemprop="url" rel="index">
-                    <span itemprop="name">CFD</span>
+                  <a href="/categories/Mathematics/" itemprop="url" rel="index">
+                    <span itemprop="name">Mathematics</span>
                   </a>
                 </span>
 
@@ -293,8 +298,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/08/201702/invisidFluxJacobian/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/201702/invisidFluxJacobian/" itemprop="commentsCount"></span>
+                <a href="/2017/02/27/201702/EssenceOfLA/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/27/201702/EssenceOfLA/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,36 +322,37 @@
       
 
       
-        <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>Steger Warming 分裂的精粹在于对无粘Jacobian矩阵分裂。而LUSGS推进也需要利用$A^{\pm}$矩阵。<br>这部分内容从数学上来讲很容易，就是求无粘通量$F$对守恒变量$Q$的Jacobian矩阵$A=\frac{\partial F}{\partial Q}$，然后对此矩阵相似对角化$A=R \Lambda L$，得到左右特征矩阵和对角特征值。对对角特征值进行迎风分裂$\Lambda=\Lambda^+ +\Lambda^-$，最后乘以左右特征矩阵得到迎风分裂的系数矩阵$A^{\pm}=R \Lambda^{\pm} L$。迎风分裂的系数矩阵乘以守恒变量就是SW迎风通量$F^{\pm}=A^{\pm}Q$。</p>
-<p>但是推导起来还是复杂的很。思路是这样子的，$A$很容易直接逐项求无粘通量$F$对守恒变量$Q$的偏导数得到，但是该矩阵比较复杂，不容易对角化。曲线救国的方案是求无粘通量$F$对原始变量$W$的偏导数矩阵$M=\frac{\partial F}{\partial W}$,$M$比较容易对角化，而且$M$和$A$是相似的。通过守恒变量$Q$对原始变量$W$的偏导数矩阵联系。求得$M$的对角化后很容易进而求解$A$的对角化（实在是太烦了）。</p>
-<p>这里我省去了繁杂的推导过程，直接给出系数矩阵$A$、左右特征矩阵$R$和$L$、迎风分裂的系数矩阵$A^{\pm}$以及SW迎风通量$F^{\pm}$。</p>
-<h1 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h1><h2 id="三维Euler方程"><a href="#三维Euler方程" class="headerlink" title="三维Euler方程"></a>三维Euler方程</h2><p>设无粘三维Euler方程为</p>
-<p>$$\frac{\partial Q}{\partial t} + \frac{\partial \tilde{F}_k}{\partial x_k} =0，\quad x_k=x,y,z$$<br>曲线坐标系中为<br>$$\frac{\partial JQ}{\partial t} + \frac{\partial J F_k}{\partial x^k} =0,\quad x^k=\xi,\eta,\zeta$$<br>其中</p>
-<p>$$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {\bf{u}}\\<br>\rho {e^v}\\<br>\rho {e^e}<br>\end{array} \right],<br>F_k = \left[ \begin{array}{c}<br>\mathbf{\rho}_\bf{s}\theta \\<br>\rho \theta \bf{u} + \mathcal{p} \mathbf{k}\\<br>\rho \theta {e^v}\\<br>\rho \theta H<br>\end{array} \right]$$</p>
-<p>其中$\mathbf{k}$已经归一化，$\theta=\mathbf{k} \cdot \mathbf{u}$</p>
-<h2 id="系数矩阵"><a href="#系数矩阵" class="headerlink" title="系数矩阵"></a>系数矩阵</h2><p>系数矩阵$A_k=\frac{F_k}{\partial Q}$具体形式为：</p>
-<p>$$A_k = \left( \begin{array}{cccc}<br>\theta (\delta_{sj} - Y_s) &amp; {Y_s}{\bf{k}}^T &amp; 0 &amp; 0\\<br>k_x \beta_s - \theta {\bf{u}} &amp; \theta {\bf{I}} - \varphi {\bf{k}}{\bf{u}}^T + {\bf{u}}  {\bf{k}}^T &amp; - \varphi {\bf{k}} &amp; \varphi {\bf{k}}\\<br>{- {e^v}\theta} &amp; e^v {\bf{k}}^T &amp; \theta &amp; 0\\<br>(\beta_s - H)\theta &amp;H {\bf{k}}^T - \varphi \theta {\bf{u}}^T &amp; -\varphi \theta &amp; (\varphi+1)\theta<br>\end{array} \right)$$</p>
-<p>其中<br>$\varphi  = \frac{\partial p}{\partial (\rho e^e)} =\frac{R_u}{c_V^{tr}\bar M}$<br>${\beta_s} = \frac{\partial p}{\partial {\rho_s}} = \frac{R_u}{M_s}T - \varphi  c_{V,s}^{tr}T + \varphi \left[ \frac{1}{2}\left( u^2 + v^2+ w^2 \right) - e_s^0 \right]$</p>
-<h2 id="系数矩阵的对角化"><a href="#系数矩阵的对角化" class="headerlink" title="系数矩阵的对角化"></a>系数矩阵的对角化</h2><p>$$A=R \Lambda L$$</p>
-<p>$$\Lambda  = diag \left[{\bf{\theta}_s} ,\theta ,\theta ,\theta  + c,\theta ,\theta  - c\right]$$</p>
-<p>找到与${\bf{k}} = [k_x,k_y,k_z]^T$垂直的的两个向量${\bf{b}}_i = [b_1,b_2,b_2]^T$与其协变矢量${\bf{b}}^j = [b^1,b^2,b^2]^T$，使  ${\bf{k}}\cdot {\bf{b}}_i = 0,{\bf{b}}_i\cdot {\bf{b}}^j=\delta_i^j$,那么</p>
-<p>$$R = \left( \begin{array}<br>\delta_{sp} &amp; 0 &amp; 0 &amp; Y_s &amp; 0 &amp; Y_s\\<br>{\bf{u}} &amp; c{\bf{b}}_{\bf{i}}^{(1)} &amp; c{\bf{b}}_{\bf{i}}^{(2)} &amp; {\bf{u}} + c{\bf{k}} &amp; 0 &amp; {\bf{u}} - c{\bf{k}}\\<br>0 &amp; 0 &amp; 0 &amp; e^v &amp; 1 &amp; e^v\\<br>{\bf{u}} \cdot {\bf{u}} - \beta_p/ \varphi &amp; c(\bf{u} \cdot \bf{b}_{i}^{(1)}) &amp; c(\bf{u} \cdot \bf{b}_i^{(2)}) &amp; H + \theta c &amp; 1 &amp; H - \theta c<br>\end{array} \right)$$</p>
-<p>$$L_k = \frac{1}{c^2}\left( {\begin{array}{cccc}<br>(c^2 \delta_{qj} - Y_q \beta_j) &amp; \varphi {\bf{u}}^T Y_q &amp; \varphi Y_q &amp;  -\varphi Y_q\\<br>-c({\bf{b}}^{j(1)} \cdot {\bf{u}}) &amp; c{\bf{b}}^{j(1)T} &amp; 0 &amp; 0\\<br>-c({\bf{b}}^{j(2)} \cdot {\bf{u}}) &amp; c{\bf{b}}^{j(2)T} &amp; 0 &amp; 0\\<br>\frac{\beta_j - \theta c}{2} &amp; \frac{c {\bf{k}^T} - \varphi {\bf{u}}^T}{2} &amp; -\frac{\varphi }{2} &amp; \frac{\varphi}{2}\\<br>-e^v \beta_j &amp; \varphi {\bf{u}} e^v &amp; c^2 + \varphi e^v &amp; -\varphi e^v\\<br>\frac{\beta_j + \theta c}{2} &amp;-\frac{c {\bf{k}^T} + \varphi {\bf{u}}^T}{2} &amp; -\frac{\varphi }{2} &amp; \frac{\varphi}{2}<br>\end{array}} \right)$$</p>
-<h2 id="系数矩阵的分裂"><a href="#系数矩阵的分裂" class="headerlink" title="系数矩阵的分裂"></a>系数矩阵的分裂</h2><p>按照特征值$\lambda$的正负，可以将系数矩阵分裂为<br>$$A^{\pm}= A^+ +A^-$$<br>用$\tilde{A}$代表$A^+$或者$A^-$，那么<br>$$\tilde{A}= R\tilde{\Lambda}L$$<br>将$\tilde{A}$写成如下形式：<br>$$\tilde{A}=[\tilde{A}_{1j},\tilde{\bf{A}}_2,\tilde{A}_3,\tilde{A}_4]$$</p>
-<p>$$\tilde A_{1,j} = \left[ \begin{array}{c}<br>{\tilde \lambda_1} {\delta_{sj}} + {Y_s}({J_1}{\beta_j} - {J_2}\theta )\\<br>(\beta_j {\bf{u}} -\theta c^2+{\bf{k}}) {J_1}+ (\beta_j \bf{k}- \theta\bf{u}) J_2 \\<br>{e^v}({J_1}{\beta_j} - {J_2}\theta )\\<br>\theta ({J_2}{\beta_s} - {J_1}\theta {c^2}) + H({J_1}{\beta_j} - {J_2}\theta )<br>\end{array} \right]$$</p>
-<p>$$\tilde{\bf{A}}_2 = \left[ \begin{array}{c}<br>Y_s ({\bf{k}}^T J_2 - \varphi {\bf{u}}^T J_1)\\<br>{\bf{u}} ({\bf{k}}^T J_2 - \varphi {\bf{u}}^T J_1) + {\tilde \lambda }_1 {\bf{I}} + {\bf{k}} ({\bf{k}}^T J_1 c^2 - \varphi {\bf{u}}^T J_2)\\<br>e^v ({\bf{k}}^T J_2 - \varphi {\bf{u}}^T J_1)\\<br>\theta ({\bf{k}}^T J_1 c^2 - \varphi {\bf{u}}^T J_2) + H( {\bf{k}}^T J_2 - \varphi  {\bf{u}}^T J_1)<br>\end{array} \right]$$</p>
-<p>$$\tilde{A}_3 =  - \left[ \begin{array}{c}<br>Y_s\varphi J_1\\<br>{\bf{u}} \varphi J_1 + {\bf{k}} \varphi J_2\\<br>e^v \varphi J_1 - {\tilde \lambda }_1\\<br>\theta \varphi J_2 + H \varphi {J_1}<br>\end{array} \right]$$</p>
-<p>$$\tilde{A}_4 = \left[ \begin{array}{c}<br>{Y_s} \varphi {J_1}\\<br>{\bf{u}} \varphi {J_1} + {\bf{k}} \varphi {J_2}\\<br>{e^v} \varphi {J_1}\\<br>{\tilde \lambda }_1 + \theta \varphi {J_2} + H\varphi {J_1}<br>\end{array} \right]$$</p>
-<p>其中$J_1=\frac{\tilde\lambda_2+\tilde\lambda_3-2\tilde\lambda_1}{2c^2},J_2=\frac{\tilde\lambda_2-\tilde\lambda_3}{2c}$</p>
-<h2 id="正负通量分裂"><a href="#正负通量分裂" class="headerlink" title="正负通量分裂"></a>正负通量分裂</h2><p>$$F^{\pm}=A^{\pm}Q=R \Lambda^{\pm} LQ $$</p>
-<p>$$F^{\pm} = \left[ \begin{array}{c}<br>{\bf{\rho}}_{\bf{s}} dd\\<br>\rho {\bf{u}} dd + \frac{\lambda_2 - \lambda_3}{2\gamma}\rho c{\bf{k}}\\<br>\rho e^v dd\\<br>\rho e^e dd + \frac{p}{2\gamma }(\lambda_2 + \lambda_3 - 2\lambda_1) + \frac{\lambda_2 - \lambda_3}{2\gamma} \rho c \theta<br>\end{array} \right]$$</p>
-<p>其中$dd = \frac{2\lambda_1 (\gamma  - 1) + \lambda_2 + \lambda_3}{2\gamma}$<br>作为自洽性的证明，当不对特征值分裂时，该结果退化为通量$F$的表达式。</p>
-<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><ol>
-<li><p>我现在觉得把守恒变量按照这个顺序排列比较好$Q = \left[ \begin{array}{c}<br>{\mathbf{\rho}_{\bf{s}}}\\<br>\rho {e^v}\\<br>\rho {\bf{u}}\\<br>\rho {e^e}<br>\end{array} \right]$.这样方便源项偏导数的计算。</p>
-</li>
-<li><p>本文中的公式实在是太繁琐了。但是由于<a href="https://gyzhangqm.github.io/2017/01/31/201701/GoverningEquations/" title="GoverningEquations" target="_blank" rel="external">热化学非平衡流动控制方程</a>中所述的原因，以及周禹的博士论文中公式存在印刷错误，我还是花了大量时间进行了这种似乎没有意义的繁杂矩阵计算。</p>
-</li>
-</ol>
+        <p>When I was a undergraduate, I was luck enough to watch MIT video lecture, Linear Algebra. Today I find this course extremely useful in the area of CFD. What benefit me a lot are a series of vedios of great interest, named The Essence of Linear Algebra.<br>I note down the understandings of linear algebra on a geometric level.</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>There’s a fundamental difference between understanding linear algebra on a numerical level and understanding it on a geometric level.</p>
+<p>The geometric understanding is what lets you judge what tools to use to solve specific problem, fell why they work, and know how to interpret the results.</p>
+<p>And the numeric understanding is what lets you actually carry through the application of those tools.</p>
+<h1 id="Vectors-What-even-are-they"><a href="#Vectors-What-even-are-they" class="headerlink" title="Vectors. What even are they?"></a>Vectors. What even are they?</h1><p>From the physics student’s perspective, vectors are arrows pointing in space. What defines a given vector is its length and the direction it’s pointing.</p>
+<p>The computer science perspective is that vectors are ordered lists of numbers.</p>
+<p>Form the mathematician’s perspective, vectors can be anything where there’s a sensible notion of adding two vectors and multiplying a vector by a number.<br><img src="/2017/02/27/201702/EssenceOfLA/vector.png" alt="CS vs Physics" title="CS vs Physics"></p>
+<p>The rest part of the chapter is about understanding adding and multiplying operations with Geometric approach instead of digits, which are too simple to write down.</p>
+<h1 id="Linear-combinations-span-and-bases"><a href="#Linear-combinations-span-and-bases" class="headerlink" title="Linear combinations, span, and bases"></a>Linear combinations, span, and bases</h1><p>The bases of a vector space are a set of linearly independent vectors that span the full space.</p>
+<p>For example, any vector in a plane can be obtained by the combination of two independent vectors. The two independent vectors are called bases of the space.</p>
+<h1 id="Matrices-as-Linear-transformations"><a href="#Matrices-as-Linear-transformations" class="headerlink" title="Matrices as Linear transformations"></a>Matrices as Linear transformations</h1><p>Transformations are functions with vectors as inputs and vectors as outputs. For linear transformations, all lines remain lines and the origin must remain fixed in place. We can think about them visually as smooshing around space in such a way that the grid lines stay parallel and evenly spaced, and so that the origin remains fixed.</p>
+<p><strong><em>What are Matrices?</em></strong></p>
+<p>After a transformation, the base i vector turns into (a,c), the base j vector turns into (b,d). This means each column of a matric record the transformation of each base. In another word, a matric represents a transformation.<br><img src="/2017/02/27/201702/EssenceOfLA/MatrixAsTransformation.png" alt="Matrix as Transformation" title="Matrix as Transformation"><br>When apply a transformation to a vector, you get a new vector.</p>
+<p>This is defined as matric-vector multiplication.<br><img src="/2017/02/27/201702/EssenceOfLA/MatricVectorMultiplication.png" alt="matric-vector multiplication" title="matric-vector multiplication"></p>
+<h1 id="Matrix-multiplication-as-composition"><a href="#Matrix-multiplication-as-composition" class="headerlink" title="Matrix multiplication as composition"></a>Matrix multiplication as composition</h1><p>Multiplying two matrices has the geometric meaning of applying one transformation the another.</p>
+<h1 id="The-determinant"><a href="#The-determinant" class="headerlink" title="The determinant"></a>The determinant</h1><p>The determinant of a transformation tells how much a transformation scales things(area in 2D, volume in 3D).</p>
+<h1 id="Inverse-matrices-column-space-rank-and-null-space"><a href="#Inverse-matrices-column-space-rank-and-null-space" class="headerlink" title="Inverse matrices, column space, rank, and null space"></a>Inverse matrices, column space, rank, and null space</h1><p>Each linear equation system has some kind of linear transformation associated with it. When the transformation has an inverse, you can use the inverse to solve the system.</p>
+<p>Column space is the all possible linear combinations of the column vector of a matric, which lets us understand when a solution even exists.</p>
+<p>The column rank of A is the dimension of the column space of A.</p>
+<p>Null space is the set of all possible solutions which are turned into zero vector when applied a transformation.</p>
+<h1 id="Non-square-matrix"><a href="#Non-square-matrix" class="headerlink" title="Non-square matrix"></a>Non-square matrix</h1><p>Non-square matrices represent transformations between different dimensions.</p>
+<h1 id="Dot-products"><a href="#Dot-products" class="headerlink" title="Dot products"></a>Dot products</h1><p>Taking a dot product with a unit vector can be interpreted as projecting a vector onto the span of that unit vector and taking the length. Under this circumstance, a vector can be understood as a projection matrix, or a projection transformation.</p>
+<h1 id="Cross-products"><a href="#Cross-products" class="headerlink" title="Cross products"></a>Cross products</h1><p><img src="/2017/02/27/201702/EssenceOfLA/CrossProducts.png" alt="Cross products" title="Crpss products"></p>
+<p>Cross products equal to the determinant of the matrix with those coordinates as columns. Their orientation are determined using the right hand rule.</p>
+<h1 id="Change-of-basis"><a href="#Change-of-basis" class="headerlink" title="Change of basis"></a>Change of basis</h1><p>How to translate the description of individual vectors back and forth between coordinate systems?</p>
+<p>The matrix, whose columns represent the new basis vectors but written in old coordinates, can be thought as a transformation recording where the basis landing.  The matrix translates  vectors in new coordinate to old one.  </p>
+<p>Space  itself has no intrinsic grid.</p>
+<h1 id="Eigenvectors-and-eigenvalues"><a href="#Eigenvectors-and-eigenvalues" class="headerlink" title="Eigenvectors and eigenvalues"></a>Eigenvectors and eigenvalues</h1><p>$$Av=\lambda v$$</p>
+<p>Eigenvectors are the special vectors staying on its own span during the transformation. And each eigenvector has associated eigenvalue with it. Eigenvalue is just the factor by which the eigenvector stretched or squashed during the transformation.</p>
+<h1 id="Last-but-not-least"><a href="#Last-but-not-least" class="headerlink" title="Last but not least"></a>Last but not least</h1><p>I find the $\pi$ creature very interesting. So I use it as my new WeChat avatar.</p>
+<p>There are a lot of tricks in the area of CFD if we rethink on a geometric level. For example, in a finite-volume code, we can write just a subroutine to solve the split three-Dimensional Riemann problem, and then use the rotation matrix and its inverse to comepute the interface flux. For another example, when treat slip boundary condition, it’s tedious to set the normal velocity in the ghost cell opposite sign to that in the inner cell, and set the tangential velocity  same sign. If we use a mirror matrix, things can be much easier. I will write down some tricks if I find time.</p>
 
       
     </div>
@@ -368,11 +374,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CFD/" rel="tag">#CFD</a>
-          
-            <a href="/tags/Hypersonic/" rel="tag">#Hypersonic</a>
-          
-            <a href="/tags/Math/" rel="tag">#Math</a>
+            <a href="/tags/Linear-Algebra/" rel="tag">#Linear Algebra</a>
           
         </div>
       
@@ -381,17 +383,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/07/201702/derivative2primitive-var/" rel="next" title="非平衡偏导数">
-                <i class="fa fa-chevron-left"></i> 非平衡偏导数
+              <a href="/2017/02/18/201702/FDvsFV/" rel="next" title="FDvsFV">
+                <i class="fa fa-chevron-left"></i> FDvsFV
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/09/201702/frozenSonic/" rel="prev" title="声速公式的推导">
-                声速公式的推导 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -419,7 +417,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/08/201702/invisidFluxJacobian/" data-title="系数矩阵和通量分裂" data-url="http://yoursite.com/2017/02/08/201702/invisidFluxJacobian/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/27/201702/EssenceOfLA/" data-title="The Essence of Linear Algebra" data-url="http://yoursite.com/2017/02/27/201702/EssenceOfLA/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
 <script type="text/javascript">
@@ -524,7 +522,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#公式"><span class="nav-number">2.</span> <span class="nav-text">公式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三维Euler方程"><span class="nav-number">2.1.</span> <span class="nav-text">三维Euler方程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵"><span class="nav-number">2.2.</span> <span class="nav-text">系数矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的对角化"><span class="nav-number">2.3.</span> <span class="nav-text">系数矩阵的对角化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系数矩阵的分裂"><span class="nav-number">2.4.</span> <span class="nav-text">系数矩阵的分裂</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正负通量分裂"><span class="nav-number">2.5.</span> <span class="nav-text">正负通量分裂</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后"><span class="nav-number">3.</span> <span class="nav-text">最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Vectors-What-even-are-they"><span class="nav-number">2.</span> <span class="nav-text">Vectors. What even are they?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linear-combinations-span-and-bases"><span class="nav-number">3.</span> <span class="nav-text">Linear combinations, span, and bases</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrices-as-Linear-transformations"><span class="nav-number">4.</span> <span class="nav-text">Matrices as Linear transformations</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix-multiplication-as-composition"><span class="nav-number">5.</span> <span class="nav-text">Matrix multiplication as composition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#The-determinant"><span class="nav-number">6.</span> <span class="nav-text">The determinant</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Inverse-matrices-column-space-rank-and-null-space"><span class="nav-number">7.</span> <span class="nav-text">Inverse matrices, column space, rank, and null space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Non-square-matrix"><span class="nav-number">8.</span> <span class="nav-text">Non-square matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dot-products"><span class="nav-number">9.</span> <span class="nav-text">Dot products</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cross-products"><span class="nav-number">10.</span> <span class="nav-text">Cross products</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Change-of-basis"><span class="nav-number">11.</span> <span class="nav-text">Change of basis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Eigenvectors-and-eigenvalues"><span class="nav-number">12.</span> <span class="nav-text">Eigenvectors and eigenvalues</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Last-but-not-least"><span class="nav-number">13.</span> <span class="nav-text">Last but not least</span></a></li></ol></div>
             
           </div>
         </section>
