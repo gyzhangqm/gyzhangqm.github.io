@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CFD,Math," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenienc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nondimensional-1">
+<meta property="og:url" content="http://yoursite.com/2017/03/18/201703/Nondimensional/index.html">
+<meta property="og:site_name" content="CFD学习">
+<meta property="og:description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenienc">
+<meta property="og:updated_time" content="2017-03-19T04:17:35.114Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nondimensional-1">
+<meta name="twitter:description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenienc">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Nondimensional-1 | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CFD学习</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学有所思，思有所悟，悟有所行</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nondimensional-1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-18T23:34:02+08:00" content="2017-03-18">
+              2017-03-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/CFD/" itemprop="url" rel="index">
+                    <span itemprop="name">CFD</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/18/201703/Nondimensional/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/18/201703/Nondimensional/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>A  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenience of processing and comparing data. A nondimensional result can represent a series of conditions. But the cost following the advantage  is that one should transform the whole equations carefully with suitable scales of quantities. Fortunately, most equations remain the same form after nondimensionalized. But what may confuse readers are the diverse choices of the scales, especially when more complicated physical models are introduced, such as multi-species reaction flow.</p>
+<p>Here I summarize the nondimensional process.</p>
+<h1 id="Conservation-Laws"><a href="#Conservation-Laws" class="headerlink" title="Conservation Laws"></a>Conservation Laws</h1><p>The motion of compressible viscous fluid is described by a system of equations, that read, in integral, dimensional form:<br>$V$ being the control volume, $S(V)$ its boundary, $\vec n$ the outward unit normal of $S(V)$ and where $\overrightarrow U $ is the vector of conservative variables, $\overline{\overline F}$ is the conservative fluxes tensor, $\overrightarrow{Q_V}$ is vector of volume source terms and $\overline{\overline{Q_S}}$ is the tensor of surface source terms.<br>For fluid subjected to external forces and heat sources the above vectors and tensors could be written as:<br>$\overrightarrow U  = \left[ {\begin{array}{*{20}{c}} \rho \ {\rho \vec v}\ {\rho E} \end{array}} \right]$</p>
+<p>$\overline{\overline F}  - \overline{\overline }  = \left[ {\begin{array}{*{20}{c}} {\rho \vec v}\ {\rho \vec v\vec v - \overline{\overline \sigma } }\ {\rho E\vec v - \overline{\overline \sigma }  \cdot \vec v - k\overrightarrow \nabla  T} \end{array}} \right]$</p>
+<p>$\overrightarrow   = \left[ {\begin{array}{*{20}{c}} 0\ {\rho \overrightarrow  }\ {\rho \overrightarrow  \cdot \vec v + {q_h}} \end{array}} \right]$<br>where:</p>
+<ul>
+<li>$\rho$ is the density;</li>
+<li>$\vec v$ is the velocity vector;</li>
+<li>$\vec v \vec v$ is the dyadic product of velocity vector defined as<br> $\vec u\vec v = \left[ \begin{array}{*{20}{c}}<br>   u_1 v_1 &amp; u_1 v_2  &amp;  u_1 v_3 \\<br>   u_2 v_1 &amp; u_2 v_2  &amp;  u_2 v_3 \\<br>   u_3 v_1 &amp; u_3 v_2  &amp;  u_3 v_3<br> \end{array} \right]$</li>
+<li>$E$ is the specific, total energy;</li>
+<li>$T$ is the absolute temperature;</li>
+<li>$\overline{\overline \sigma}$ is the total internal stress tensor;</li>
+<li>$k$ is the thermal conductivity coefficient,  $-k\overrightarrow \nabla  T$ being the Fourier’s law of heat conduction; the molecular diffusion and the radiative heat transfer have been neglected;</li>
+<li>$\overrightarrow$ is the external specific volume forces vector;</li>
+<li>$q_h$ is heat sources other than conduction.</li>
+</ul>
+<p>The total internal stress could be written as (constitutive law):</p>
+<p>$ \overline{\overline \sigma} = -p\overline{\overline I}+ \overline{\overline \tau}$<br>where:</p>
+<ul>
+<li>$p$ is the static, isotropic pressure ($\overline{\overline I}$ is the identity tensor);</li>
+<li>$\overline{\overline \tau}$ is the viscous shear stress tensor.</li>
+</ul>
+<p>The viscous shear stress tensor, in general case, is defined as:</p>
+<p>$\tau_{ij} = \mu \left( \partial_i v_j + \partial_j v_i \right) + \lambda \left( \overrightarrow \nabla   \cdot \vec v \right) {\delta_{ij}}$<br>where:</p>
+<ul>
+<li>$\mu$ is the dynamic viscosity of the fluid;</li>
+<li>the second viscosity is defined as $\lambda = -\frac{2}{3}\mu$ for a Newtonian fluid in local thermodynamic equilibrium (except very high temperature or pressure ranges); this is the Stokes hypothesis;</li>
+<li><p>$\delta_{ij}$ is the Kronecker delta $\delta_{ij} = \left\{ \begin{array}{*{20}{c}}<br>0 , \rm{if} \, i \ne j\\<br>1 , \rm{if} \,i = j \end{array} \right.$.</p>
+<p>In tensorial form the shear stress tensor could be written as:</p>
+<p>$\overline{\overline \tau }  = 2\mu \frac{1}{2}\left( \overrightarrow \nabla  \vec v + \overrightarrow \nabla  {\vec v}^T \right) + \lambda \left( \overrightarrow \nabla   \cdot \vec v \right)\overline{\overline I} $</p>
+<p>where $ \frac{1}{2}\left( \overrightarrow \nabla  \vec v + \overrightarrow \nabla  {\vec v}^T \right)$ is the symmetric part of the velocity vector gradient.</p>
+<p>The above system of equation must be completed by the constitutive equation of state. For a perfect gas, i.e. thermally and calorically perfect gas, the equation of state is:</p>
+<p>$ p = \rho R T$<br>where $R$ is the gas constant. This constant is related to the specific heats at constant volume and constant pressure (and their ratio):</p>
+<p>$\begin{array}{*{20}{c}}<br>  \gamma = \frac{c_p}{c_v} \\<br>  R = c_p -c_v  \\<br>  c_p = \frac{\gamma R}{\gamma -1} \\<br>  c_p = \frac{R}{\gamma -1}<br>\end{array}$</p>
+<p>The other equations of state are:</p>
+<ul>
+<li>$ E = c_v T + \frac{|\vec v|^2}{2} = \frac{p}{\rho(\gamma-1)} + \frac{|\vec v|^2}{2}$ is the total specific energy definition;</li>
+<li>$ a = \sqrt{\frac{\gamma p}{\rho}} $ is the speed of sound (acoustic velocity);</li>
+<li>$ H = c_p T + \frac{|\vec v|^2}{2} = \frac{\gamma p}{\rho(\gamma-1)} + \frac{|\vec v|^2}{2}= \frac{a^2}{\gamma-1} + \frac{|\vec v|^2}{2}$ is the total specific enthalpy definition.</li>
+</ul>
+</li>
+</ul>
+<h1 id="Non-Dimensional-Form"><a href="#Non-Dimensional-Form" class="headerlink" title="Non-Dimensional Form"></a>Non-Dimensional Form</h1><p>  In order to derive the non-dimensional form let us introduce non-dimensional quantities $x’=\frac{x}{x_0}$ being $x$ dimensional quantity and $x_0$ an arbitrary reference value. With this nomenclature using a dimensional analysis the above equations could be written as:</p>
+<p>  $$ \begin{array}{l}<br>    \frac{\rho_0 L_0^3}{t_0}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘dV’}  + {\rho_0}{v_0}L_0^2\oint\limits_{S’(V’)} {\rho ‘\overrightarrow {v’}  \cdot \vec ndS’}  = 0 \\<br>    \frac{\rho_0 v_0 L_0^3}{t_0}\frac{\partial}{\partial t’}\int\limits_{V’} \rho ‘\overrightarrow{v’} dV’  + \rho_0 v_0^2 L_0^2 \oint \limits_{S’(V’)} \rho ‘\overrightarrow {v’} \overrightarrow {v’}  \cdot \vec ndS’  + p_0 L_0^2\oint\limits_{S’(V’)} p’\overline{\overline I}  \cdot \vec ndS’  - \tau_0 L_0^2\oint\limits_{S’(V’)} \overline{\overline {\tau ‘}}  \cdot \vec ndS’  = \rho_0 f_0 L_0^3\int\limits_{V’} \rho ‘ \overrightarrow{f’_e} dV’ \\<br>    \frac{\rho _0 E_0 L_0^3}{t_0}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘E’dV’}  + {\rho _0}{E_0}{v_0}L_0^2\oint\limits_{S’(V’)} \rho ‘E’\overrightarrow {v’}  \cdot \vec ndS’  + {p_0}L_0^2\oint\limits_{S’(V’)} p’\overrightarrow {v’}  \cdot \vec ndS’  - {\tau _0}{v_0}L_0^2\oint\limits_{S’(V’)} \left( \overline{\overline {\tau ‘}}  \cdot \overrightarrow {v’}  \right) \cdot \vec ndS’ + \\<br>     -\frac{k_0 T_0 L_0^2}{L_0}\oint\limits_{S’(V’)} k’\overrightarrow {\nabla ‘} T’ \cdot \vec ndS’  = {\rho _0}{f_0}{v_0}L_0^3\int\limits_{V’} {\rho ‘\overrightarrow {f’_e}  \cdot \overrightarrow {v’} dV’}  + {\rho _0}{q_0}L_0^3\int\limits_{V’} {\rho’ {q’}_h dV’}<br>    \end{array} $$</p>
+<p>In order to make non-dimensional the above system divide for ${\rho _0}{v_0}L_0^2$, ${\rho _0}{v_0^2}L_0^2$ and ${\rho _0}{E_0}{v_0}L_0^2$ the conservation equation of mass, momentum and energy respectively, obtaining:</p>
+<p>$$ \begin{array}{l}<br>  \frac{L_0}{v_0 t_0}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘dV’}  + \oint\limits_{S’(V’)} {\rho ‘\overrightarrow {v’}  \cdot \vec ndS’}  = 0\\<br>  \frac{L_0}{v_0 t_0}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘\overrightarrow {v’} dV’}  + \oint\limits_{S’(V’)} {\rho ‘\overrightarrow {v’} \overrightarrow {v’}  \cdot \vec ndS’}  + \frac{p_0}{\rho_0 v_0^2}\oint\limits_{S’(V’)} {p’\overline{\overline I}  \cdot \vec ndS’}- \frac{\tau_0}{\rho_0 v_0^2}\oint\limits_{S’(V’)} {\overline{\overline {\tau ‘}}  \cdot \vec ndS’}  = \frac{f_0 L_0}{v_0^2}\int\limits_{V’} \rho ‘\overrightarrow {f’_e} dV’ \ <br>  \frac{L_0}{v_0 t_0}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘E’dV’}  + \oint\limits_{S’(V’)} {\rho ‘E’\overrightarrow {v’}  \cdot \vec ndS’}  + \frac{p_0}{\rho_0 E_0 v_0}\oint\limits_{S’(V’)} {p’\overrightarrow {v’}  \cdot \vec ndS’}  - \frac{\tau_0}{\rho_0 E_0}\oint\limits_{S’(V’)} {\left( \overline{\overline {\tau’}}  \cdot \overrightarrow {v’}  \right) \cdot \vec ndS’}  + \ - \frac{k_0 T_0}{\rho_0 E_0v_0 L_0}\oint\limits_{S’(V’)} {k’\overrightarrow {\nabla ‘} T’ \cdot \vec ndS’} = \frac{f_0 L_0}{E_0}\int\limits_{V’} {\rho ‘\overrightarrow {f’_e}  \cdot \overrightarrow {v’} dV’}  + \frac{q_0 L_0}{E_0 v_0}\int\limits_{V’} {\rho’ q’_h dV’}<br>\end{array}$$</p>
+<p>It is possible to recognize 6 non-dimensional numbers:</p>
+<ul>
+<li>$ \rm{St} = \frac{L_0}{v_0 t_0}$ Strouhal number; it is the ratio between characteristic frequency and the fluid dynamic one; for non periodic flow it is set to 1;</li>
+<li>$ \rm{Ru} = \frac{\rho_0 v_0^2}{p_0}$ Ruark number; it is the ratio between inertial (convective) force and pressure one; for a Newtonian fluid, according to  the equation of state $p_0=\rho_o R T_o$, we have $Ru=\gamma Ma^2$ ;</li>
+<li>$ \rm{Ma} = \frac{v_0}{a_0}$ Mach number; it is the ratio between velocity and speed of sound;</li>
+<li>$ \rm{Re} = \frac{\rho_0 v_0 L_0}{\mu_0}$ Reynolds number; it is the ratio between inertial (convective) force and viscous one;</li>
+<li>$ \rm{Fr} = \sqrt{\frac{v_0^2}{f_0 L_0}}$ Froude number; it is the ratio between inertial (convective) force and volume (mass) one;</li>
+<li>$ \rm{Pr} = \frac{\mu_0 c_{p0}}{k_0}$ Prandtl number; it is the ratio between momentum diffusion and heat one;</li>
+<li>$ \rm{Ec} = \frac{v_0^2}{c_{p0}T_0}$ Eckert number; it is the ratio between kinetic energy and enthalpy one;</li>
+</ul>
+<p>By means of the above non-dimensional numbers the conservation equations could be written as:</p>
+<p>$$ \begin{array}{l}<br>  \rm{St}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘dV’}  + \oint\limits_{S’(V’)} {\rho ‘\overrightarrow {v’}  \cdot \vec ndS’}  = 0\\<br>  \rm{St}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘\overrightarrow {v’} dV’}  + \oint\limits_{S’(V’)} {\rho ‘\overrightarrow {v’} \overrightarrow {v’}  \cdot \vec ndS’}  + \frac{1}{\rm{Ru}}\oint\limits_{S’(V’)} {p’\overline{\overline I}  \cdot \vec ndS’}  - \frac{1}{\rm{Re}}\oint\limits_{S’(V’)} {\overline{\overline {\tau ‘}}  \cdot \vec ndS’}  = \frac{1}{\rm{Fr}^2}\int\limits_{V’} {\rho ‘\overrightarrow {f’_e} dV’} \\<br>  \rm{St}\frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘E’dV’}  + \oint\limits_{S’(V’)} {\rho ‘E’\overrightarrow {v’}  \cdot \vec ndS’}  + \frac{\rm{Ec}}{\rm{Ru}}\oint\limits_{S’(V’)} {p’\overrightarrow {v’}  \cdot \vec ndS’}  - \frac{\rm{Ec}}{\rm{Re}}\oint\limits_{S’(V’)} {\left( {\overline{\overline {\tau ‘}}  \cdot \overrightarrow {v’} } \right) \cdot \vec ndS’}  + \ - \frac{1}{\rm{PrRe}}\oint\limits_{S’(V’)} {k’\overrightarrow {\nabla’} T’ \cdot \vec ndS’}  = \frac{\rm{Ec}}{\rm{Fr}^2}\int\limits_{V’} {\rho ‘\overrightarrow {f’_e}  \cdot \overrightarrow {v’} dV’}  + \frac{q_0 L_0}{E_0 v_0}\int\limits_{V’} {\rho’ q’_h dV’}<br>\end{array} $$</p>
+<p>We are interested in Newtonian fluid with no volume source terms in which $\rm{St} = 1$, $\rm{Ru} = 1 =&gt; \rm{Ma} = \frac{1}{\sqrt{\gamma}}$ and $\rm{Ec} = 1$, $\overrightarrow{Q_V}=\overrightarrow{0}$:</p>
+<ul>
+<li>$ t_0 = \frac{L_0}{v_0}$</li>
+<li>$ p_0 = \rho_0 v_0^2 =&gt; a_0 = \sqrt{\gamma}v_0$</li>
+<li>$ c_{p0}T_0 = v_0^2$</li>
+</ul>
+<p>As a consequence the non dimensional conservation equations are:</p>
+<p>$$\begin{array}{l}<br>  \frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘dV’}  + \oint\limits_{S’(V’)} {\rho ‘\overrightarrow {v’}  \cdot \vec ndS’}  = 0\\<br>  \frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘\overrightarrow {v’} dV’}  + \oint\limits_{S’(V’)} {( \rho ‘\overrightarrow {v’} \overrightarrow {v’}  + p’\overline{\overline I}  ) \cdot \vec ndS’}  - \frac{1}{\rm{Re}}\oint\limits_{S’(V’)} {\overline{\overline {\tau ‘}}  \cdot \vec ndS’}  = 0\\<br>  \frac{\partial }{\partial t’}\int\limits_{V’} {\rho ‘E’dV’}  + \oint\limits_{S’(V’)} {(\rho ‘E’ + p’)\overrightarrow {v’}  \cdot \vec ndS’}  - \frac{1}{\rm{Re}}\oint\limits_{S’(V’)} {( {\overline{\overline {\tau ‘}}  \cdot \overrightarrow {v’} }) \cdot \vec ndS’}  - \frac{1}{\rm{PrRe}}\oint\limits_{S’(V’)} {k’\overrightarrow {\nabla ‘} T’ \cdot \vec ndS’}  = 0<br>\end{array} $$</p>
+<p>The selected non-dimensional numbers are:</p>
+<ul>
+<li>$ \rm{Re} = \frac{\rho_0 v_0 L_0}{\mu_0}$ Reynolds number;</li>
+<li>$ \rm{Pr} = \frac{\mu_0 c_{p0}}{k_0}$ Prandtl number;</li>
+</ul>
+<p>The above non-dimensional numbers are dependent each other. In Reynolds number $L_0$ and $v_0$ are present.  Similarly in Reynolds and Prandtl numbers $\mu_0$ is present. Therefore fixing the above non-dimensional numbers the following reference values must be fixed:</p>
+<ul>
+<li>$ L_0 $ reference length;</li>
+<li>$ \rho_0 $ reference density;</li>
+<li>$ v_0 $ reference velocity;</li>
+<li>$ \mu_0 $ reference dynamic viscosity;</li>
+<li>$ c_0 $ reference specific heat;</li>
+<li>$ k_0 $ reference thermal conductivity coefficient.</li>
+</ul>
+<p>We have fixed the following reference values:</p>
+<ul>
+<li>$ L_0 $ reference length;</li>
+<li>$ \rho_0 $ reference density;</li>
+<li>$ v_0 $ reference velocity;</li>
+<li>$ c_0 $ reference specific heat.</li>
+</ul>
+<p>These selections with the above selected non-dimensional numbers fix all other reference quantities:</p>
+<ul>
+<li>$ \mu_0 = \frac{\rho_0 v_0 L_0}{\rm{Re}}$ reference dynamic viscosity;</li>
+<li>$ k_0 = \frac{\mu_0 c_0}{\rm{Pr}}$ reference thermal conductivity coefficient.</li>
+<li>$ t_0 = \frac{L_0}{v_0}$ reference time;</li>
+<li>$ p_0 = \rho_0 v_0^2 $ reference pressure;</li>
+<li>$ a_0 = \sqrt{\gamma}v_0 $ reference speed of sound;</li>
+<li>$ T_0 = \frac{v_0^2}{c_0} $ reference temperature;</li>
+<li>$ E_0 = v_0^2 $ reference specific energy;</li>
+<li>$ q_0 = \frac{v_0^3}{L_0} $ reference specific heat.</li>
+</ul>
+<p>The above equations constitute a system of partial differential equations closed by enforcing appropriate boundary conditions and initial conditions (at physical and computational boundaries).</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
+          
+            <a href="/tags/Math/" rel="tag">#Math</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/27/201702/EssenceOfLA/" rel="next" title="The Essence of Linear Algebra">
+                <i class="fa fa-chevron-left"></i> The Essence of Linear Algebra
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+<section id="comments">
+   <!-- ��˵���ۿ� start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/03/18/201703/Nondimensional/" data-title="Nondimensional-1" data-url="http://yoursite.com/2017/03/18/201703/Nondimensional/" }}"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shortTime"};
+  (function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+ || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- ��˵����JS���� end -->
+</section>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Zhangqm" />
+          <p class="site-author-name" itemprop="name">Zhangqm</p>
+          <p class="site-description motion-element" itemprop="description">Hello World</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conservation-Laws"><span class="nav-number">2.</span> <span class="nav-text">Conservation Laws</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Non-Dimensional-Form"><span class="nav-number">3.</span> <span class="nav-text">Non-Dimensional Form</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhangqm</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gyzhangqm"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+</script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+
+</body>
+</html>
