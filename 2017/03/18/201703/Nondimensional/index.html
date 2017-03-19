@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenienc">
+<meta name="description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantage of non-dimensionalization lies in the convenienc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nondimensional-1">
 <meta property="og:url" content="http://yoursite.com/2017/03/18/201703/Nondimensional/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenienc">
-<meta property="og:updated_time" content="2017-03-19T04:17:35.114Z">
+<meta property="og:description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantage of non-dimensionalization lies in the convenienc">
+<meta property="og:updated_time" content="2017-03-19T04:22:00.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nondimensional-1">
-<meta name="twitter:description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenienc">
+<meta name="twitter:description" content="IntroductionA  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantage of non-dimensionalization lies in the convenienc">
 
 
 
@@ -317,11 +317,11 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>A  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantate of non-dimensionalization lies in the convenience of processing and comparing data. A nondimensional result can represent a series of conditions. But the cost following the advantage  is that one should transform the whole equations carefully with suitable scales of quantities. Fortunately, most equations remain the same form after nondimensionalized. But what may confuse readers are the diverse choices of the scales, especially when more complicated physical models are introduced, such as multi-species reaction flow.</p>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>A  puzzle hunting me when I began to learn CFD is whether my code should be non-dimensionalized. If yes, then how to do this. The advantage of non-dimensionalization lies in the convenience of processing and comparing data. A nondimensional result can represent a series of conditions. But the cost following the advantage  is that one should transform the whole equations carefully with suitable scales of quantities. Fortunately, most equations remain the same form after nondimensionalized. But what may confuse readers are the diverse choices of the scales, especially when more complicated physical models are introduced, such as multi-species reaction flow.</p>
 <p>Here I summarize the nondimensional process.</p>
-<h1 id="Conservation-Laws"><a href="#Conservation-Laws" class="headerlink" title="Conservation Laws"></a>Conservation Laws</h1><p>The motion of compressible viscous fluid is described by a system of equations, that read, in integral, dimensional form:<br>$V$ being the control volume, $S(V)$ its boundary, $\vec n$ the outward unit normal of $S(V)$ and where $\overrightarrow U $ is the vector of conservative variables, $\overline{\overline F}$ is the conservative fluxes tensor, $\overrightarrow{Q_V}$ is vector of volume source terms and $\overline{\overline{Q_S}}$ is the tensor of surface source terms.<br>For fluid subjected to external forces and heat sources the above vectors and tensors could be written as:<br>$\overrightarrow U  = \left[ {\begin{array}{*{20}{c}} \rho \ {\rho \vec v}\ {\rho E} \end{array}} \right]$</p>
-<p>$\overline{\overline F}  - \overline{\overline }  = \left[ {\begin{array}{*{20}{c}} {\rho \vec v}\ {\rho \vec v\vec v - \overline{\overline \sigma } }\ {\rho E\vec v - \overline{\overline \sigma }  \cdot \vec v - k\overrightarrow \nabla  T} \end{array}} \right]$</p>
-<p>$\overrightarrow   = \left[ {\begin{array}{*{20}{c}} 0\ {\rho \overrightarrow  }\ {\rho \overrightarrow  \cdot \vec v + {q_h}} \end{array}} \right]$<br>where:</p>
+<h1 id="Conservation-Laws"><a href="#Conservation-Laws" class="headerlink" title="Conservation Laws"></a>Conservation Laws</h1><p>The motion of compressible viscous fluid is described by a system of equations, that read, in integral, dimensional form:<br>$V$ being the control volume, $S(V)$ its boundary, $\vec n$ the outward unit normal of $S(V)$ and where $\overrightarrow U $ is the vector of conservative variables, $\overline{\overline F}$ is the conservative fluxes tensor, $\overrightarrow{Q_V}$ is vector of volume source terms and $\overline{\overline{Q_S}}$ is the tensor of surface source terms.<br>For fluid subjected to external forces and heat sources the above vectors and tensors could be written as:<br>$$\overrightarrow U  = \left[ {\begin{array}{*{20}{c}} \rho \ {\rho \vec v}\ {\rho E} \end{array}} \right]$$</p>
+<p>$$\overline{\overline F}  - \overline{\overline {Q_S}}  = \left[ \begin{array}{*{20}{c}}<br>\rho \vec v\\<br>\rho \vec v\vec v - \overline{\overline \sigma } \\<br>\rho E\vec v - \overline{\overline \sigma }  \cdot \vec v - k\overrightarrow \nabla  T<br> \end{array} \right]$$</p>
+<p>$$\overrightarrow {Q_V}  =<br>  \left[ \begin{array}{*{20}{c}}<br>  0\\<br>  \rho \overrightarrow {f_e} \\<br>  \rho \overrightarrow {f_e} \cdot \vec v + {q_h}<br>  \end{array} \right]$$<br>where:</p>
 <ul>
 <li>$\rho$ is the density;</li>
 <li>$\vec v$ is the velocity vector;</li>
