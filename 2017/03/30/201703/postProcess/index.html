@@ -1,0 +1,666 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CFD Programming," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="I struggled some time to write code to output files for tecplot. So this article summerizes the data format.
+Tecplot formatOutput a plane(1 block)12345678910111213141516open(1,file=&amp;apos;plane01.dat&amp;a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostProcess">
+<meta property="og:url" content="http://yoursite.com/2017/03/30/201703/postProcess/index.html">
+<meta property="og:site_name" content="CFD学习">
+<meta property="og:description" content="I struggled some time to write code to output files for tecplot. So this article summerizes the data format.
+Tecplot formatOutput a plane(1 block)12345678910111213141516open(1,file=&amp;apos;plane01.dat&amp;a">
+<meta property="og:updated_time" content="2017-03-30T11:41:16.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PostProcess">
+<meta name="twitter:description" content="I struggled some time to write code to output files for tecplot. So this article summerizes the data format.
+Tecplot formatOutput a plane(1 block)12345678910111213141516open(1,file=&amp;apos;plane01.dat&amp;a">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> PostProcess | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CFD学习</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学有所思，思有所悟，悟有所行</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                PostProcess
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-03-30T18:09:26+08:00" content="2017-03-30">
+              2017-03-30
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/03/30/201703/postProcess/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/30/201703/postProcess/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>I struggled some time to write code to output files for tecplot. So this article summerizes the data format.</p>
+<h1 id="Tecplot-format"><a href="#Tecplot-format" class="headerlink" title="Tecplot format"></a>Tecplot format</h1><h2 id="Output-a-plane-1-block"><a href="#Output-a-plane-1-block" class="headerlink" title="Output a plane(1 block)"></a>Output a plane(1 block)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">open(1,file=&apos;plane01.dat&apos;,type=&apos;unknown&apos;)</div><div class="line">write(1,1111)</div><div class="line">write(1,2222) in,kk0</div><div class="line">do k=1,kk0</div><div class="line">  do j=	1,1  ! output a the surface plane of the aircraft</div><div class="line">    do i=1,in</div><div class="line">       write(1,3333) xx(i,j,k),yy(i,j,k),zz(i,j,k),uu(i,j,k), &amp;</div><div class="line">                     vv(i,j,k),ww(i,j,k),pp(i,j,k),dd(i,j,k),        fc1(i,j,k),fc2(i,j,k),fc3(i,j,k),fc4(i,j,k),fc5(i,j,k)</div><div class="line">    enddo</div><div class="line">  enddo</div><div class="line">enddo</div><div class="line">close(1)</div><div class="line">1111	format(&apos;VARIABLES = &quot;X&quot;,&quot;Y&quot;,&quot;Z&quot;,&quot;U&quot;,&quot;V&quot;,&quot;W&quot;,&quot;PRESSURE&quot;,&quot;DENSITY&quot;,</div><div class="line">     &amp;                    &quot;O2&quot;,&quot;N2&quot;,&quot;N&quot;,&quot;O&quot;,&quot;NO&quot;&apos;)</div><div class="line">2222	format(&apos;ZONE  I=&apos;,I6,&apos;, J=&apos;,I6,&apos;,   F=POINT&apos;)</div><div class="line">3333	format(8f12.5,5e15.8)</div></pre></td></tr></table></figure>
+<h2 id="Output-the-whole-flow-field"><a href="#Output-the-whole-flow-field" class="headerlink" title="Output the whole flow field"></a>Output the whole flow field</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">open(10,file=&apos;plotall.dat&apos;,form=&apos;formatted&apos;)</div><div class="line">   write(10,*)&apos;variables=&quot;x&quot;,&quot;y&quot;,&quot;z&quot;,&quot;p&quot;,&quot;d&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;&apos;</div><div class="line">   do n=1,nblock</div><div class="line">      B=&gt;block(n)</div><div class="line">      nx=B%nx;ny=B%ny;nz=B%nz</div><div class="line">      allocate(Qtemp(Nvar,nx,ny,nz),STAT=ierr)</div><div class="line">      call intpc2v(n,Qtemp)      ! interpolate the value in cell center to vertice</div><div class="line"></div><div class="line">      write(10,*)&apos;zone f=point,i=&apos;,nx,&apos;,j=&apos;,ny,&apos;,k=&apos;,nz</div><div class="line">      do k=1,kn</div><div class="line">         do j=1,jn</div><div class="line">            do i=1,in</div><div class="line">               write(10,&quot;(8g15.7)&quot;) B%x(i,j,k),B%y(i,j,k),B%z(i,j,k), &amp;                    (Qtemp(ivar,i,j,k),ivar=1,nvar)</div><div class="line">            enddo</div><div class="line">         enddo</div><div class="line">      enddo</div><div class="line">   enddo</div></pre></td></tr></table></figure>
+<h1 id="Plot3d-format"><a href="#Plot3d-format" class="headerlink" title="Plot3d format"></a>Plot3d format</h1><p>When treat multiblock problem, I find that tecplot format files are neither efficently nor conveniently. The CFL3D use plot3d format flie. So I read the Plot3d manual and summerize the data file formats.</p>
+<h2 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h2><ul>
+<li>Grid file : .x .xy .xyz .g</li>
+<li>Solution file : .q</li>
+<li>Function file : .f<br>Also, each file can be formatted or unformatted. For fmt files, substitute (UNIT, *) for (IUNIT), and use the /FORMATTED qualifier with the READ command.</li>
+</ul>
+<h2 id="Grid-file"><a href="#Grid-file" class="headerlink" title="Grid file"></a>Grid file</h2><h3 id="Single-block"><a href="#Single-block" class="headerlink" title="Single block"></a>Single block</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">! 3D (/WHOLE) :</div><div class="line">READ (IUNIT) IDIM, JDIM, KDIM</div><div class="line">READ(IUNIT) (((X(I,J,K),I=1,IDIM),J=1,JDIM),K=1,KDIM),    &amp;</div><div class="line">            (((Y(I,J,K),I=1,IDIM),J=1,JDIM),K=1,KDIM),    &amp;</div><div class="line">            (((Z(I,J,K),I=1,IDIM),J=1,JDIM),K=1,KDIM)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">! 3D (/PLANES) :</div><div class="line">READ (IUNIT) IDIM, JDIM, KDIM</div><div class="line">DO K= 1,KDIM</div><div class="line">   READ(IUNIT) ((X(I,J,K),I=1,IDIM),J=1,JDIM),</div><div class="line">               ((Y(I,J,K),I=1,IDIM),J=1,JDIM),</div><div class="line">               ((Z(I,J,K),I=1,IDIM),J=1,JDIM)</div><div class="line">ENDDO</div></pre></td></tr></table></figure>
+<h3 id="multiblock"><a href="#multiblock" class="headerlink" title="multiblock"></a>multiblock</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">! 3D (/WHOLE) :</div><div class="line">READ(IUNIT) NGRID</div><div class="line">READ(IUNIT) (IDIM(IGRID), JDIM(IGRID) ,KDIM(IGRID), IGRID=1, NGRID)</div><div class="line">DO 10 IGRID= 1, NGRID</div><div class="line">   READ (IUNIT) &amp;</div><div class="line">           (((X(I,J,K),I=1,IDIM(IGRID)), J=1,JDIM(IGRID)),K=1, KDIM(IGRID)),</div><div class="line">           (((Y(I,J,K),I=1,IDIM(IGRID)), J=1,JDIM(IGRID)),K=1, KDIM(IGRID)),</div><div class="line">           (((Z(I,J,K),I=1,IDIM(IGRID)), J=1,JDIM(IGRID)),K=1, KDIM(IGRID))</div><div class="line">ENDDO</div></pre></td></tr></table></figure>
+<p>Planes file are similar.</p>
+<h2 id="Solution-Q-files-3D-Whole-Unformatted-Multi-Block-Grid-and-Solution"><a href="#Solution-Q-files-3D-Whole-Unformatted-Multi-Block-Grid-and-Solution" class="headerlink" title="Solution Q files (3D, Whole, Unformatted, Multi-Block Grid and Solution)"></a>Solution Q files (3D, Whole, Unformatted, Multi-Block Grid and Solution)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">real mach   ! freestream Mach number</div><div class="line">real alpha  ! freestream angle-of-attack</div><div class="line">real reyn   ! freestream Reynolds number</div><div class="line">real time   ! time</div><div class="line"></div><div class="line">real x(imax,jmax,kmax,nbmax)</div><div class="line">real y(imax,jmax,kmax,nbmax)</div><div class="line">real z(imax,jmax,kmax,nbmax)</div><div class="line"></div><div class="line">real q(imax,jmax,kmax,nbmax,5)</div><div class="line"></div><div class="line">open ( unit=7, form=&apos;unformatted&apos;, file=&apos;3D.x&apos; )</div><div class="line">open ( unit=8, form=&apos;unformatted&apos;, file=&apos;3D.q&apos; )</div><div class="line"></div><div class="line">read(7) nblocks</div><div class="line">read(7) ( ni(m), nj(m), nk(m), m = 1, nblocks )</div><div class="line">do  m = 1, nblocks</div><div class="line">  read(7)</div><div class="line">&amp;    ((( x(i,j,k,m), i=1,ni(m)), j=1,nj(m)), k=1,nk(m)),</div><div class="line">&amp;    ((( y(i,j,k,m), i=1,ni(m)), j=1,nj(m)), k=1,nk(m)),</div><div class="line">&amp;    ((( z(i,j,k,m), i=1,ni(m)), j=1,nj(m)), k=1,nk(m))</div><div class="line">enddo</div><div class="line"></div><div class="line">read(8) nblocks</div><div class="line">read(8) ( ni(m), nj(m), nk(m), m = 1, nblocks )</div><div class="line">do  m = 1, nblocks</div><div class="line">  read(8) mach, alpha, reyn, time</div><div class="line">  read(8)</div><div class="line">&amp;    (((( q(i,j,k,m,n), i=1,ni(m)), j=1,nj(m)), k=1,nk(m)), n=1,5)</div><div class="line">enddo</div></pre></td></tr></table></figure>
+<h2 id="Function-files-multiblock"><a href="#Function-files-multiblock" class="headerlink" title="Function files (multiblock)"></a>Function files (multiblock)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">! 3D (/WHOLE) :</div><div class="line">READ (IUNIT) NGRID</div><div class="line">READ (IUNIT) (IDIM(IGR1D), JDIM(IGR1D), KDIM(1GRID), NVAR(IGRID), IGRID=1, NGRID)</div><div class="line">DO IGRID = 1, NGRID</div><div class="line">   READ (IUNIT)  ((((F(I,J,K,NX), I=1,IDIM(IGRID)), J=1,JDIM(IGRID)), &amp;</div><div class="line">                                  K=1,KDIM(IGRID)), NX= 1,NVAR(IGRID))</div><div class="line">ENDDO</div></pre></td></tr></table></figure>
+<h2 id="Boundary-condition-files"><a href="#Boundary-condition-files" class="headerlink" title="Boundary condition files"></a>Boundary condition files</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">tempL=.false.                            ! I donnot know that&apos;s this</div><div class="line">open(93,file=&apos;plot3d.g.fvbnd&apos;, form=&apos;formatted&apos;)</div><div class="line">write(93,*) &quot; FVBND 1 4&quot;                 ! I donnot know what&apos;s this</div><div class="line">write(93,*) &quot; No_Boundary_Condition&quot;     ! 10 boundary type in gridgen</div><div class="line">write(93,*) &quot; Solid_Surface&quot;             ! #2</div><div class="line">write(93,*) &quot; Symmetry&quot;                  ! #3</div><div class="line">write(93,*) &quot; Farfield&quot;                  ! #4</div><div class="line">write(93,*) &quot; Inflow&quot;                    ! #5</div><div class="line">write(93,*) &quot; Outflow&quot;                   ! #6</div><div class="line">write(93,*) &quot; Pole&quot;                      ! #7</div><div class="line">write(93,*) &quot; Generic_#1&quot;                ! #8</div><div class="line">write(93,*) &quot; Generic_#2&quot;                ! #9</div><div class="line">write(93,*) &quot; Generic_#3&quot;                ! #10</div><div class="line">write(93,*) &quot; BOUNDARIES&quot;</div><div class="line">do m=1,NB</div><div class="line">   B =&gt; Block(m)</div><div class="line">   do ksub=1,B%subface</div><div class="line">      Bc =&gt; B%bc_msg(ksub)</div><div class="line">      !include solid_surface, symmetry, and outflow boundaries.</div><div class="line">      if(Bc%bc==2.or.Bc%bc==3.or.Bc%bc==6)then   </div><div class="line">         write(93,&quot;(8I7,L7,I7)&quot;) Bc%bc,m,Bc%ib,Bc%ie,Bc%jb,Bc%je,Bc%kb,Bc%ke,tempL,0</div><div class="line">      endif</div><div class="line">   enddo</div><div class="line">enddo</div><div class="line">close(93)</div></pre></td></tr></table></figure>
+<h2 id="name-files"><a href="#name-files" class="headerlink" title="name files"></a>name files</h2><p>test.nam (a file giving the names of the variables in the .f file)</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CFD-Programming/" rel="tag">#CFD Programming</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/18/201703/Nondimensional/" rel="next" title="Nondimensional-1">
+                <i class="fa fa-chevron-left"></i> Nondimensional-1
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+<section id="comments">
+   <!-- ��˵���ۿ� start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/03/30/201703/postProcess/" data-title="PostProcess" data-url="http://yoursite.com/2017/03/30/201703/postProcess/" }}"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shortTime"};
+  (function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+ || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- ��˵����JS���� end -->
+</section>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Zhangqm" />
+          <p class="site-author-name" itemprop="name">Zhangqm</p>
+          <p class="site-description motion-element" itemprop="description">Hello World</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tecplot-format"><span class="nav-number">1.</span> <span class="nav-text">Tecplot format</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-a-plane-1-block"><span class="nav-number">1.1.</span> <span class="nav-text">Output a plane(1 block)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output-the-whole-flow-field"><span class="nav-number">1.2.</span> <span class="nav-text">Output the whole flow field</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Plot3d-format"><span class="nav-number">2.</span> <span class="nav-text">Plot3d format</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Extension"><span class="nav-number">2.1.</span> <span class="nav-text">Extension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-file"><span class="nav-number">2.2.</span> <span class="nav-text">Grid file</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-block"><span class="nav-number">2.2.1.</span> <span class="nav-text">Single block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multiblock"><span class="nav-number">2.2.2.</span> <span class="nav-text">multiblock</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solution-Q-files-3D-Whole-Unformatted-Multi-Block-Grid-and-Solution"><span class="nav-number">2.3.</span> <span class="nav-text">Solution Q files (3D, Whole, Unformatted, Multi-Block Grid and Solution)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Function-files-multiblock"><span class="nav-number">2.4.</span> <span class="nav-text">Function files (multiblock)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Boundary-condition-files"><span class="nav-number">2.5.</span> <span class="nav-text">Boundary condition files</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#name-files"><span class="nav-number">2.6.</span> <span class="nav-text">name files</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhangqm</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gyzhangqm"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+</script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+
+</body>
+</html>
