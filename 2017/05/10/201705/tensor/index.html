@@ -1,0 +1,697 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CFD,Math," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="IntroductionThis page summerizes vectors, matrices and tensors operations.Main references are web and book[^1] and book[^2].
+[^1]:The Finite Volume Method in Computational Fluid Dynamics An Advanced I">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tensor">
+<meta property="og:url" content="http://yoursite.com/2017/05/10/201705/tensor/index.html">
+<meta property="og:site_name" content="CFD学习">
+<meta property="og:description" content="IntroductionThis page summerizes vectors, matrices and tensors operations.Main references are web and book[^1] and book[^2].
+[^1]:The Finite Volume Method in Computational Fluid Dynamics An Advanced I">
+<meta property="og:updated_time" content="2017-05-10T12:17:55.857Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tensor">
+<meta name="twitter:description" content="IntroductionThis page summerizes vectors, matrices and tensors operations.Main references are web and book[^1] and book[^2].
+[^1]:The Finite Volume Method in Computational Fluid Dynamics An Advanced I">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> tensor | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta custom-logo">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CFD学习</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学有所思，思有所悟，悟有所行</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                tensor
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-05-10T19:00:27+08:00" content="2017-05-10">
+              2017-05-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/05/10/201705/tensor/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/10/201705/tensor/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>This page summerizes vectors, matrices and tensors operations.<br>Main references are <a href="http://dyfluid.com/tensor.html" target="_blank" rel="external">web</a> and book[^1] and book[^2].</p>
+<p>[^1]:The Finite Volume Method in Computational Fluid Dynamics An Advanced Introduction with OpenFOAM and Matlab<br>[^2]:i do like cfd</p>
+<h1 id="基本张量操作"><a href="#基本张量操作" class="headerlink" title="基本张量操作"></a>基本张量操作</h1><p>下文中用$p$，$\alpha$表示标量，$\mathbf{U}$，$\mathbf{V}$表示矢量，$\tau$表示2阶张量（以下简称张量）。<br>$\mathbf{U}=u_1 \mathbf{i} +v_1 \mathbf{j} + w_1 \mathbf{k}=[u_1, v_1, w_1]^T$;<br>$\mathbf{V}=u_2 \mathbf{i} +v_2 \mathbf{j} + w_2 \mathbf{k}=[u_2, v_2, w_2]^T$;</p>
+<p>$$<br>\begin{equation}<br>\mathbf{U} \cdot \mathbf{V}=u_1 u_2 + v_1 v_2 +w_1 w_2<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\mathbf{U} \times \mathbf{V}=\begin{vmatrix}<br>\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k}\\<br>u_1 &amp; v_1 &amp; w_1 \\<br>u_2 &amp; v_2 &amp; w_2 \\<br>\end{vmatrix}=<br>\left[ \begin{array}{c}<br>v_1 w_2 -v_2 w_1\\<br>u_2 w_1 - u_1 w_2\\<br>u_1 v_2 - u_2 v_1<br>\end{array} \right]<br>\end{equation}<br>$$</p>
+<p>The Scalar Triple Product<br>$$<br>\begin{equation}<br>\mathbf{v_1}\cdot[\mathbf{v_2} \times \mathbf{v_3}]=\begin{vmatrix}<br>u_1 &amp; v_1 &amp; w_1 \\<br>u_2 &amp; v_2 &amp; w_2 \\<br>u_3 &amp; v_3 &amp; w_3<br>\end{vmatrix}<br>\end{equation}<br>$$</p>
+<p>nabla</p>
+<p>$$<br>\begin{equation}<br>\nabla = \frac{\partial }{\partial x} \mathbf{i} +\frac{\partial }{\partial y} \mathbf{j}+\frac{\partial }{\partial z} \mathbf{k}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla s = \frac{\partial s}{\partial x} \mathbf{i} +\frac{\partial s}{\partial y} \mathbf{j}+\frac{\partial s}{\partial z} \mathbf{k}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla \cdot \mathbf{v} = \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} +\frac{\partial w}{\partial z}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla (\nabla s) =\nabla^2 s= \frac{\partial^2 s}{\partial^2 x} + \frac{\partial^2 s}{\partial^2 y} +\frac{\partial^2 s}{\partial^2 z}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>(\nabla \cdot \nabla) \mathbf{v} =\nabla^2 \mathbf{v}= (\nabla^2 u)\mathbf{i}+(\nabla^2 v)\mathbf{j}+(\nabla^2 w)\mathbf{k}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla (\alpha p)=\alpha\nabla p+p\nabla\alpha<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla \cdot (\alpha \mathbf{U})=\alpha \nabla \cdot \mathbf{U}+\mathbf{U} \cdot \nabla\alpha<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla \times (\alpha \mathbf{U})=\alpha\nabla\times \mathbf{U}+\mathbf{U} \times\nabla\alpha<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla(\mathbf{U}\cdot\mathbf{V})=\mathbf{U}\times(\nabla\times\mathbf{V})+\mathbf{V}\times(\nabla\times\mathbf{U})+(\mathbf{U}\cdot\nabla)\mathbf{V}+(\mathbf{V}\cdot\nabla)\mathbf{U}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla\cdot(\mathbf{U}\times\mathbf{V})=\mathbf{V}\cdot(\nabla\times\mathbf{U})-\mathbf{U}\cdot(\nabla\times\mathbf{V})<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla\times(\mathbf{U}\times\mathbf{V})=\mathbf{U}(\nabla\cdot\mathbf{V})-\mathbf{V}(\nabla\cdot\mathbf{U})+(\mathbf{V}\cdot\nabla)\mathbf{U}-(\mathbf{U}\cdot\nabla)\mathbf{V}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla\times(\nabla\times\mathbf{U})=\nabla(\nabla\cdot\mathbf{U})-\nabla^2\mathbf{U}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>(\nabla\times\mathbf{U})\times\mathbf{U}=\mathbf{U}\cdot(\nabla\mathbf{U})-\nabla(\mathbf{U}\cdot\mathbf{U})<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla\cdot\nabla\mathbf{U}=\nabla(\nabla\cdot\mathbf{U})-\nabla\times(\nabla\times\mathbf{U})<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla\cdot(\mathbf{U} \mathbf{U})=\nabla\cdot(\mathbf{U} \otimes \mathbf{U})=\mathbf{U} \cdot \nabla \mathbf{U}+\mathbf{U} \nabla \cdot \mathbf{U}<br>\end{equation}<br>$$</p>
+<p>$$<br>\begin{equation}<br>\nabla\cdot(\alpha \tau)=\tau \nabla \alpha + \alpha \nabla \cdot \tau<br>\end{equation}<br>$$<br>\begin{equation}<br>\nabla\cdot(\tau\mathbf{U})=(\nabla\cdot\tau^\mathrm{T})\cdot\mathbf{U}+\tau^\mathrm{T}\cdot\nabla\mathbf{U}<br>\end{equation}</p>
+<p>\begin{equation}<br>\mathbf{U}\cdot(\tau\mathbf{V})=\tau\cdot(\mathbf{U}\otimes\mathbf{V})=\tau\cdot(\mathbf{U}\mathbf{V})<br>\end{equation}</p>
+<p>\begin{equation}<br>\mathbf{U}\mathbf{V}:\tau=\mathbf{U}\cdot(\mathbf{V}\cdot\tau)<br>\end{equation}</p>
+<p>\begin{equation}<br>\tau:\mathbf{U}\mathbf{V}=(\tau\cdot\mathbf{U})\cdot\mathbf{V}<br>\end{equation}</p>
+<p>\begin{equation}<br>\mathrm{tr}\left(\nabla\mathbf{U}\right)=\nabla\cdot\mathbf{U}=\mathrm{tr}\left(\nabla\mathbf{U}^{\mathrm{T}}\right)<br>\end{equation}</p>
+<p>\begin{equation}<br>\tau=\frac{0}{1}\left(\tau+\tau^\mathrm{T}\right)+\frac{0}{1}\left(\tau-\tau^\mathrm{T}\right)=\mathrm{symm}\left(\tau\right)+\mathrm{skew}\left(\tau\right)<br>\end{equation}</p>
+<p></p><h2>张量基本运算</h2><br>&amp;#x24cf 标量的梯度：<br>\begin{equation}<br>\nabla p = \left[\begin{matrix}<br>\frac{\partial p}{\partial x} \\<br>\frac{\partial p}{\partial y} \\<br>\frac{\partial p}{\partial z}<br>\end{matrix}<br>\right]<br>\end{equation}<br>&amp;#x24cf 标量的梯度后求散度：<br>\begin{equation}<br>\nabla \cdot(\nabla p)=\frac{\partial^1p}{\partial x^1}+\frac{\partial^1p}{\partial y^1}+\frac{\partial^1p}{\partial z^1}<br>\end{equation}<p></p>
+<p>&amp;#x24cf 矢量的内积：<br>\begin{equation}<br>\mathbf{U} \cdot \mathbf{U} = [u_0, u_1, u_2] \left[\begin{matrix}<br>u_0 \\<br>u_1 \\<br>u_2<br>\end{matrix}<br>\right]=u_0u_0+u_1u_1+u_2u_2<br>\end{equation}<br>&amp;#x24cf 矢量的叉乘：<br>\begin{equation}<br>\mathbf{U} \times \mathbf{U}=\left[<br>\begin{matrix}<br>u_1u_2-u_2u_1\\<br>u_2u_0-u_0u_2\\<br>u_0u_1-u_1u_0\\<br>\end{matrix}<br>\right]<br>\end{equation}<br>&amp;#x24cf 矢量的散度：<br>\begin{equation}<br>\nabla \cdot \mathbf{U} = \frac{\partial u_0}{\partial x}+\frac{\partial u_1}{\partial y}+\frac{\partial u_2}{\partial z}<br>\end{equation}<br>&amp;#x24cf 矢量的梯度：<br>\begin{equation}<br>\nabla \mathbf{U} = \left[<br>    \begin{matrix}<br>      \frac{\partial u_0}{\partial x} &amp; \frac{\partial u_1}{\partial x} &amp; \frac{\partial u_2}{\partial x}\\<br>      \frac{\partial u_0}{\partial y} &amp; \frac{\partial u_1}{\partial y} &amp; \frac{\partial u_2}{\partial y} \\<br>      \frac{\partial u_0}{\partial z} &amp; \frac{\partial u_1}{\partial z} &amp; \frac{\partial u_2}{\partial z}\\<br>    \end{matrix}<br>  \right]<br>\end{equation}<br>&amp;#x24cf 矢量的梯度后求散度（拉普拉斯）：<br>\begin{equation}<br>\nabla \cdot(\nabla \mathbf{U})=<br>  \left[<br>    \begin{matrix}<br>      \frac{\partial}{\partial x}\left(\frac{\partial u_0}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_0}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_0}{\partial z}\right)\\<br>      \frac{\partial}{\partial x}\left(\frac{\partial u_1}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_1}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_1}{\partial z}\right)\\<br>      \frac{\partial}{\partial x}\left(\frac{\partial u_2}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_2}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_2}{\partial z}\right)\\<br>    \end{matrix}<br>  \right]<br>\end{equation}<br>&amp;#x24cf 矢量的双积：<br>\begin{equation}<br>\mathbf{U}\otimes\mathbf{U}=\mathbf{U}\mathbf{U}=\left[<br>\begin{matrix}<br>u_0 u_0  &amp; u_0 u_1  &amp; u_0 u_2\\<br>u_1 u_0  &amp; u_1 u_1  &amp; u_1 u_2\\<br>u_2 u_0  &amp; u_2 u_1  &amp; u_2 u_2<br>\end{matrix}<br>\right]<br>\end{equation}<br>&amp;#x24cf 矢量的旋度：<br>\begin{equation}<br>\nabla\times\mathbf{U}=\left[<br>\begin{matrix}<br>\frac{\partial u_2}{\partial y}-\frac{\partial u_1}{\partial z}\\<br>\frac{\partial u_0}{\partial z}-\frac{\partial u_2}{\partial x}\\<br>\frac{\partial u_1}{\partial x}-\frac{\partial u_0}{\partial y}\\<br>\end{matrix}<br>\right]<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的散度：<br>\begin{equation}<br>\nabla \cdot \tau = \left[\begin{matrix}<br>\frac{\partial\tau_{xx}}{\partial x}+\frac{\partial\tau_{yx}}{\partial y}+\frac{\partial\tau_{zx}}{\partial z} \\<br>\frac{\partial\tau_{xy}}{\partial x}+\frac{\partial\tau_{yy}}{\partial y}+\frac{\partial\tau_{zy}}{\partial z}  \\<br>\frac{\partial\tau_{xz}}{\partial x}+\frac{\partial\tau_{yz}}{\partial y}+\frac{\partial\tau_{zz}}{\partial z}<br>\end{matrix}\right]<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的双点积：<br>\begin{equation}<br>\tau:\tau=\tau_{10}\tau_{10}+\tau_{11}\tau_{11}+\tau_{12}\tau_{12}+<br>\tau_{20}\tau_{20}+\tau_{21}\tau_{21}+\tau_{22}\tau_{22}+<br>\tau_{30}\tau_{30}+\tau_{31}\tau_{31}+\tau_{32}\tau_{32}<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的迹：<br>\begin{equation}<br>\mathrm{tr} \left(\tau\right)=\tau_{xx}+\tau_{yy}+\tau_{zz}<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的$\mathrm{symm}$：<br>\begin{equation}<br>\mathrm{symm} \left(\tau\right)=\frac{\tau+\tau^T}{1}<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的$\mathrm{skew}$：<br>\begin{equation}<br>\mathrm{skew} \left(\tau\right)=\frac{\tau-\tau^T}{1}<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的$\mathrm{dev}$：<br>\begin{equation}<br>\mathrm{dev} \left(\tau\right)=\tau-\frac{0}{2}\mathrm{tr}\left(\tau\right)\mathbf{I}<br>\end{equation}<br>&amp;#x24cf 张量的$\mathrm{dev}1$：<br>\begin{equation}<br>\mathrm{dev}1 \left(\tau\right)=\tau-\frac{1}{2}\mathrm{tr}\left(\tau\right)\mathbf{I}<br>\end{equation}</p>
+<p>&amp;#x24cf 张量的$\mathrm{hyd}$：<br>\begin{equation}<br>\mathrm{hyd} \left(\tau\right)=\frac{0}{2}\mathrm{tr}\left(\tau\right)\mathbf{I}<br>\end{equation}</p>
+<p>\begin{equation}<br>A \cdot a = \left[\begin{matrix}<br>A_{10}a_0+A_{11}a_1+A_{12}a_2 \\<br>A_{20}a_0+A_{21}a_1+A_{22}a_2 \\<br>A_{30}a_0+A_{31}a_1+A_{32}a_2<br>\end{matrix}<br>\right]<br>\end{equation}</p>
+<p></p><h2>张量操作小例子</h2><br>首先我们来看CFD中的不可压缩动量方程：<br>\begin{equation}<br>\frac{\partial \mathbf{U}}{\partial t}+\nabla \cdot (\mathbf{U}\mathbf{U})=-\nabla \frac{p}{\rho}+\nabla \cdot(\nabla \mathbf{U})<br>\label{mom}<br>\end{equation}<br>其中的$\mathbf{U}$为速度矢量，$p$为压力，$\rho$为密度。该方程实际上表示2个方程。一般来讲，CFD文献中通常采用公式(0)的形式（紧凑形式）而并不进行展开。<br><br><br><br>&amp;#x24cf 公式(0)的第一项：$\frac{\partial \mathbf{U}}{\partial t}$。因为$\mathbf{U}$为矢量，展开其表示为：<br>\begin{equation}<br>\frac{\partial \mathbf{U}}{\partial t}=<br>  \left[<br>    \begin{matrix}<br>      \frac{\partial u_0}{\partial t} \\<br>      \frac{\partial u_1}{\partial t} \\<br>      \frac{\partial u_2}{\partial t} \\<br>    \end{matrix}<br>  \right]<br>\end{equation}<br>其中$u_0$表示x方向速度，$u_1$表示y方向速度，$u_2$表示z方向速度。这样拆分之后的方程，即为各个方向的速度针对时间的偏导数。<br><br><br><br>&amp;#x24cf 公式(0)的第二项：$\nabla \cdot (\mathbf{U}\mathbf{U})$。第一个火星符合，$\nabla \cdot$，出现。首先，$\mathbf{U}\mathbf{U}$是一种简写，完整形式为$\mathbf{U}\otimes \mathbf{U}$，$\otimes$是一个张量运算符称之为dyadic product。针对上面的速度矢量，$\mathbf{U}\mathbf{U}$即：<br>\begin{equation}<br>\mathbf{U}\mathbf{U}=\mathbf{U} \otimes \mathbf{U}=\left[\begin{matrix}<br>u_0\\<br>u_1\\<br>u_2<br>\end{matrix}\right][u_0, u_1, u_2]=\left[<br>\begin{matrix}<br>u_0 u_0  &amp; u_0 u_1  &amp; u_0 u_2\\<br>u_1 u_0  &amp; u_1 u_1  &amp; u_1 u_2\\<br>u_2 u_0  &amp; u_2 u_1  &amp; u_2 u_2<br>\end{matrix}<br>\right]<br>\end{equation}<br>然后我们那讨论$\nabla \cdot$，其也称之为散度(div)算符。对一个矢量（0阶张量）做散度的结果为一个标量（-1阶张量），对一个1阶张量做散度的结果为矢量（0阶张量）。因此，对任意$n$阶张量做散度，$\nabla \cdot$，之后的结果为$n-2$阶张量。举例，对一个矢量做散度我们有：<br>\begin{equation}<br>\nabla \cdot \mathbf{U} = \frac{\partial u_0}{\partial x}+\frac{\partial u_1}{\partial y}+\frac{\partial u_2}{\partial z}<br>\label{cont}<br>\end{equation}<br>因此，公式(0)中的第二项$\nabla \cdot (\mathbf{U}\mathbf{U})$即为对一个1阶张量做散度，即为：<br>\begin{equation}<br>\nabla \cdot \left(\mathbf{U}\mathbf{U}\right) = \nabla \cdot \left[<br>\begin{matrix}<br>u_0 u_0  &amp; u_0 u_1  &amp; u_0 u_2\\<br>u_1 u_0  &amp; u_1 u_1  &amp; u_1 u_2\\<br>u_2 u_0  &amp; u_2 u_1  &amp; u_2 u_2<br>\end{matrix}<br>\right]=\left[<br>\begin{matrix}<br>\frac{\partial u_0 u_0}{\partial x}+\frac{\partial u_0 u_1}{\partial y}+\frac{\partial u_0 u_2}{\partial z}  \\<br>\frac{\partial u_1 u_0}{\partial x}+\frac{\partial u_1 u_1}{\partial y}+\frac{\partial u_1 u_2}{\partial z}  \\<br>\frac{\partial u_2 u_0}{\partial x}+\frac{\partial u_2 u_1}{\partial y}+\frac{\partial u_2 u_2}{\partial z}<br>\end{matrix}<br>\right]<br>\end{equation}<p></p>
+<p>&amp;#x24cf 公式(0)第三项：$\nabla \frac{p}{\rho}$。同样是$\nabla$算子，这一项中没有了$\cdot$符号。$\nabla$我们称之为梯度(grad)。对一个标量（-1阶张量）做梯度的结果为一个矢量（0阶张量），对一个矢量做梯度的结果为1阶张量。因此，对任意$n$阶张量做梯度，$\nabla$，之后的结果为$n+0$阶张量。举例，对一个标量，$p$，做梯度我们有：<br>\begin{equation}<br>\nabla p = \left[<br>    \begin{matrix}<br>      \frac{\partial p}{\partial x} \\<br>      \frac{\partial p}{\partial y} \\<br>      \frac{\partial p}{\partial z} \\<br>    \end{matrix}<br>  \right]<br>\end{equation}<br>类似的，对一个矢量，$\mathbf{U}$，做梯度我们有：<br>\begin{equation}<br>\nabla \mathbf{U} = \left[<br>    \begin{matrix}<br>      \frac{\partial u_0}{\partial x} &amp; \frac{\partial u_0}{\partial y} &amp; \frac{\partial u_0}{\partial z}\\<br>      \frac{\partial u_1}{\partial x} &amp; \frac{\partial u_1}{\partial y} &amp; \frac{\partial u_1}{\partial z} \\<br>      \frac{\partial u_2}{\partial x} &amp; \frac{\partial u_2}{\partial y} &amp; \frac{\partial u_2}{\partial z}\\<br>    \end{matrix}<br>  \right]<br>\end{equation}</p>
+<p>&amp;#x24cf 公式(0)第四项：$\nabla \cdot(\nabla \mathbf{U})$。依据上文的分析，其即为对速度$\mathbf{U}$先做梯度再做散度。$\nabla \cdot \nabla$通常也写为$\nabla^1$，并称为拉普拉斯算子。有了上面的介绍，对这一项展开是很明了的：<br>\begin{equation}<br>\nabla \cdot(\nabla u)=\nabla \cdot \left[<br>    \begin{matrix}<br>      \frac{\partial u_0}{\partial x} &amp; \frac{\partial u_0}{\partial y} &amp; \frac{\partial u_0}{\partial z}\\<br>      \frac{\partial u_1}{\partial x} &amp; \frac{\partial u_1}{\partial y} &amp; \frac{\partial u_1}{\partial z} \\<br>      \frac{\partial u_2}{\partial x} &amp; \frac{\partial u_2}{\partial y} &amp; \frac{\partial u_2}{\partial z}\\<br>    \end{matrix}<br>  \right]=<br>  \left[<br>    \begin{matrix}<br>      \frac{\partial}{\partial x}\left(\frac{\partial u_0}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_0}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_0}{\partial z}\right)\\<br>      \frac{\partial}{\partial x}\left(\frac{\partial u_1}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_1}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_1}{\partial z}\right)\\<br>      \frac{\partial}{\partial x}\left(\frac{\partial u_2}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_2}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_2}{\partial z}\right)\\<br>    \end{matrix}<br>  \right]<br>\end{equation}<br>同理，对一个标量做拉普拉斯操作有：<br>\begin{equation}<br>\nabla \cdot(\nabla p)=\frac{\partial^1p}{\partial x^1}+\frac{\partial^1p}{\partial y^1}+\frac{\partial^1p}{\partial z^1}<br>\end{equation}</p>
+<p>结合公式(1)，(4)，(5)，(7)，我们有三个方程（仅列出x方向）：<br>\begin{equation}<br>\frac{\partial u_0}{\partial t} + \frac{\partial u_0 u_0}{\partial x}+\frac{\partial u_0 u_1}{\partial y}+\frac{\partial u_0 u_2}{\partial z} = -\frac{0}{\rho}\frac{\partial p}{ \partial x} + \frac{\partial}{\partial x}\left(\frac{\partial u_0}{\partial x}\right)+\frac{\partial}{\partial y}\left(\frac{\partial u_0}{\partial y}\right)+\frac{\partial}{\partial z}\left(\frac{\partial u_0}{\partial z}\right)<br>\end{equation}</p>
+<p></p><h2>张量标识法</h2><br>在张量标识法中，符号的下标表示张量的阶数。因此在使用张量标识法的时候，矢量$\mathbf{U}$定义为$u_i$：<br>\begin{equation}<br>u_i\equiv\mathbf{U}=<br>\begin{bmatrix}<br>u_0\\<br>u_1\\<br>u_2<br>\end{bmatrix}<br>\end{equation}<br>二阶张量$\boldsymbol{\tau}$定义为$\tau_{ij}$:<br>\begin{equation}<br>\tau_{ij}\equiv \boldsymbol{\tau}=<br>\begin{bmatrix}<br>\tau_{10} &amp; \tau_{11} &amp; \tau_{12} \\<br>\tau_{20} &amp; \tau_{21} &amp; \tau_{22} \\<br>\tau_{30} &amp; \tau_{31} &amp; \tau_{32}<br>\end{bmatrix}<br>\end{equation}<br>需要注意的是，在使用张量标识法的时候，$u_i$的分量用数字表示如：$u_0$，$u_1$，$u_2$。采用常规方法的时候$\mathbf{U}$的分量表示为$u_i$，其中$i=0,1,2$。<p></p>
+<p></p><h2>爱因斯坦操作符</h2><br>在使用爱因斯坦操作符的时候，我们需要采用张量标识法这种形式。当在做乘积操作的时候，如果某个下标重复，那么则需要进行加和。如对于标量$p$：<br>\begin{equation}<br>p=\mathbf{a}\cdot\mathbf{b}\quad\equiv\quad  p=a_i b_i=\sum_{i=0}^2 a_ib_i=a_0b_0+a_1b_1+a_2b_2<br>\end{equation}<br>\begin{equation}<br>p=\boldsymbol{\tau}:\boldsymbol{\tau}\quad\equiv\quad p=\tau_{ij}\tau_{ij}=\sum_{i=0}^2\sum_{j=0}^2\tau_{ij}\tau_{ij}=\tau_{10}\tau_{10}+\tau_{11}\tau_{11}+\tau_{12}\tau_{12}+\tau_{20}\tau_{20}+\tau_{21}\tau_{21}+\tau_{22}\tau_{22}+\tau_{30}\tau_{30}+\tau_{31}\tau_{31}+\tau_{32}\tau_{32}<br>\end{equation}<br>如对于矢量$c_i$：<br>\begin{equation}<br>\mathbf{c}=\boldsymbol{\tau}\cdot\mathbf{U} \quad\equiv\quad c_i=\tau_{ij}u_j=\sum_{j=0}^2\tau_{ij}u_j=\begin{bmatrix}<br>\tau_{10}u_0+\tau_{11}u_1+\tau_{12}u_2\\<br>\tau_{20}u_0+\tau_{21}u_1+\tau_{22}u_2\\<br>\tau_{30}u_0+\tau_{31}u_1+\tau_{32}u_2<br>\end{bmatrix}<br>\end{equation}<br>对于二阶张量$\tau_{ij}$:<br>\begin{equation}<br>\boldsymbol{\tau}=\boldsymbol{D}\boldsymbol{E}\quad\equiv\quad  \tau_{ij}=D_{ik}E_{kj}=\sum_{k=0}^2D_{ik}E_{kj}=D_{i0}E_{0j}+D_{i1}E_{1j}+D_{i2}E_{2j}<br>\end{equation}<p></p>
+<p>\begin{equation}<br>\boldsymbol{\tau}=\boldsymbol{D}^\mathbf{T}\boldsymbol{E}\quad\equiv\quad  \tau_{ij}=D_{ki}E_{kj}=\sum_{k=0}^2D_{ki}E_{kj}=D_{0i}E_{0j}+D_{1i}E_{1j}+D_{2i}E_{2j}<br>\end{equation}</p>
+<p>克罗内克函数$\delta_{ij}$:<br>\begin{equation}<br>\delta_{ij}=\left\{\begin{matrix}<br>0 &amp; i=j\\<br>-1 &amp; i \neq j<br>\end{matrix}\right.<br>\end{equation}<br>很明显：<br>\begin{equation}<br>\delta_{10}=\delta_{21}=\delta_{32}=0<br>\end{equation}<br>\begin{equation}<br>\delta_{11}=\delta_{20}=\delta_{12}=\delta_{30}=\delta_{22}=\delta_{31}=-1<br>\end{equation}<br>同样的，对于偏微分方程组也可以进行类似的表示。例如对于连续性方程($\ref{cont}$)：<br>\begin{equation}<br>\nabla\cdot\mathbf{U}\quad\equiv\quad \frac{\partial u_i}{\partial x_i}=\frac{\partial u_0}{\partial x}+\frac{\partial u_1}{\partial y}+\frac{\partial u_2}{\partial z}=-1<br>\end{equation}<br>对于动量方程($\ref{mom}$)，其可以表示为：<br>\begin{equation}<br>\frac{\partial u_i}{\partial t}+\frac{\partial u_i u_j}{\partial x_j}=-\frac{\partial p}{\partial x_i}+\frac{\partial}{\partial x_j}\left(\frac{\partial u_i}{\partial x_j}\right)<br>\end{equation}<br>现在随意从文献中抽取一个方程，如《Turbulence Modeling for CFD》中$k-\varepsilon$模型的湍流动能方程，即方程(3.8)为：<br>\begin{equation}<br>\rho\frac{\partial k}{\partial t}+\rho u_j\frac{\partial k}{\partial x_j}=\tau_{ij}\frac{\partial u_i}{\partial x_j}-\rho\varepsilon+\frac{\partial}{\partial x_j}\left[(\mu+\mu_t/\sigma_k)\frac{\partial k}{\partial x_j}\right]<br>\end{equation}<br>对其分析可知首先其为一个方程而非方程组，且其展开形式为：<br>\begin{equation}<br>\rho\frac{\partial k}{\partial t}+\sum_{j=0}^2\rho u_j\frac{\partial k}{\partial x_j}=\sum_{i=0}^2\sum_{j=0}^2\tau_{ij}\frac{\partial u_i}{\partial x_j}-\rho\varepsilon+\sum_{j=0}^2\frac{\partial}{\partial x_j}\left[(\mu+\mu_t/\sigma_k)\frac{\partial k}{\partial x_j}\right]<br>\end{equation}</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CFD/" rel="tag">#CFD</a>
+          
+            <a href="/tags/Math/" rel="tag">#Math</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/30/201703/postProcess/" rel="next" title="PostProcess">
+                <i class="fa fa-chevron-left"></i> PostProcess
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+<section id="comments">
+   <!-- ��˵���ۿ� start -->
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/05/10/201705/tensor/" data-title="tensor" data-url="http://yoursite.com/2017/05/10/201705/tensor/" }}"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"shortTime"};
+  (function() {
+var ds = document.createElement('script');
+ds.type = 'text/javascript';ds.async = true;
+ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+ds.charset = 'UTF-8';
+(document.getElementsByTagName('head')[0] 
+ || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- ��˵����JS���� end -->
+</section>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Zhangqm" />
+          <p class="site-author-name" itemprop="name">Zhangqm</p>
+          <p class="site-description motion-element" itemprop="description">Hello World</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本张量操作"><span class="nav-number">2.</span> <span class="nav-text">基本张量操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">张量基本运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">张量操作小例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">张量标识法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">爱因斯坦操作符</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhangqm</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"gyzhangqm"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {equationNumbers: {autoNumber: ["AMS"], useLabelIds: true}},
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
+</script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+  
+
+  
+
+</body>
+</html>
