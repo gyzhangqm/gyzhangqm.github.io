@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CFD,SPH," />
+  <meta name="keywords" content="CFD,Mathematics," />
 
 
 
@@ -84,18 +84,39 @@
 
 
 
-<meta name="description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my cu">
+<meta name="description" content="Introduction本文是对EDU2D-Airfoil-Spline代码的阅读总结。主要包含两项内容。一是三次样条插值。而是求解三对角线性方程组。
+参考网址：
+
+三次样条插值(Cubic Spline Interpolation)及代码实现(C语言)
+三对角矩阵(Tridiagonal Matrices)的求法
+
+目的：输入翼型数据点，通过三次样条插值，得到加密后的翼型。
+Piecewise">
 <meta property="og:type" content="article">
-<meta property="og:title" content="notes of SPH">
-<meta property="og:url" content="http://yoursite.com/2017/02/17/201702/SPH/index.html">
+<meta property="og:title" content="AirfoilSpline">
+<meta property="og:url" content="http://yoursite.com/2017/12/20/201712/AirfoilSpline/index.html">
 <meta property="og:site_name" content="CFD学习">
-<meta property="og:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my cu">
-<meta property="og:image" content="http://yoursite.com/2017/02/17/201702/SPH/result.gif">
-<meta property="og:updated_time" content="2017-02-17T16:23:48.342Z">
+<meta property="og:description" content="Introduction本文是对EDU2D-Airfoil-Spline代码的阅读总结。主要包含两项内容。一是三次样条插值。而是求解三对角线性方程组。
+参考网址：
+
+三次样条插值(Cubic Spline Interpolation)及代码实现(C语言)
+三对角矩阵(Tridiagonal Matrices)的求法
+
+目的：输入翼型数据点，通过三次样条插值，得到加密后的翼型。
+Piecewise">
+<meta property="og:image" content="http://yoursite.com/2017/12/20/201712/AirfoilSpline/om6_spline.png">
+<meta property="og:updated_time" content="2017-12-20T09:24:57.942Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="notes of SPH">
-<meta name="twitter:description" content="IntroductionAfter no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my cu">
-<meta name="twitter:image" content="http://yoursite.com/2017/02/17/201702/SPH/result.gif">
+<meta name="twitter:title" content="AirfoilSpline">
+<meta name="twitter:description" content="Introduction本文是对EDU2D-Airfoil-Spline代码的阅读总结。主要包含两项内容。一是三次样条插值。而是求解三对角线性方程组。
+参考网址：
+
+三次样条插值(Cubic Spline Interpolation)及代码实现(C语言)
+三对角矩阵(Tridiagonal Matrices)的求法
+
+目的：输入翼型数据点，通过三次样条插值，得到加密后的翼型。
+Piecewise">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/20/201712/AirfoilSpline/om6_spline.png">
 
 
 
@@ -113,7 +134,7 @@
   };
 </script>
 
-  <title> notes of SPH | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title> AirfoilSpline | CFD学习 </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +274,7 @@
             
             
               
-                notes of SPH
+                AirfoilSpline
               
             
           </h1>
@@ -265,38 +286,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-17T22:28:48+08:00" content="2017-02-17">
-              2017-02-17
+            <time itemprop="dateCreated" datetime="2017-12-20T15:17:09+08:00" content="2017-12-20">
+              2017-12-20
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/CFD/" itemprop="url" rel="index">
-                    <span itemprop="name">CFD</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/02/17/201702/SPH/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/17/201702/SPH/" itemprop="commentsCount"></span>
+                <a href="/2017/12/20/201712/AirfoilSpline/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/12/20/201712/AirfoilSpline/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -319,22 +321,32 @@
       
 
       
-        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>After no progress has been made in thermal-chemical nonequilibrium for months, I begin to doubt whether my ability can meet the need of basic scientific research work. So I put aside my current job, and spend a day reading a book[^book] about SPH method. Then I try the code provided by the author and gain much fun and confidence.<br>Here are some method and results.</p>
-<p>[^book]: Smoothed Particle Hydrodynamics, a meshfree particle method G.R. Liu, M.B. Liu 2003</p>
-<h1 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h1><p>The pith and marrow of SPH are fully embodied in that a function and its derivative can be represented in an integral form using dirac function or nascent delta function. It’s called <strong>kernel approximation</strong> in SPH.<br>$$<br>\begin{equation}<br>\left\langle f (\bf{x}) \right\rangle  = \int\limits_\Omega  f ({\bf{x’}}) W( {\bf{x}} - {\bf{x’}},h )d{\bf{x’}}<br>\end{equation}<br>$$</p>
-<p>Then <strong>particle approximation</strong> is performed to conver the integral representation to the form of discretized particle approximation.</p>
-<p>$$<br>\begin{equation}<br>\left\langle f\left( {\bf{x}}_i \right) \right\rangle  = \sum\limits_{j = 1}^N \frac{m_j}{\rho_j} f\left( {\bf{x}}_j \right) \cdot W_{ij}<br>\end{equation}<br>$$</p>
-<p>ODEs are produced when <strong>kernel approximation</strong> and <strong>particle approximation</strong> are applied to Navier-Stokes equations.</p>
-<p>$$<br>\begin{equation}<br>\frac{d\rho_i}{dt} = \rho_i \sum\limits_{j = 1}^N \frac{m_j}{\rho_j}v_{ij}^\beta  \cdot  \frac{\partial W_{ij}}{\partial x_i^\beta }<br>\end{equation}<br>$$</p>
-<p>$$<br>\begin{equation}<br>\frac{dv_i^\alpha }{dt} = \sum\limits_{j = 1}^N {m_j\frac{\sigma_i^{\alpha \beta } + \sigma_j^{\alpha \beta }}{\rho_i \rho_j}} \frac{\partial W_{ij}}{\partial x_i^\beta }<br>\end{equation}<br>$$</p>
-<p>$$<br>\begin{equation}<br>\frac{de_i}{dt} =\frac{1}{2}\sum\limits_{j = 1}^N m_j\frac{p_i + p_j}{\rho_i \rho_j} v_{ij}^\beta  \cdot  \frac{\partial W_{ij}}{\partial x_i^\beta }+\frac{\mu_i}{2\rho_i}\varepsilon_i^{\alpha \beta} \varepsilon_i^{\alpha \beta}<br>\end{equation}<br>$$</p>
-<p>Last time integration algorithm is achieved.</p>
-<h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><p>I use the code provided by the book[^1] to simulate the shear cavity flow. Here is the result.</p>
-<p><img src="/2017/02/17/201702/SPH/result.gif" alt="velocity distributions for the shear driven cavity flow" title="velocity distributions for the shear driven cavity flow"></p>
-<h1 id="Some-techniques"><a href="#Some-techniques" class="headerlink" title="Some techniques"></a>Some techniques</h1><h2 id="Fortran-syntax"><a href="#Fortran-syntax" class="headerlink" title="Fortran syntax"></a>Fortran syntax</h2><p>Write multi files for tecplot with time.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">write(filename,&apos;(i8)&apos; ) itimestep</div><div class="line">open (4, file = &apos;./data/&apos; //trim(adjustl(filename))//&apos;.dat&apos;)  </div><div class="line">write(4,*) &quot;TITLE=&apos;CavityFlow&apos;&quot;  </div><div class="line">write(4,*) &quot;VARIABLES = x,y,u,v&quot;  </div><div class="line">write(4,*) &apos;ZONE AUXDATA time =&quot;&apos;,time,&apos;&quot;&apos;</div></pre></td></tr></table></figure></p>
-<h2 id="Tecplot"><a href="#Tecplot" class="headerlink" title="Tecplot"></a>Tecplot</h2><h3 id="Macro"><a href="#Macro" class="headerlink" title="Macro"></a>Macro</h3><p><a href="http://www.docin.com/p-663875833.html" title="TecplotMacro" target="_blank" rel="external">References</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$!VarSet |NumLoop|=100</div><div class="line">$!Loop |NumLoop|</div><div class="line">$!VarSet |num|=(|Loop|*500)</div><div class="line">$!READDATASET  &apos;&quot;D:\data\|num|.dat&quot; &apos;</div><div class="line">$!EXPORTSETUP EXPORTFNAME = &apos;D:\data\png\|Loop|.png&apos;</div><div class="line">$!EndLoop</div></pre></td></tr></table></figure></p>
-<h3 id="Dynamic-text"><a href="#Dynamic-text" class="headerlink" title="Dynamic text"></a>Dynamic text</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&amp;(auxzone[1]:time)</div></pre></td></tr></table></figure>
-<h2 id="Gif-movie-gear"><a href="#Gif-movie-gear" class="headerlink" title="Gif movie gear"></a>Gif movie gear</h2>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>本文是对<a href="http://www.ossanworld.com/cfdbooks/cfdcodes/edu2d-cubic-spline/edu2d_airfoil_spline_v1.f90" title="EDU2D-Airfoil-Spline" target="_blank" rel="external">EDU2D-Airfoil-Spline</a>代码的阅读总结。主要包含两项内容。一是三次样条插值。而是求解三对角线性方程组。</p>
+<p>参考网址：</p>
+<ul>
+<li><a href="https://www.cnblogs.com/xpvincent/archive/2013/01/26/2878092.html" title="三次样条插值及代码实现" target="_blank" rel="external">三次样条插值(Cubic Spline Interpolation)及代码实现(C语言)</a></li>
+<li><a href="http://www.cnblogs.com/xpvincent/archive/2013/01/25/2877411.html" title="三对角矩阵的求法" target="_blank" rel="external">三对角矩阵(Tridiagonal Matrices)的求法</a></li>
+</ul>
+<p>目的：输入翼型数据点，通过三次样条插值，得到加密后的翼型。<br><img src="/2017/12/20/201712/AirfoilSpline/om6_spline.png" alt="AirfoilSpline" title="AirfoilSpline"></p>
+<h1 id="Piecewise-cubic-polynomial-interpolation"><a href="#Piecewise-cubic-polynomial-interpolation" class="headerlink" title="Piecewise cubic polynomial interpolation"></a>Piecewise cubic polynomial interpolation</h1><h2 id="三次样条多项式"><a href="#三次样条多项式" class="headerlink" title="三次样条多项式"></a>三次样条多项式</h2><p>有坐标点<br>$$<br>\begin{array}{l}<br>x: &amp; x_1 &amp; &lt; &amp; x_2 &amp; &lt; &amp; \cdots &amp; &lt; &amp; x_n\\<br>y: &amp; y_1 &amp;   &amp; y_2 &amp;   &amp; \cdots &amp;   &amp; y_n<br>\end{array}<br>$$</p>
+<p>在区间$<a href="i=1,2,\cdots,n-1">x_i,x_{i+1}</a>$上有：<br>$$<br>S_i(x)=a_i + b_i (x-x_i) +c_i(x-x_i)^2 +d_i(x-x_i)^3,\quad i=1,2,\cdots,ns-1<br>$$<br>其中$a_i,b_i,c_i,d_i$代表$4(n-1)$个待求系数，使其满足：</p>
+<ul>
+<li>同一点两侧插值的连续性：<br>$$<br>S_i(x_i)=y_i,\\<br>S_i(x_{i+1})=y_{i+1}<br>$$</li>
+<li>同一点两侧插值的一阶及二阶微分的连续性：<br>$$<br>S^{‘}_i(x_{i+1})=S^{‘}_{i+1}(x_{i+1})\\<br>S^{‘’}_i(x_{i+1})=S^{‘’}_{i+1}(x_{i+1})<br>$$</li>
+</ul>
+<p>样条函数及其微分为：<br>$$\left\{ \begin{array}{lllllllll}<br>S_i(x)&amp;=&amp; a_i &amp;+&amp; b_i (x-x_i) &amp;+&amp; c_i(x-x_i)^2 &amp;+&amp; d_i(x-x_i)^3\\<br>S^{‘}_i(x)&amp;=&amp; &amp; &amp; b_i &amp;+&amp; 2c_i(x-x_i) &amp;+&amp; 3d_i(x-x_i)^2\\<br>S^{‘’}_i(x)&amp;=&amp; &amp; &amp; &amp; &amp; 2c_i &amp;+&amp; 6d_i(x-x_i)<br>\end{array}\right.<br>$$</p>
+<p>设步长$h_i=x_{i+1}-x_i$，根据上边条件：<br>$$\left\{ \begin{array}{ccccccccc}<br>a_i &amp; &amp;         &amp; &amp;           &amp; &amp;            &amp;=&amp; y_i\\<br>a_i &amp;+&amp; b_i h_i &amp;+&amp; c_i h_i^2 &amp;+&amp; d_i h_i ^3 &amp;=&amp; y_{i+1}\\<br>    &amp; &amp; b_i     &amp;+&amp; 2c_i h_i  &amp;+&amp; 3d_i h_i^2 &amp;=&amp; b_{i+1}\\<br>    &amp; &amp;         &amp; &amp; 2c_i      &amp;+&amp; 6d_i h_i   &amp;=&amp; 2c_{i+1}<br>\end{array}\right.<br>$$</p>
+<p>写成：<br>$$\left\{ \begin{array}{ccc}<br>a_i &amp;=&amp; y_i\\<br>b_i &amp;=&amp; \dfrac{y_{i+1}-y_i}{h_i}- h_i c_i -\dfrac{h_i}{3}(c_{i+1}-c_i) \\<br>h_i c_i +2(h_i+h_{i_1}) c_{i+1} + h_{i+1} c_{i+2} &amp;=&amp; 3 (\dfrac{y_{i+2}-y_{i+1}}{h_{i+1}} - \dfrac{y_{i+1}-y_i}{h_i})\\<br>d_i &amp;=&amp; \dfrac{c_{i+1}-c_i}{3h_i}<br>\end{array}\right.<br>$$</p>
+<p>通过求解关于$c_i$的三对角矩阵，进而得到样条函数的系数。</p>
+<h2 id="边界条件"><a href="#边界条件" class="headerlink" title="边界条件"></a>边界条件</h2><h3 id="自由边界-Natural"><a href="#自由边界-Natural" class="headerlink" title="自由边界(Natural)"></a>自由边界(Natural)</h3><p>$c_1=0,c_n=0$<br>方程组为：</p>
+<p>$$<br>\pmatrix{1  &amp;  0        &amp;            &amp;               &amp;         &amp;           \\<br>         h_1&amp; D_2       &amp; h_2        &amp;               &amp;         &amp;           \\<br>            &amp; h_2       &amp; D_3        &amp; h_3           &amp;         &amp;           \\<br>            &amp;           &amp; \ddots     &amp;\ddots         &amp; \ddots  &amp;           \\<br>            &amp;           &amp;            &amp; h_{n-2}       &amp; D_{n-1} &amp; h_{n-1}   \\<br>            &amp;           &amp;            &amp;               &amp; 0       &amp; 1<br>        }<br> \pmatrix{c_1\\<br>          c_2\\<br>          c_3\\<br>          \vdots\\<br>          c_{n-1}\\<br>          c_n<br>        }=<br> 3\pmatrix{0\\<br>           \frac{y_{3}-y_{2}}{h_{2}}- \frac{y_{2}-y_1}{h_1}\\<br>           \frac{y_{4}-y_{3}}{h_{3}}- \frac{y_{3}-y_2}{h_2}\\<br>           \frac{y_{5}-y_{4}}{h_{4}}- \frac{y_{4}-y_3}{h_3}\\<br>           \vdots\\<br>           \frac{y_{n}-y_{n-1}}{h_{n-1}}- \frac{y_{n-1}-y_{n-2}}{h_{n-2}}\\<br>           0<br>         }<br>$$</p>
+<p>其中$D_i=2(h_{i-1}+h_i)$</p>
+<h2 id="固定边界-Clamped"><a href="#固定边界-Clamped" class="headerlink" title="固定边界(Clamped)"></a>固定边界(Clamped)</h2><p>$$\left\{ \begin{array}{rcc}<br>S_1^{‘}(x_1) &amp;=&amp; A\\<br>S_{n-1}^{‘}(x_n) &amp;=&amp; B\\<br>\end{array}\right.<br>$$<br>可得<br>$$\left\{ \begin{array}{rcc}<br>2h_1c_1 + h_1 c_2 &amp;=&amp; 3(\dfrac{y_2-y_1}{h_1}-A)\\<br>h_{n-1}c_{n-1} + 2h_{n-1} c_n &amp;=&amp; 3(B-\dfrac{y_n-y_{n-1}}{h_{n-1}})<br>\end{array}\right.<br>$$<br>所以此时方程组为：<br>$$<br>\pmatrix{2h_1  &amp;  h_1        &amp;            &amp;               &amp;         &amp;           \\<br>         h_1&amp; D_2       &amp; h_2        &amp;               &amp;         &amp;           \\<br>            &amp; h_2       &amp; D_3        &amp; h_3           &amp;         &amp;           \\<br>            &amp;           &amp; \ddots     &amp;\ddots         &amp; \ddots  &amp;           \\<br>            &amp;           &amp;            &amp; h_{n-2}       &amp; D_{n-1} &amp; h_{n-1}   \\<br>            &amp;           &amp;            &amp;               &amp; h_{n-1} &amp; 2h_{n-1}<br>        }<br> \pmatrix{c_1\\<br>          c_2\\<br>          c_3\\<br>          \vdots\\<br>          c_{n-1}\\<br>          c_n<br>        }=<br> 3\pmatrix{\frac{y_2-y_1}{h_1}-A\\<br>           \frac{y_{3}-y_{2}}{h_{2}}- \frac{y_{2}-y_1}{h_1}\\<br>           \frac{y_{4}-y_{3}}{h_{3}}- \frac{y_{3}-y_2}{h_2}\\<br>           \frac{y_{5}-y_{4}}{h_{4}}- \frac{y_{4}-y_3}{h_3}\\<br>           \vdots\\<br>           \frac{y_{n}-y_{n-1}}{h_{n-1}}- \frac{y_{n-1}-y_{n-2}}{h_{n-2}}\\<br>           B-\frac{y_n-y_{n-1}}{h_{n-1}}<br>         }<br>$$</p>
+<h1 id="三对角方程组的求解"><a href="#三对角方程组的求解" class="headerlink" title="三对角方程组的求解"></a>三对角方程组的求解</h1><p>$$<br>\pmatrix{b_1&amp; c_1 &amp;     &amp;        &amp;               \\<br>         a_2&amp; b_2 &amp; c_2 &amp;        &amp;               \\<br>            &amp; a_3 &amp; b_3 &amp; \ddots &amp;              \\<br>            &amp;     &amp; \ddots&amp; \ddots &amp; c_{n-1}\\<br>            &amp;     &amp;        &amp; a_{n} &amp; b_{n}<br>        }<br> \pmatrix{x_1\\<br>          x_2\\<br>          x_3\\<br>          \vdots\\<br>          x_{n-1}\\<br>          x_n<br>        }=<br> \pmatrix{r_1\\<br>          r_2\\<br>          r_3\\<br>          \vdots\\<br>          r_{n-1}\\<br>          r_n<br>         }<br>$$</p>
+<p>$$<br>c_i^{‘}=\left\{<br>  \begin{array}{ll}<br>  \frac{c_i}{b_i} &amp;;i=1\\<br>  \frac{c_i}{b_i-c_{i-1}^{‘}a_i}&amp;;i=2,3,\cdots,n-1<br>  \end{array}\right.<br>$$</p>
+<p>$$<br>d_i^{‘}=\left\{<br>  \begin{array}{ll}<br>  \frac{d_i}{b_i} &amp;;i=1\\<br>  \frac{d_i-d_{i-1}^{‘}a_i}{b_i-c_{i-1}^{‘}a_i}&amp;;i=2,3,\cdots,n-1<br>  \end{array}\right.<br>$$</p>
+<p>$$<br>x_i=d_i^{‘}-c_i^{‘}x_{i+1} \quad; i=n-1,n-2,\cdots,1<br>$$</p>
+
       
     </div>
 
@@ -357,7 +369,7 @@
           
             <a href="/tags/CFD/" rel="tag">#CFD</a>
           
-            <a href="/tags/SPH/" rel="tag">#SPH</a>
+            <a href="/tags/Mathematics/" rel="tag">#Mathematics</a>
           
         </div>
       
@@ -366,17 +378,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/13/201702/ZenOfFortran/" rel="next" title="Zen Of Fortran">
-                <i class="fa fa-chevron-left"></i> Zen Of Fortran
+              <a href="/2017/06/06/201706/Mylife/" rel="next" title="Mylife">
+                <i class="fa fa-chevron-left"></i> Mylife
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/18/201702/FDvsFV/" rel="prev" title="FDvsFV">
-                FDvsFV <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -404,7 +412,7 @@
     
 <section id="comments">
    <!-- ��˵���ۿ� start -->
-<div id="ds-thread" class="ds-thread" data-thread-key="2017/02/17/201702/SPH/" data-title="notes of SPH" data-url="http://yoursite.com/2017/02/17/201702/SPH/" }}"></div>
+<div id="ds-thread" class="ds-thread" data-thread-key="2017/12/20/201712/AirfoilSpline/" data-title="AirfoilSpline" data-url="http://yoursite.com/2017/12/20/201712/AirfoilSpline/" }}"></div>
 <!-- ��˵���ۿ� end -->
 <!-- ��˵����JS���� start (һ����ҳֻ�����һ��) -->
 <script type="text/javascript">
@@ -509,7 +517,7 @@ ds.charset = 'UTF-8';
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Result"><span class="nav-number">3.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Some-techniques"><span class="nav-number">4.</span> <span class="nav-text">Some techniques</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fortran-syntax"><span class="nav-number">4.1.</span> <span class="nav-text">Fortran syntax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tecplot"><span class="nav-number">4.2.</span> <span class="nav-text">Tecplot</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Macro"><span class="nav-number">4.2.1.</span> <span class="nav-text">Macro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dynamic-text"><span class="nav-number">4.2.2.</span> <span class="nav-text">Dynamic text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gif-movie-gear"><span class="nav-number">4.3.</span> <span class="nav-text">Gif movie gear</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Piecewise-cubic-polynomial-interpolation"><span class="nav-number">2.</span> <span class="nav-text">Piecewise cubic polynomial interpolation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#三次样条多项式"><span class="nav-number">2.1.</span> <span class="nav-text">三次样条多项式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#边界条件"><span class="nav-number">2.2.</span> <span class="nav-text">边界条件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自由边界-Natural"><span class="nav-number">2.2.1.</span> <span class="nav-text">自由边界(Natural)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#固定边界-Clamped"><span class="nav-number">2.3.</span> <span class="nav-text">固定边界(Clamped)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三对角方程组的求解"><span class="nav-number">3.</span> <span class="nav-text">三对角方程组的求解</span></a></li></ol></div>
             
           </div>
         </section>
